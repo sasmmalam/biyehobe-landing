@@ -54,8 +54,11 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ## Tailwind v4 Note
 This project uses Tailwind CSS v4 which has **no `tailwind.config.ts`**. Custom tokens live in `app/globals.css` using the `@theme inline` directive. Brand colors are referenced in components via inline `style` props.
 
-## Session Info
-- **Session**: 31
-- **Date**: 2026-04-28
+## Session Log
+| Session | Date | Summary | Status |
+|---------|------|---------|--------|
+| 31 | 2026-04-28 | Landing page scaffolded and deployed to Vercel. Waitlist form connected to Supabase. Live at https://biyehobe-landing.vercel.app | ✅ Complete |
+
+## Project Info
 - **GitHub**: sasmmalam/biyehobe-landing
 - **Developer**: sasmm.alam@gmail.com
