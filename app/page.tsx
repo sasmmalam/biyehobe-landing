@@ -65,7 +65,7 @@ function FadeUp({
 const FAQ_ITEMS = [
   {
     q: "Who is BiyeHobe for?",
-    a: "BiyeHobe is built for Bangladeshi Muslim professionals — NRBs and locals alike — who are ready for a serious, faith-aligned relationship and want a dignified, private platform to find their match.",
+    a: "BiyeHobe is built for the Bangladeshi diaspora — NRBs and locals alike — who are ready for a serious, intentional relationship and want a dignified, private platform to find their match.",
   },
   {
     q: "How does verification work?",
@@ -260,8 +260,8 @@ export default function Home() {
               letterSpacing: "0.01em",
             }}
           >
-            A private, verified space for Bangladeshi Muslim professionals
-            worldwide.
+            A private, verified space for the Bangladeshi diaspora — wherever
+            home is.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -293,7 +293,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
           {[
             "Launching 2026",
-            "Verified Profiles Only",
+            "Built for the Diaspora",
             "Guardian Mode Included",
           ].map((stat) => (
             <p
@@ -509,9 +509,9 @@ export default function Home() {
                   fontFamily: "var(--font-sans)",
                 }}
               >
-                BiyeHobe was built for Bangladeshi Muslim professionals who
-                value intention, family, and faith. We believe finding a life
-                partner should be private, dignified, and purposeful.
+                BiyeHobe was built for the Bangladeshi diaspora — NRBs and
+                residents alike — who believe finding a life partner should be
+                private, dignified, and purposeful.
               </p>
               <Link
                 href="/about"
@@ -610,8 +610,7 @@ export default function Home() {
                 fontFamily: "var(--font-sans)",
               }}
             >
-              Join thousands of Bangladeshi Muslim professionals already on the
-              waitlist.
+              Built for NRBs and Bangladeshis worldwide, with intention.
             </p>
             <WaitlistForm />
           </FadeUp>

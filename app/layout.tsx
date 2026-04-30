@@ -17,9 +17,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "BiyeHobe — Matrimonial for Bangladeshi Muslim Professionals",
+  title: "BiyeHobe — Matrimonial for the Bangladeshi Diaspora",
   description:
-    "A private, verified space for Bangladeshi Muslim professionals worldwide. Join the waitlist.",
+    "A private, verified space for the Bangladeshi diaspora worldwide. Join the waitlist.",
 };
 
 export default function RootLayout({

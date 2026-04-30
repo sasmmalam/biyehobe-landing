@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 const FAQ_ITEMS = [
   {
     q: "Who is BiyeHobe for?",
-    a: "BiyeHobe is built for Bangladeshi Muslim professionals — NRBs and locals alike — who are ready for a serious, faith-aligned relationship. Whether you are based in Dhaka or Dubai, London or Toronto, BiyeHobe is your space.",
+    a: "BiyeHobe is built for the Bangladeshi diaspora — NRBs living abroad, Bangladeshis open to relocating, and anyone seeking a meaningful, intentional match within the community.",
   },
   {
     q: "How does verification work?",
@@ -32,7 +32,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I use BiyeHobe if I live outside Bangladesh?",
-    a: "Yes — BiyeHobe is built with the global Bangladeshi Muslim community in mind. Whether you are in the UK, USA, Canada, Australia, or the Middle East, BiyeHobe is for you.",
+    a: "Yes — BiyeHobe is built with the global Bangladeshi community in mind. Whether you are in the UK, USA, Canada, Australia, or the Middle East, BiyeHobe is for you.",
   },
   {
     q: "How are matches suggested?",

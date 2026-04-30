@@ -191,8 +191,7 @@ export default function HowItWorks() {
               fontFamily: "var(--font-sans)",
             }}
           >
-            Join thousands of Bangladeshi Muslim professionals already on the
-            waitlist.
+            Built for NRBs and Bangladeshis worldwide, with intention.
           </p>
           <a
             href="/#waitlist"

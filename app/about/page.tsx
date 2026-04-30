@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 export const metadata: Metadata = {
   title: "About — BiyeHobe",
   description:
-    "Learn about our story, our mission, and why we built BiyeHobe for Bangladeshi Muslim professionals worldwide.",
+    "Learn about our story, our mission, and why we built BiyeHobe for the Bangladeshi diaspora worldwide.",
 };
 
 export default function About() {
@@ -78,7 +78,7 @@ export default function About() {
               className="text-base leading-relaxed mb-6"
               style={{ color: "rgba(13,31,26,0.72)" }}
             >
-              We built BiyeHobe for the Bangladeshi Muslim professional —
+              We built BiyeHobe for the Bangladeshi diaspora —
               the doctor in London, the engineer in Toronto, the finance
               professional in New York, the academic in Dhaka — who wants to
               find a life partner the right way. Someone who shares their
@@ -125,12 +125,12 @@ export default function About() {
               className="text-base leading-relaxed mb-6"
               style={{ color: "rgba(13,31,26,0.72)" }}
             >
-              BiyeHobe is built specifically for Bangladeshi Muslim
-              professionals, whether they live in Dhaka or Dubai, Birmingham or
-              Brisbane. The Non-Resident Bangladeshi (NRB) community is one of
-              the most accomplished and globally dispersed diaspora communities
-              in the world — and it deserves a matrimonial platform that
-              understands its specific needs, challenges, and hopes.
+              BiyeHobe is built specifically for the Bangladeshi diaspora,
+              whether they live in Dhaka or Dubai, Birmingham or Brisbane. The
+              Non-Resident Bangladeshi (NRB) community is one of the most
+              accomplished and globally dispersed communities in the world — and
+              it deserves a matrimonial platform that understands its specific
+              needs, challenges, and hopes.
             </p>
             <p
               className="text-base leading-relaxed mb-6"
