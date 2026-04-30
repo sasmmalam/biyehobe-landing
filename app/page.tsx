@@ -229,7 +229,7 @@ export default function Home() {
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1800&q=80"
+          src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1800&q=80"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -292,7 +292,7 @@ export default function Home() {
       <section style={{ backgroundColor: "var(--green)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
           {[
-            "10,000+ Waitlist",
+            "Launching 2026",
             "Verified Profiles Only",
             "Guardian Mode Included",
           ].map((stat) => (
@@ -309,7 +309,7 @@ export default function Home() {
 
       {/* ── How It Works ── */}
       <section id="how" style={{ backgroundColor: "var(--cream)" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
           <FadeUp className="text-center mb-16">
             <p
               className="text-xs uppercase tracking-widest mb-3"
@@ -387,7 +387,7 @@ export default function Home() {
 
       {/* ── Features ── */}
       <section style={{ backgroundColor: "white" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
           <FadeUp className="text-center mb-16">
             <p
               className="text-xs uppercase tracking-widest mb-3"
@@ -442,8 +442,12 @@ export default function Home() {
             ].map((feat, i) => (
               <FadeUp key={feat.title} delay={i * 70}>
                 <div
-                  className="p-7 rounded-2xl h-full"
-                  style={{ backgroundColor: "var(--cream)" }}
+                  className="p-8 rounded-2xl h-full"
+                  style={{
+                    backgroundColor: "var(--cream)",
+                    border: "1px solid #E8E2D8",
+                    boxShadow: "0 2px 12px rgba(4,57,39,0.06)",
+                  }}
                 >
                   <feat.Icon
                     size={22}
@@ -567,7 +571,7 @@ export default function Home() {
                 color: "var(--dark)",
               }}
             >
-              Questions?
+              Common Questions
             </h2>
           </FadeUp>
 

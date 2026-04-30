@@ -36,10 +36,10 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
           href="/"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "22px",
-            fontWeight: 600,
-            letterSpacing: "0.02em",
-            color: scrolled ? "var(--green)" : "white",
+            fontSize: "26px",
+            fontWeight: 700,
+            letterSpacing: "0.05em",
+            color: scrolled ? "#043927" : "white",
           }}
         >
           BiyeHobe
