@@ -229,7 +229,7 @@ export default function Home() {
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1800&q=80"
+          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1800&q=80"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -237,7 +237,7 @@ export default function Home() {
         {/* Overlay */}
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(13,31,26,0.65)" }}
+          style={{ backgroundColor: "rgba(4,57,39,0.65)" }}
         />
 
         <div className="relative z-10 px-5 max-w-4xl mx-auto">
@@ -249,7 +249,7 @@ export default function Home() {
               letterSpacing: "0.035em",
             }}
           >
-            Find Your Perfect Match
+            Where Tradition Meets Intention.
           </h1>
           <p
             className="mt-7 text-lg sm:text-xl max-w-xl mx-auto"
@@ -290,7 +290,7 @@ export default function Home() {
 
       {/* ── Trust Strip ── */}
       <section style={{ backgroundColor: "var(--green)" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
           {[
             "Launching 2026",
             "Built for the Diaspora",
@@ -298,8 +298,8 @@ export default function Home() {
           ].map((stat) => (
             <p
               key={stat}
-              className="text-center py-3 sm:py-0 text-xs uppercase tracking-widest font-medium text-white"
-              style={{ fontFamily: "var(--font-sans)", letterSpacing: "0.1em" }}
+              className="text-center py-3 sm:py-0 text-sm font-medium tracking-widest uppercase text-white"
+              style={{ fontFamily: "var(--font-sans)" }}
             >
               {stat}
             </p>
@@ -372,7 +372,7 @@ export default function Home() {
                   <p
                     className="text-sm leading-relaxed"
                     style={{
-                      color: "rgba(13,31,26,0.62)",
+                      color: "#4A5568",
                       fontFamily: "var(--font-sans)",
                     }}
                   >
@@ -466,7 +466,7 @@ export default function Home() {
                   <p
                     className="text-sm leading-relaxed"
                     style={{
-                      color: "rgba(13,31,26,0.62)",
+                      color: "#4A5568",
                       fontFamily: "var(--font-sans)",
                     }}
                   >
@@ -555,7 +555,7 @@ export default function Home() {
 
       {/* ── FAQ ── */}
       <section style={{ backgroundColor: "white" }}>
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 py-24 lg:py-32">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-16 pb-8">
           <FadeUp className="text-center mb-14">
             <p
               className="text-xs uppercase tracking-widest mb-3"
