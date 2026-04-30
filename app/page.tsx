@@ -229,7 +229,7 @@ export default function Home() {
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1800&q=80"
+          src="/Hero.png"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -237,7 +237,7 @@ export default function Home() {
         {/* Overlay */}
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(4,57,39,0.65)" }}
+          style={{ backgroundColor: "rgba(4,57,39,0.62)" }}
         />
 
         <div className="relative z-10 px-5 max-w-4xl mx-auto">
@@ -294,7 +294,7 @@ export default function Home() {
           {[
             "Launching 2026",
             "Built for the Diaspora",
-            "Guardian Mode Included",
+            "Optional Guardian Mode",
           ].map((stat) => (
             <p
               key={stat}
@@ -412,12 +412,12 @@ export default function Home() {
               {
                 Icon: Users,
                 title: "Guardian Mode",
-                desc: "Involve family from day one, the halal way.",
+                desc: "Balance tradition and autonomy. Optional family transparency, built in from day one.",
               },
               {
                 Icon: ShieldCheck,
                 title: "Verified Profiles",
-                desc: "Every account manually reviewed by our team.",
+                desc: "Verified by Government ID and selfie-match. No bots. No fake profiles.",
               },
               {
                 Icon: Phone,

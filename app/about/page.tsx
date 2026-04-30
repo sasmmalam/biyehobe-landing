@@ -70,8 +70,8 @@ export default function About() {
             >
               For too long, the Bangladeshi community has had to choose between
               matrimonial platforms that feel outdated and impersonal, or
-              general-purpose apps that don&apos;t understand the cultural and
-              religious nuances of our community. BiyeHobe was born from the
+              general-purpose apps that don&apos;t understand the cultural
+              nuances and values of our community. BiyeHobe was born from the
               belief that this gap shouldn&apos;t exist.
             </p>
             <p
