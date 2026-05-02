@@ -37,6 +37,7 @@ const TRUST_ITEMS = [
 export default function WaitlistForm() {
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState("");
+  const [insertedId, setInsertedId] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedFrustration, setSelectedFrustration] = useState("");
   const [step2Error, setStep2Error] = useState<string | null>(null);
@@ -47,24 +48,29 @@ export default function WaitlistForm() {
   async function handleStep1(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    const { error } = await getSupabase()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data, error } = await (getSupabase() as any)
       .from("waitlist")
-      .insert({ email, created_at: new Date().toISOString() });
+      .insert([{ email, created_at: new Date().toISOString() }])
+      .select("id")
+      .single();
 
-    if (!error) {
+    if (!error && data) {
+      console.log("[WaitlistForm] step 1 inserted id:", data.id);
+      setInsertedId(data.id as string);
       setStatus("idle");
       setStep(2);
-    } else if (error.code === "23505") {
+    } else if (error?.code === "23505") {
       setStatus("duplicate");
     } else {
+      console.error("[WaitlistForm] step 1 error:", error);
       setStatus("error");
     }
   }
 
   async function handleStep2(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // email is component-level state set via onChange in step 1 input
-    console.log("email at step 2 submit:", email);
+    console.log("email at step 2 submit:", email, "| insertedId:", insertedId);
     setStatus("loading");
     setStep2Error(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -72,7 +78,7 @@ export default function WaitlistForm() {
     const response = await supabase
       .from("waitlist")
       .update({ location: selectedLocation, frustration: selectedFrustration })
-      .eq("email", email);
+      .eq("id", insertedId);
     console.log("[WaitlistForm] step 2 full response:", response);
     if (response.error) {
       setStep2Error(response.error.message ?? JSON.stringify(response.error));

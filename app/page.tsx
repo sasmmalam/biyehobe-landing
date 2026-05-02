@@ -165,7 +165,7 @@ export default function Home() {
         >
           {/* Logo mark */}
           <div style={{ marginBottom: "16px" }}>
-            <Logo size={88} color="#C9952A" />
+            <Logo size={88} color="white" />
           </div>
 
           {/* Brand wordmark */}
