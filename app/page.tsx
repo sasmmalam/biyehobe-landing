@@ -151,9 +151,12 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 px-5 max-w-4xl mx-auto">
+        <div
+          className="relative z-10 px-5 max-w-4xl mx-auto"
+          style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        >
           {/* Logo mark */}
-          <div style={{ marginBottom: "16px" }}>
+          <div style={{ marginBottom: "16px", lineHeight: 0 }}>
             <Logo size={88} color="#C9952A" />
           </div>
 

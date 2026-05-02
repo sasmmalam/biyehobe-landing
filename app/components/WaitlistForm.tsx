@@ -3,6 +3,10 @@
 // Run in Supabase SQL editor before deploying:
 // ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS location text;
 // ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS frustration text;
+//
+// Also add UPDATE policy so step 2 can save:
+// CREATE POLICY "Anyone can update waitlist" ON waitlist
+//   FOR UPDATE USING (true) WITH CHECK (true);
 
 import { useState } from "react";
 import { getSupabase } from "@/lib/supabase";
@@ -59,15 +63,13 @@ export default function WaitlistForm() {
   async function handleStep2(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    try {
-      // Best-effort: columns may not exist until migration is run
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      await (getSupabase() as any)
-        .from("waitlist")
-        .update({ location: location || null, frustration: frustration || null })
-        .eq("email", email);
-    } catch {
-      // silent — these columns are optional
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (getSupabase() as any)
+      .from("waitlist")
+      .update({ location: location || null, frustration: frustration || null })
+      .eq("email", email);
+    if (error) {
+      console.error("[WaitlistForm] step 2 update error:", error);
     }
     setStatus("success");
   }
