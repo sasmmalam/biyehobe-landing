@@ -37,8 +37,9 @@ const TRUST_ITEMS = [
 export default function WaitlistForm() {
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState("");
-  const [location, setLocation] = useState("");
-  const [frustration, setFrustration] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedFrustration, setSelectedFrustration] = useState("");
+  const [step2Error, setStep2Error] = useState<string | null>(null);
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "duplicate" | "error"
   >("idle");
@@ -63,13 +64,18 @@ export default function WaitlistForm() {
   async function handleStep2(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
+    setStep2Error(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { error } = await (getSupabase() as any)
+    const supabase = getSupabase() as any;
+    const response = await supabase
       .from("waitlist")
-      .update({ location: location || null, frustration: frustration || null })
+      .update({ location: selectedLocation, frustration: selectedFrustration })
       .eq("email", email);
-    if (error) {
-      console.error("[WaitlistForm] step 2 update error:", error);
+    console.log("[WaitlistForm] step 2 response — email:", email, "| response:", response);
+    if (response.error) {
+      setStep2Error(response.error.message ?? JSON.stringify(response.error));
+      setStatus("idle");
+      return;
     }
     setStatus("success");
   }
@@ -252,14 +258,14 @@ export default function WaitlistForm() {
               Where are you based?
             </label>
             <select
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
               style={{
                 width: "100%",
                 padding: "13px 18px",
                 borderRadius: "12px",
                 backgroundColor: "rgba(255,255,255,0.10)",
-                color: location ? "white" : "rgba(255,255,255,0.45)",
+                color: selectedLocation ? "white" : "rgba(255,255,255,0.45)",
                 border: "1px solid rgba(255,255,255,0.22)",
                 fontFamily: "var(--font-sans)",
                 fontSize: "14px",
@@ -302,12 +308,12 @@ export default function WaitlistForm() {
               }}
             >
               {FRUSTRATIONS.map((f) => {
-                const isActive = frustration === f;
+                const isActive = selectedFrustration === f;
                 return (
                   <button
                     key={f}
                     type="button"
-                    onClick={() => setFrustration(isActive ? "" : f)}
+                    onClick={() => setSelectedFrustration(isActive ? "" : f)}
                     style={{
                       padding: "9px 16px",
                       borderRadius: "999px",
@@ -331,6 +337,23 @@ export default function WaitlistForm() {
               })}
             </div>
           </div>
+
+          {step2Error && (
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "13px",
+                color: "#f87171",
+                textAlign: "center",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                backgroundColor: "rgba(248,113,113,0.10)",
+                border: "1px solid rgba(248,113,113,0.25)",
+              }}
+            >
+              {step2Error}
+            </p>
+          )}
 
           <button
             type="submit"
