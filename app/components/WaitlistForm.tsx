@@ -63,6 +63,8 @@ export default function WaitlistForm() {
 
   async function handleStep2(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // email is component-level state set via onChange in step 1 input
+    console.log("email at step 2 submit:", email);
     setStatus("loading");
     setStep2Error(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -71,7 +73,7 @@ export default function WaitlistForm() {
       .from("waitlist")
       .update({ location: selectedLocation, frustration: selectedFrustration })
       .eq("email", email);
-    console.log("[WaitlistForm] step 2 response — email:", email, "| response:", response);
+    console.log("[WaitlistForm] step 2 full response:", response);
     if (response.error) {
       setStep2Error(response.error.message ?? JSON.stringify(response.error));
       setStatus("idle");
