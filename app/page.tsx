@@ -154,9 +154,11 @@ export default function Home() {
         <div
           className="relative z-10 px-5 max-w-4xl mx-auto"
           style={{
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             textAlign: "center",
             gap: "0px",
           }}
