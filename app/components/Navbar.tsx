@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "/how-it-works" },
@@ -16,7 +17,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
 
   useEffect(() => {
     if (alwaysWhite) return;
-    const onScroll = () => setScrolled(window.scrollY > 48);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysWhite]);
@@ -32,19 +33,43 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
       }}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+        {/* Left: Logo + wordmark — hidden until scrolled */}
         <Link
           href="/"
           style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "22px",
-            fontWeight: 700,
-            letterSpacing: "0.06em",
-            color: scrolled ? "#043927" : "white",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            textDecoration: "none",
           }}
         >
-          BiyeHobe
+          <span
+            style={{
+              display: "flex",
+              alignItems: "center",
+              opacity: scrolled ? 1 : 0,
+              transition: "opacity 0.25s ease",
+            }}
+          >
+            <Logo size={32} color="#C9952A" />
+          </span>
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "20px",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+              color: "#043927",
+              opacity: scrolled ? 1 : 0,
+              transition: "opacity 0.25s ease",
+              whiteSpace: "nowrap",
+            }}
+          >
+            BiyeHobe
+          </span>
         </Link>
 
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map((link) => (
             <Link
@@ -65,6 +90,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
           </a>
         </div>
 
+        {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden transition-colors"

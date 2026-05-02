@@ -3,9 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { getSupabase } from "@/lib/supabase";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Logo from "./components/Logo";
+import BuiltDifferently from "./components/BuiltDifferently";
+import WaitlistForm from "./components/WaitlistForm";
 
 // ── Fade-up animation wrapper ─────────────────────────────────────────────────
 
@@ -48,231 +50,6 @@ function FadeUp({
       }}
     >
       {children}
-    </div>
-  );
-}
-
-// ── Tab SVG icons ─────────────────────────────────────────────────────────────
-
-function IconGuardian() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-function IconShield() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <polyline points="9 12 11 14 15 10" />
-    </svg>
-  );
-}
-
-function IconGlobe() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-  );
-}
-
-// ── Built Differently tab UI ──────────────────────────────────────────────────
-
-const TABS = [
-  {
-    id: "guardian",
-    label: "Guardian Mode",
-    Icon: IconGuardian,
-    heading: "Family, Involved.",
-    desc: "A trusted family member — parent, sibling, or wali — can join your search and review your conversations. Everything stays halal, transparent, and pressure-free.",
-    badge: "100% optional · always in your control",
-  },
-  {
-    id: "verified",
-    label: "Verified Profiles",
-    Icon: IconShield,
-    heading: "Real People Only.",
-    desc: "Every profile is reviewed against a government ID and a live selfie match by our admin team. No bots, no catfishing, no exceptions.",
-    badge: "Gov ID + selfie-verified by our team",
-  },
-  {
-    id: "diaspora",
-    label: "Diaspora-First",
-    Icon: IconGlobe,
-    heading: "Built for NRBs Worldwide.",
-    desc: "Whether you're in London, Toronto, or Dhaka — BiyeHobe surfaces matches who share your cultural background and understand wherever life has taken you.",
-    badge: "Matches across 20+ cities worldwide",
-  },
-];
-
-function BuiltDifferentlyTabs() {
-  const [active, setActive] = useState(0);
-  const [panelVisible, setPanelVisible] = useState(true);
-
-  function handleSwitch(i: number) {
-    if (i === active) return;
-    setPanelVisible(false);
-    setTimeout(() => {
-      setActive(i);
-      setPanelVisible(true);
-    }, 160);
-  }
-
-  const tab = TABS[active];
-
-  return (
-    <div>
-      {/* Tab bar */}
-      <div
-        style={{
-          overflowX: "auto",
-          WebkitOverflowScrolling: "touch",
-          scrollbarWidth: "none",
-          borderBottom: "1px solid rgba(13,31,26,0.1)",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            whiteSpace: "nowrap",
-            gap: 0,
-            minWidth: "max-content",
-          }}
-        >
-          {TABS.map((t, i) => (
-            <button
-              key={t.id}
-              onClick={() => handleSwitch(i)}
-              style={{
-                padding: "14px 32px",
-                fontFamily: active === i ? "var(--font-display)" : "var(--font-sans)",
-                fontWeight: active === i ? 700 : 400,
-                fontSize: active === i ? "18px" : "14px",
-                color: active === i ? "var(--dark)" : "rgba(13,31,26,0.45)",
-                background: "none",
-                border: "none",
-                borderBottom: active === i ? "2px solid var(--gold)" : "2px solid transparent",
-                cursor: "pointer",
-                transition: "color 0.18s ease, border-color 0.18s ease",
-                letterSpacing: active === i ? "0.01em" : "0.02em",
-              }}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Tab panel */}
-      <div
-        style={{
-          opacity: panelVisible ? 1 : 0,
-          transition: "opacity 0.2s ease",
-          paddingTop: "48px",
-          paddingBottom: "16px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "32px",
-            alignItems: "center",
-          }}
-          className="md:grid-cols-[1fr_1.4fr]"
-        >
-          {/* Icon + badge side */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "20px",
-            }}
-          >
-            <div
-              style={{
-                width: "72px",
-                height: "72px",
-                borderRadius: "20px",
-                backgroundColor: "rgba(201,149,42,0.10)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--gold)",
-              }}
-            >
-              <tab.Icon />
-            </div>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                backgroundColor: "rgba(4,57,39,0.06)",
-                borderRadius: "999px",
-                padding: "6px 16px",
-              }}
-            >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--green)",
-                  flexShrink: 0,
-                }}
-              />
-              <span
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  color: "var(--green)",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {tab.badge}
-              </span>
-            </div>
-          </div>
-
-          {/* Heading + desc */}
-          <div>
-            <h3
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(32px, 4vw, 44px)",
-                fontWeight: 700,
-                color: "var(--dark)",
-                lineHeight: 1.1,
-                marginBottom: "16px",
-              }}
-            >
-              {tab.heading}
-            </h3>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "16px",
-                lineHeight: 1.7,
-                color: "#1a1a1a",
-                maxWidth: "480px",
-              }}
-            >
-              {tab.desc}
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -343,129 +120,6 @@ function FAQAccordion({ items = FAQ_ITEMS }: { items?: typeof FAQ_ITEMS }) {
   );
 }
 
-// ── Waitlist form ─────────────────────────────────────────────────────────────
-
-function WaitlistForm() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "duplicate" | "error"
-  >("idle");
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("loading");
-    const { error } = await getSupabase()
-      .from("waitlist")
-      .insert({ email, created_at: new Date().toISOString() });
-
-    if (!error) {
-      setStatus("success");
-      setEmail("");
-    } else if (error.code === "23505") {
-      setStatus("duplicate");
-    } else {
-      setStatus("error");
-    }
-  }
-
-  if (status === "success") {
-    return (
-      <div
-        className="inline-block px-7 py-4 rounded-full text-sm font-medium"
-        style={{
-          backgroundColor: "rgba(255,255,255,0.15)",
-          color: "white",
-          border: "1px solid rgba(255,255,255,0.35)",
-          fontFamily: "var(--font-sans)",
-        }}
-      >
-        You&apos;re on the list — we&apos;ll be in touch.
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      {/* Trust strip */}
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "20px",
-          marginBottom: "24px",
-        }}
-      >
-        {[
-          { icon: "🔒", text: "No data sold. Ever." },
-          { icon: "✓", text: "Verified profiles only" },
-          { icon: "🌍", text: "Built for the diaspora" },
-        ].map(({ icon, text }) => (
-          <span
-            key={text}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              fontFamily: "var(--font-sans)",
-              fontSize: "13px",
-              color: "rgba(255,255,255,0.60)",
-            }}
-          >
-            <span style={{ fontSize: "13px" }}>{icon}</span>
-            {text}
-          </span>
-        ))}
-      </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-      >
-        <input
-          type="email"
-          required
-          placeholder="your@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 px-5 py-3 rounded-full text-sm"
-          style={{
-            backgroundColor: "rgba(255,255,255,0.12)",
-            color: "white",
-            border: "1px solid rgba(255,255,255,0.28)",
-            fontFamily: "var(--font-sans)",
-          }}
-        />
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="px-7 py-3 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-85 disabled:opacity-60"
-          style={{
-            backgroundColor: "var(--gold)",
-            fontFamily: "var(--font-sans)",
-          }}
-        >
-          {status === "loading" ? "Joining…" : "Join Waitlist"}
-        </button>
-      </form>
-
-      {status === "duplicate" && (
-        <p
-          className="mt-3 text-sm text-center"
-          style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
-        >
-          This email is already on the waitlist.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="mt-3 text-sm text-center text-red-400">
-          Something went wrong. Please try again.
-        </p>
-      )}
-    </div>
-  );
-}
-
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -488,16 +142,21 @@ export default function Home() {
           style={{ objectPosition: "center" }}
         />
 
-        {/* Gradient overlay — subtle top, deepens at bottom for text legibility */}
+        {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.65) 100%)",
           }}
         />
 
         <div className="relative z-10 px-5 max-w-4xl mx-auto">
+          {/* Logo mark */}
+          <div style={{ marginBottom: "16px" }}>
+            <Logo size={88} color="#C9952A" />
+          </div>
+
           {/* Brand wordmark */}
           <h1
             style={{
@@ -507,6 +166,7 @@ export default function Home() {
               lineHeight: 1,
               color: "white",
               letterSpacing: "0.04em",
+              textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
             BiyeHobe
@@ -522,6 +182,7 @@ export default function Home() {
               color: "rgba(255,255,255,0.90)",
               marginTop: "20px",
               letterSpacing: "0.02em",
+              textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
             Where Tradition Meets Intention.
@@ -539,6 +200,7 @@ export default function Home() {
               marginLeft: "auto",
               marginRight: "auto",
               lineHeight: 1.6,
+              textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
             A private, verified space for the Bangladeshi diaspora — wherever
@@ -575,7 +237,7 @@ export default function Home() {
       <section style={{ backgroundColor: "var(--green)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
           {[
-            "Launching 2026",
+            "Coming Summer 2026",
             "Built for the Diaspora",
             "Optional Guardian Mode",
           ].map((stat) => (
@@ -673,7 +335,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Built Differently — Tab UI ── */}
+      {/* ── Built Differently ── */}
       <section style={{ backgroundColor: "white" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
           <FadeUp className="mb-12">
@@ -703,7 +365,7 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={100}>
-            <BuiltDifferentlyTabs />
+            <BuiltDifferently />
           </FadeUp>
         </div>
       </section>
