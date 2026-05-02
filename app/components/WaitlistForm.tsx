@@ -48,24 +48,44 @@ export default function WaitlistForm() {
   async function handleStep1(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { data, error } = await (getSupabase() as any)
+    const normalizedEmail = email.trim().toLowerCase();
+
+    // Plain insert — no .select() to avoid anon SELECT RLS restriction
+    const { error: insertError } = await getSupabase()
       .from("waitlist")
-      .insert([{ email, created_at: new Date().toISOString() }])
+      .insert({ email: normalizedEmail, created_at: new Date().toISOString() });
+
+    if (insertError) {
+      if (insertError.code === "23505") {
+        setStatus("duplicate");
+      } else {
+        console.error("[WaitlistForm] step 1 insert error:", insertError);
+        setStatus("error");
+      }
+      return;
+    }
+
+    // Store normalised email for fallback step-2 match
+    setEmail(normalizedEmail);
+
+    // Try a separate SELECT to get the row id for a precise UPDATE
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data, error: selectError } = await (getSupabase() as any)
+      .from("waitlist")
       .select("id")
+      .eq("email", normalizedEmail)
       .single();
 
-    if (!error && data) {
-      console.log("[WaitlistForm] step 1 inserted id:", data.id);
+    if (!selectError && data?.id) {
+      console.log("[WaitlistForm] step 1 got id:", data.id);
       setInsertedId(data.id as string);
-      setStatus("idle");
-      setStep(2);
-    } else if (error?.code === "23505") {
-      setStatus("duplicate");
     } else {
-      console.error("[WaitlistForm] step 1 error:", error);
-      setStatus("error");
+      console.warn("[WaitlistForm] step 1 select failed (RLS?), will match by email:", selectError);
+      // insertedId stays null — step 2 falls back to email match
     }
+
+    setStatus("idle");
+    setStep(2);
   }
 
   async function handleStep2(e: React.FormEvent<HTMLFormElement>) {
@@ -75,10 +95,11 @@ export default function WaitlistForm() {
     setStep2Error(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const supabase = getSupabase() as any;
-    const response = await supabase
+    const base = supabase
       .from("waitlist")
-      .update({ location: selectedLocation, frustration: selectedFrustration })
-      .eq("id", insertedId);
+      .update({ location: selectedLocation, frustration: selectedFrustration });
+    const query = insertedId ? base.eq("id", insertedId) : base.eq("email", email);
+    const response = await query;
     console.log("[WaitlistForm] step 2 full response:", response);
     if (response.error) {
       setStep2Error(response.error.message ?? JSON.stringify(response.error));
