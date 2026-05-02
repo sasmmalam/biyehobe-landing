@@ -476,7 +476,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section
         className="relative flex items-center justify-center text-center"
-        style={{ minHeight: "100svh" }}
+        style={{ minHeight: "100vh" }}
       >
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -485,14 +485,15 @@ export default function Home() {
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center" }}
         />
 
-        {/* Gradient overlay — transparent top, subtle dark center, deeper at bottom */}
+        {/* Gradient overlay — subtle top, deepens at bottom for text legibility */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.22) 50%, rgba(0,0,0,0.55) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%)",
           }}
         />
 
@@ -502,7 +503,7 @@ export default function Home() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: "clamp(72px, 10vw, 96px)",
+              fontSize: "88px",
               lineHeight: 1,
               color: "white",
               letterSpacing: "0.04em",
@@ -517,8 +518,8 @@ export default function Home() {
               fontFamily: "var(--font-display)",
               fontStyle: "italic",
               fontWeight: 400,
-              fontSize: "clamp(20px, 3vw, 26px)",
-              color: "white",
+              fontSize: "24px",
+              color: "rgba(255,255,255,0.90)",
               marginTop: "20px",
               letterSpacing: "0.02em",
             }}
@@ -530,14 +531,14 @@ export default function Home() {
           <p
             style={{
               fontFamily: "var(--font-sans)",
-              fontWeight: 300,
+              fontWeight: 400,
               fontSize: "16px",
-              color: "rgba(255,255,255,0.80)",
+              color: "rgba(255,255,255,0.75)",
               marginTop: "16px",
-              letterSpacing: "0.01em",
               maxWidth: "480px",
               marginLeft: "auto",
               marginRight: "auto",
+              lineHeight: 1.6,
             }}
           >
             A private, verified space for the Bangladeshi diaspora — wherever
