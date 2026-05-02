@@ -2,15 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import {
-  Users,
-  ShieldCheck,
-  Phone,
-  MapPin,
-  Lock,
-  Zap,
-  ChevronDown,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { getSupabase } from "@/lib/supabase";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -56,6 +48,231 @@ function FadeUp({
       }}
     >
       {children}
+    </div>
+  );
+}
+
+// ── Tab SVG icons ─────────────────────────────────────────────────────────────
+
+function IconGuardian() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  );
+}
+
+function IconShield() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <polyline points="9 12 11 14 15 10" />
+    </svg>
+  );
+}
+
+function IconGlobe() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  );
+}
+
+// ── Built Differently tab UI ──────────────────────────────────────────────────
+
+const TABS = [
+  {
+    id: "guardian",
+    label: "Guardian Mode",
+    Icon: IconGuardian,
+    heading: "Family, Involved.",
+    desc: "A trusted family member — parent, sibling, or wali — can join your search and review your conversations. Everything stays halal, transparent, and pressure-free.",
+    badge: "100% optional · always in your control",
+  },
+  {
+    id: "verified",
+    label: "Verified Profiles",
+    Icon: IconShield,
+    heading: "Real People Only.",
+    desc: "Every profile is reviewed against a government ID and a live selfie match by our admin team. No bots, no catfishing, no exceptions.",
+    badge: "Gov ID + selfie-verified by our team",
+  },
+  {
+    id: "diaspora",
+    label: "Diaspora-First",
+    Icon: IconGlobe,
+    heading: "Built for NRBs Worldwide.",
+    desc: "Whether you're in London, Toronto, or Dhaka — BiyeHobe surfaces matches who share your cultural background and understand wherever life has taken you.",
+    badge: "Matches across 20+ cities worldwide",
+  },
+];
+
+function BuiltDifferentlyTabs() {
+  const [active, setActive] = useState(0);
+  const [panelVisible, setPanelVisible] = useState(true);
+
+  function handleSwitch(i: number) {
+    if (i === active) return;
+    setPanelVisible(false);
+    setTimeout(() => {
+      setActive(i);
+      setPanelVisible(true);
+    }, 160);
+  }
+
+  const tab = TABS[active];
+
+  return (
+    <div>
+      {/* Tab bar */}
+      <div
+        style={{
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          borderBottom: "1px solid rgba(13,31,26,0.1)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            whiteSpace: "nowrap",
+            gap: 0,
+            minWidth: "max-content",
+          }}
+        >
+          {TABS.map((t, i) => (
+            <button
+              key={t.id}
+              onClick={() => handleSwitch(i)}
+              style={{
+                padding: "14px 32px",
+                fontFamily: active === i ? "var(--font-display)" : "var(--font-sans)",
+                fontWeight: active === i ? 700 : 400,
+                fontSize: active === i ? "18px" : "14px",
+                color: active === i ? "var(--dark)" : "rgba(13,31,26,0.45)",
+                background: "none",
+                border: "none",
+                borderBottom: active === i ? "2px solid var(--gold)" : "2px solid transparent",
+                cursor: "pointer",
+                transition: "color 0.18s ease, border-color 0.18s ease",
+                letterSpacing: active === i ? "0.01em" : "0.02em",
+              }}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Tab panel */}
+      <div
+        style={{
+          opacity: panelVisible ? 1 : 0,
+          transition: "opacity 0.2s ease",
+          paddingTop: "48px",
+          paddingBottom: "16px",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "32px",
+            alignItems: "center",
+          }}
+          className="md:grid-cols-[1fr_1.4fr]"
+        >
+          {/* Icon + badge side */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "20px",
+            }}
+          >
+            <div
+              style={{
+                width: "72px",
+                height: "72px",
+                borderRadius: "20px",
+                backgroundColor: "rgba(201,149,42,0.10)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--gold)",
+              }}
+            >
+              <tab.Icon />
+            </div>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                backgroundColor: "rgba(4,57,39,0.06)",
+                borderRadius: "999px",
+                padding: "6px 16px",
+              }}
+            >
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  backgroundColor: "var(--green)",
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  color: "var(--green)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                {tab.badge}
+              </span>
+            </div>
+          </div>
+
+          {/* Heading + desc */}
+          <div>
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(32px, 4vw, 44px)",
+                fontWeight: 700,
+                color: "var(--dark)",
+                lineHeight: 1.1,
+                marginBottom: "16px",
+              }}
+            >
+              {tab.heading}
+            </h3>
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "16px",
+                lineHeight: 1.7,
+                color: "#1a1a1a",
+                maxWidth: "480px",
+              }}
+            >
+              {tab.desc}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -169,6 +386,38 @@ function WaitlistForm() {
 
   return (
     <div>
+      {/* Trust strip */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+          marginBottom: "24px",
+        }}
+      >
+        {[
+          { icon: "🔒", text: "No data sold. Ever." },
+          { icon: "✓", text: "Verified profiles only" },
+          { icon: "🌍", text: "Built for the diaspora" },
+        ].map(({ icon, text }) => (
+          <span
+            key={text}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontFamily: "var(--font-sans)",
+              fontSize: "13px",
+              color: "rgba(255,255,255,0.60)",
+            }}
+          >
+            <span style={{ fontSize: "13px" }}>{icon}</span>
+            {text}
+          </span>
+        ))}
+      </div>
+
       <form
         onSubmit={handleSubmit}
         className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
@@ -225,7 +474,10 @@ export default function Home() {
       <Navbar />
 
       {/* ── Hero ── */}
-      <section className="relative flex items-center justify-center text-center" style={{ minHeight: "100svh" }}>
+      <section
+        className="relative flex items-center justify-center text-center"
+        style={{ minHeight: "100svh" }}
+      >
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -234,35 +486,65 @@ export default function Home() {
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Overlay */}
+
+        {/* Gradient overlay — transparent top, subtle dark center, deeper at bottom */}
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(4,57,39,0.62)" }}
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.22) 50%, rgba(0,0,0,0.55) 100%)",
+          }}
         />
 
         <div className="relative z-10 px-5 max-w-4xl mx-auto">
+          {/* Brand wordmark */}
           <h1
-            className="text-6xl sm:text-7xl lg:text-[88px] leading-none text-white"
             style={{
               fontFamily: "var(--font-display)",
+              fontWeight: 700,
+              fontSize: "clamp(72px, 10vw, 96px)",
+              lineHeight: 1,
+              color: "white",
+              letterSpacing: "0.04em",
+            }}
+          >
+            BiyeHobe
+          </h1>
+
+          {/* Tagline */}
+          <p
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
               fontWeight: 400,
-              letterSpacing: "0.035em",
+              fontSize: "clamp(20px, 3vw, 26px)",
+              color: "white",
+              marginTop: "20px",
+              letterSpacing: "0.02em",
             }}
           >
             Where Tradition Meets Intention.
-          </h1>
+          </p>
+
+          {/* Sub-tagline */}
           <p
-            className="mt-7 text-lg sm:text-xl max-w-xl mx-auto"
             style={{
-              color: "rgba(255,255,255,0.80)",
               fontFamily: "var(--font-sans)",
               fontWeight: 300,
+              fontSize: "16px",
+              color: "rgba(255,255,255,0.80)",
+              marginTop: "16px",
               letterSpacing: "0.01em",
+              maxWidth: "480px",
+              marginLeft: "auto",
+              marginRight: "auto",
             }}
           >
             A private, verified space for the Bangladeshi diaspora — wherever
             home is.
           </p>
+
+          {/* CTAs */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#waitlist"
@@ -278,7 +560,7 @@ export default function Home() {
               href="#how"
               className="text-sm transition-opacity hover:opacity-70"
               style={{
-                color: "rgba(255,255,255,0.70)",
+                color: "rgba(255,255,255,0.75)",
                 fontFamily: "var(--font-sans)",
               }}
             >
@@ -309,19 +591,23 @@ export default function Home() {
 
       {/* ── How It Works ── */}
       <section id="how" style={{ backgroundColor: "var(--cream)" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
           <FadeUp className="text-center mb-16">
             <p
               className="text-xs uppercase tracking-widest mb-3"
-              style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+              style={{
+                color: "var(--gold)",
+                fontFamily: "var(--font-sans)",
+                fontWeight: 500,
+              }}
             >
-              Simple & Intentional
+              Simple &amp; Intentional
             </p>
             <h2
-              className="text-5xl sm:text-6xl"
               style={{
                 fontFamily: "var(--font-display)",
-                fontWeight: 600,
+                fontWeight: 700,
+                fontSize: "clamp(40px, 6vw, 60px)",
                 color: "var(--dark)",
               }}
             >
@@ -354,16 +640,17 @@ export default function Home() {
                     style={{
                       backgroundColor: "var(--gold)",
                       fontFamily: "var(--font-display)",
-                      fontWeight: 600,
+                      fontWeight: 700,
                     }}
                   >
                     {step.n}
                   </div>
                   <h3
-                    className="text-2xl mb-3"
+                    className="mb-3"
                     style={{
                       fontFamily: "var(--font-display)",
-                      fontWeight: 600,
+                      fontWeight: 700,
+                      fontSize: "24px",
                       color: "var(--dark)",
                     }}
                   >
@@ -372,7 +659,7 @@ export default function Home() {
                   <p
                     className="text-sm leading-relaxed"
                     style={{
-                      color: "#4A5568",
+                      color: "#1a1a1a",
                       fontFamily: "var(--font-sans)",
                     }}
                   >
@@ -385,21 +672,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Features ── */}
+      {/* ── Built Differently — Tab UI ── */}
       <section style={{ backgroundColor: "white" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-          <FadeUp className="text-center mb-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+          <FadeUp className="mb-12">
             <p
-              className="text-xs uppercase tracking-widest mb-3"
-              style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontWeight: 500,
+                fontSize: "11px",
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                color: "var(--gold)",
+                marginBottom: "12px",
+              }}
             >
               What Sets Us Apart
             </p>
             <h2
-              className="text-5xl sm:text-6xl"
               style={{
                 fontFamily: "var(--font-display)",
-                fontWeight: 600,
+                fontWeight: 700,
+                fontSize: "clamp(40px, 6vw, 60px)",
                 color: "var(--dark)",
               }}
             >
@@ -407,75 +701,9 @@ export default function Home() {
             </h2>
           </FadeUp>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              {
-                Icon: Users,
-                title: "Guardian Mode",
-                desc: "Balance tradition and autonomy. Optional family transparency, built in from day one.",
-              },
-              {
-                Icon: ShieldCheck,
-                title: "Verified Profiles",
-                desc: "Verified by Government ID and selfie-match. No bots. No fake profiles.",
-              },
-              {
-                Icon: Phone,
-                title: "Audio Calls",
-                desc: "Connect through voice before meeting in person.",
-              },
-              {
-                Icon: MapPin,
-                title: "Location Matching",
-                desc: "Find matches near you or worldwide.",
-              },
-              {
-                Icon: Lock,
-                title: "Privacy First",
-                desc: "Control exactly who sees your profile.",
-              },
-              {
-                Icon: Zap,
-                title: "Smart Matching",
-                desc: "Preference-based compatibility scoring.",
-              },
-            ].map((feat, i) => (
-              <FadeUp key={feat.title} delay={i * 70}>
-                <div
-                  className="p-8 rounded-2xl h-full"
-                  style={{
-                    backgroundColor: "var(--cream)",
-                    border: "1px solid #E8E2D8",
-                    boxShadow: "0 2px 12px rgba(4,57,39,0.06)",
-                  }}
-                >
-                  <feat.Icon
-                    size={22}
-                    style={{ color: "var(--gold)", marginBottom: "16px" }}
-                  />
-                  <h3
-                    className="text-xl mb-2"
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 600,
-                      color: "var(--dark)",
-                    }}
-                  >
-                    {feat.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{
-                      color: "#4A5568",
-                      fontFamily: "var(--font-sans)",
-                    }}
-                  >
-                    {feat.desc}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
+          <FadeUp delay={100}>
+            <BuiltDifferentlyTabs />
+          </FadeUp>
         </div>
       </section>
 
@@ -488,16 +716,26 @@ export default function Home() {
           >
             <FadeUp>
               <p
-                className="text-xs uppercase tracking-widest mb-5"
-                style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "var(--gold)",
+                  marginBottom: "20px",
+                }}
               >
                 Our Mission
               </p>
               <h2
-                className="text-4xl sm:text-5xl text-white mb-6 leading-tight"
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontWeight: 400,
+                  fontWeight: 700,
+                  fontSize: "clamp(32px, 5vw, 48px)",
+                  color: "white",
+                  marginBottom: "24px",
+                  lineHeight: 1.15,
                 }}
               >
                 Built with intention.
@@ -555,23 +793,30 @@ export default function Home() {
 
       {/* ── FAQ ── */}
       <section style={{ backgroundColor: "white" }}>
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-16 pb-8">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-20 pb-8">
           <FadeUp className="text-center mb-14">
             <p
-              className="text-xs uppercase tracking-widest mb-3"
-              style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontWeight: 500,
+                fontSize: "11px",
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                color: "var(--gold)",
+                marginBottom: "12px",
+              }}
             >
               Common Questions
             </p>
             <h2
-              className="text-5xl sm:text-6xl"
               style={{
                 fontFamily: "var(--font-display)",
-                fontWeight: 600,
+                fontWeight: 700,
+                fontSize: "clamp(40px, 6vw, 60px)",
                 color: "var(--dark)",
               }}
             >
-              Common Questions
+              FAQ
             </h2>
           </FadeUp>
 
@@ -594,10 +839,13 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-5 sm:px-8 py-24 lg:py-32 text-center">
           <FadeUp>
             <h2
-              className="text-5xl sm:text-6xl text-white mb-5 leading-tight"
               style={{
                 fontFamily: "var(--font-display)",
-                fontWeight: 400,
+                fontWeight: 700,
+                fontSize: "clamp(40px, 6vw, 60px)",
+                color: "white",
+                marginBottom: "20px",
+                lineHeight: 1.1,
                 letterSpacing: "0.02em",
               }}
             >

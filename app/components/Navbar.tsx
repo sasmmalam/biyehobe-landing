@@ -36,7 +36,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
           href="/"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "32px",
+            fontSize: "22px",
             fontWeight: 700,
             letterSpacing: "0.06em",
             color: scrolled ? "#043927" : "white",
