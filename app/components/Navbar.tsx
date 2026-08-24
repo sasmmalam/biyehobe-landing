@@ -51,7 +51,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
               transition: "opacity 0.25s ease",
             }}
           >
-            <Logo size={32} color="#C9952A" />
+            <Logo size={32} />
           </span>
           <span
             style={{

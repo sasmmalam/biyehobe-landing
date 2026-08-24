@@ -1,6 +1,6 @@
 export default function Logo({
   size = 32,
-  color = "#C9952A",
+  color = "#A87722",
 }: {
   size?: 32 | 88;
   color?: string;
