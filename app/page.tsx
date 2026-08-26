@@ -449,7 +449,7 @@ export default function Home() {
                   fontStyle: "italic",
                 }}
               >
-                &ldquo;Where tradition meets intention.&rdquo;
+                &ldquo;For Bangladeshis who mean it.&rdquo;
               </blockquote>
               <p
                 className="mt-6 text-xs uppercase tracking-widest"

@@ -27,7 +27,7 @@ export default function Footer() {
             className="mt-1 text-xs"
             style={{ color: "rgba(255,255,255,0.38)", fontFamily: "var(--font-sans)" }}
           >
-            Where tradition meets intention.
+            For Bangladeshis who mean it.
           </p>
         </div>
 
