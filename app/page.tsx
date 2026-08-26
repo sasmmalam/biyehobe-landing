@@ -180,7 +180,7 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
-            BiyeHobe
+            Biye Hobe.
           </h1>
 
           {/* Tagline */}
@@ -196,7 +196,7 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
-            Where Tradition Meets Intention.
+            For Bangladeshis who mean it — wherever home is.
           </p>
 
           {/* Sub-tagline */}
