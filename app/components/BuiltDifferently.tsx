@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 
-function IconGuardian() {
+function IconEyeOff() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="9" cy="10" r="4" />
-      <circle cx="17" cy="10" r="4" />
-      <path d="M1 20c0-3.3 3.1-6 7-6" />
-      <path d="M16 14c3.9 0 7 2.7 7 6" />
+      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 7 10 7a12.9 12.9 0 0 1-2.9 3.94" />
+      <path d="M6.3 6.3C3.4 8.1 2 11 2 11s3 7 10 7a9.5 9.5 0 0 0 4.2-.94" />
+      <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+      <line x1="2" y1="2" x2="22" y2="22" />
     </svg>
   );
 }
@@ -34,19 +34,19 @@ function IconGlobe() {
 
 const TABS = [
   {
-    id: "guardian",
-    label: "Guardian Mode",
-    Icon: IconGuardian,
-    heading: "Family, on your terms.",
-    desc: "Invite a trusted guardian to support your search — not control it. You stay in the driver's seat, always.",
-    badge: "100% optional",
+    id: "privacy",
+    label: "Photo Privacy",
+    Icon: IconEyeOff,
+    heading: "You choose who sees you.",
+    desc: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
+    badge: "Blurred by default",
   },
   {
-    id: "verified",
-    label: "Verified Profiles",
+    id: "trust",
+    label: "Trust Profile",
     Icon: IconShield,
-    heading: "Every profile, reviewed.",
-    desc: "Gov ID + selfie-match verification before anyone appears in your feed. No catfish, no grey areas.",
+    heading: "A Trust Profile, not a checkmark.",
+    desc: "Every profile shows exactly what's been confirmed — phone, location, references — and what's self-reported. No badge that means nothing.",
     badge: "Manual review",
   },
   {

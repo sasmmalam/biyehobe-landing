@@ -63,11 +63,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "How does verification work?",
-    a: "Every profile is manually reviewed by our team. We verify identity documents and profile photos to ensure every person you meet on BiyeHobe is real and serious.",
+    a: "Every profile is reviewed by our team before it goes live. We're also building a live video selfie check that matches your face to your photos, so the person you're talking to is the person in the pictures.",
   },
   {
-    q: "What is Guardian Mode?",
-    a: "Guardian Mode lets a trusted family member — a parent, sibling, or wali — actively participate in your search and communications, keeping everything halal and transparent from day one.",
+    q: "Is BiyeHobe only for Muslims?",
+    a: "No. BiyeHobe is for all Bangladeshis who are serious about marriage, regardless of religion. Faith, sect, and prayer habits are optional fields — never required, never assumed — and you can filter matches by what matters to you.",
   },
   {
     q: "Is my profile private?",
@@ -214,8 +214,8 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
-            A private, verified space for the Bangladeshi diaspora — wherever
-            home is.
+            Every profile reviewed. Photos private until you choose. Built by
+            one of us, in Toronto.
           </p>
 
           {/* CTAs */}
@@ -248,9 +248,9 @@ export default function Home() {
       <section style={{ backgroundColor: "var(--green)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
           {[
-            "Coming Summer 2026",
-            "Built for the Diaspora",
-            "Optional Guardian Mode",
+            "Reviewed Before Live",
+            "Photos Private By Default",
+            "We Never Sell Your Data",
           ].map((stat) => (
             <p
               key={stat}
@@ -298,8 +298,8 @@ export default function Home() {
               },
               {
                 n: "2",
-                title: "Get Verified",
-                desc: "Your identity and photos are manually reviewed by our team. No bots. No fake profiles. Only real, serious people.",
+                title: "Get Reviewed",
+                desc: "We review every profile before it goes live, and we act on every report.",
               },
               {
                 n: "3",
