@@ -12,11 +12,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "How does verification work?",
-    a: "Every profile is manually reviewed by our team before it goes live. We verify identity documents and profile photos to ensure that every person you meet is real and serious. Verified profiles carry a badge visible to connections.",
+    a: "Every profile is reviewed by a person before it goes live. A live video selfie check is in development.",
   },
   {
-    q: "What is Guardian Mode?",
-    a: "Guardian Mode lets a trusted family member — a parent, sibling, or wali — actively participate in your search and communications. They can view your matches, read messages, and even send messages on your behalf, keeping everything halal and transparent from day one.",
+    q: "What about photo privacy?",
+    a: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
   },
   {
     q: "Is my profile private?",
@@ -25,10 +25,6 @@ const FAQ_ITEMS = [
   {
     q: "When does the app launch?",
     a: "We are currently in private beta, building and refining the platform with early users. Those on the waitlist will receive priority access when we open doors. Join now to be among the first.",
-  },
-  {
-    q: "Is BiyeHobe free to use?",
-    a: "We will offer a free tier with core features and a premium plan with additional capabilities such as advanced filters, priority matching, and audio calls. Pricing details will be shared closer to launch.",
   },
   {
     q: "Can I use BiyeHobe if I live outside Bangladesh?",
@@ -44,7 +40,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do I contact the BiyeHobe team?",
-    a: "You can reach us at the email provided when you sign up for the waitlist. We read every message and aim to respond within 48 hours.",
+    a: "You can reach us at the email provided when you sign up for the waitlist. We answer every report within 24 hours.",
   },
 ];
 
@@ -92,9 +88,27 @@ function FAQAccordion() {
   );
 }
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function FAQ() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
+
       <Navbar alwaysWhite />
 
       {/* Header */}
