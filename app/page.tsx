@@ -173,7 +173,7 @@ export default function Home() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: "88px",
+              fontSize: "clamp(40px, 7vw + 16px, 88px)",
               lineHeight: 1,
               color: "white",
               letterSpacing: "0.04em",
