@@ -9,7 +9,20 @@ export const metadata: Metadata = {
     "A step-by-step guide to finding your match on BiyeHobe.",
 };
 
-const STEPS = [
+interface StepDetail {
+  text: string;
+  coming?: boolean;
+}
+
+interface Step {
+  n: string;
+  Icon: typeof UserCircle;
+  title: string;
+  description: string;
+  details: StepDetail[];
+}
+
+const STEPS: Step[] = [
   {
     n: "01",
     Icon: UserCircle,
@@ -17,10 +30,10 @@ const STEPS = [
     description:
       "Your BiyeHobe profile goes far beyond a photo and a bio. You will answer thoughtful questions about your values, your family background, your career, your daily life, and the kind of person you are hoping to meet. We believe that depth of profile leads to depth of connection.",
     details: [
-      "Share your education, profession, and lifestyle",
-      "Describe your family background and expectations",
-      "Specify your preferences openly and honestly",
-      "Add photos that represent you authentically",
+      { text: "Share your education, profession, and lifestyle" },
+      { text: "Describe your family background and expectations" },
+      { text: "Specify your preferences openly and honestly" },
+      { text: "Add photos that represent you authentically" },
     ],
   },
   {
@@ -28,12 +41,12 @@ const STEPS = [
     Icon: ShieldCheck,
     title: "Get Verified",
     description:
-      "Before your profile goes live, our team personally reviews your identity and your photos. We cross-check your information against supporting documents to ensure that every person you meet on BiyeHobe is exactly who they say they are. This step is non-negotiable.",
+      "Before your profile goes live, our team personally reviews your photos and profile. A live video selfie check is on the way, so the person you're talking to is always the person in the pictures.",
     details: [
-      "Submit a government-issued ID for identity verification",
-      "Our team manually reviews your photos and profile",
-      "Approval typically happens within 24–48 hours",
-      "Verified badge visible to all users you connect with",
+      { text: "Complete a live video selfie check", coming: true },
+      { text: "Our team manually reviews your photos and profile" },
+      { text: "Every profile is reviewed by a person before it goes live" },
+      { text: "Verified badge visible to all users you connect with" },
     ],
   },
   {
@@ -43,10 +56,12 @@ const STEPS = [
     description:
       "Once verified, you can browse and receive match suggestions based on your preferences. Profiles show you everything that matters — values, family expectations, lifestyle compatibility — so you can make informed, intentional decisions about who you reach out to.",
     details: [
-      "Browse profiles with blurred photos by default for privacy",
-      "Reveal photos only when both parties are comfortable",
-      "Send a connection request to start a conversation",
-      "Guardian Mode lets family observe or participate",
+      { text: "Browse profiles with blurred photos by default for privacy" },
+      { text: "Reveal photos only when both parties are comfortable" },
+      { text: "Send a connection request to start a conversation" },
+      {
+        text: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
+      },
     ],
   },
   {
@@ -54,12 +69,13 @@ const STEPS = [
     Icon: Heart,
     title: "Move Forward Together",
     description:
-      "BiyeHobe is designed to help you move forward with clarity and confidence. Audio calls let you hear each other before you meet. Family involvement is built in. And when the time is right, the next steps are yours to take — with the dignity and intentionality you both deserve.",
+      "BiyeHobe is designed to help you move forward with clarity and confidence. Family involvement is built in. And when the time is right, the next steps are yours to take — with the dignity and intentionality you both deserve.",
     details: [
-      "Audio calls for meaningful early conversations",
-      "Involve family at any stage with Guardian Mode",
-      "Unmatch or block at any time with full control",
-      "Our team is available for support throughout",
+      {
+        text: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
+      },
+      { text: "Unmatch or block at any time with full control" },
+      { text: "Our team is available for support throughout" },
     ],
   },
 ];
@@ -153,7 +169,7 @@ export default function HowItWorks() {
                   <ul className="flex flex-col gap-3">
                     {step.details.map((detail) => (
                       <li
-                        key={detail}
+                        key={detail.text}
                         className="flex items-start gap-3 text-sm"
                         style={{
                           color: "rgba(13,31,26,0.72)",
@@ -164,7 +180,23 @@ export default function HowItWorks() {
                           className="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0"
                           style={{ backgroundColor: "var(--gold)" }}
                         />
-                        {detail}
+                        <span>
+                          {detail.text}
+                          {detail.coming && (
+                            <span
+                              className="ml-2 inline-block px-2 py-0.5 rounded-full align-middle"
+                              style={{
+                                border: "1px solid var(--gold)",
+                                color: "var(--gold)",
+                                fontSize: "11px",
+                                fontWeight: 500,
+                                letterSpacing: "0.02em",
+                              }}
+                            >
+                              Coming
+                            </span>
+                          )}
+                        </span>
                       </li>
                     ))}
                   </ul>
