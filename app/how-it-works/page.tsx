@@ -46,7 +46,7 @@ const STEPS: Step[] = [
       { text: "Complete a live video selfie check", coming: true },
       { text: "Our team manually reviews your photos and profile" },
       { text: "Every profile is reviewed by a person before it goes live" },
-      { text: "Verified badge visible to all users you connect with" },
+      { text: "A Trust Profile that shows what's confirmed and what's self-reported" },
     ],
   },
   {
