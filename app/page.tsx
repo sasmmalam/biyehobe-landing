@@ -196,7 +196,7 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
-            For Bangladeshis who mean it — wherever home is.
+            Where tradition meets intention — wherever home is.
           </p>
 
           {/* Sub-tagline */}
@@ -449,7 +449,8 @@ export default function Home() {
                   fontStyle: "italic",
                 }}
               >
-                &ldquo;For Bangladeshis who mean it.&rdquo;
+                &ldquo;Where tradition meets intention — wherever home
+                is.&rdquo;
               </blockquote>
               <p
                 className="mt-6 text-xs uppercase tracking-widest"
