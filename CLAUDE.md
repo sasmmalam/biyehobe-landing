@@ -45,10 +45,31 @@ Colors are defined as CSS variables in `app/globals.css` under `:root` and regis
 | `vercel.json` | Vercel deployment config |
 
 ## Positioning
-- **Audience**: Bangladeshi diaspora — NRBs and residents alike
-- **Tone**: Premium, editorial, intentional — NOT generic or religion-first
-- **Primary USP**: Guardian Mode (optional family transparency), Verified Profiles (Gov ID + selfie-match)
-- Muslim-specific language removed; positioning is cultural/diaspora-focused
+_Updated Session 43 (truth pass, parts 1–3) — replaces the prior version of
+this section, which described Guardian Mode and Gov ID verification as the
+primary USP even though neither was ever built._
+
+- **Audience**: ALL Bangladeshis, worldwide — not faith-specific. Modesty-framed,
+  not religion-first. Religion and sect are optional profile fields only, never
+  required or assumed.
+- **Tone**: Premium, editorial, intentional. Vocabulary: modesty, decency,
+  seriousness, family, intention. Never halal, deen, Islamic, or wali.
+- **Primary USP**:
+  - **A Trust Profile**, not a verified badge — shows what's confirmed
+    (phone, location, references) vs. what's self-reported. No badge that
+    means nothing.
+  - **Photo privacy** — blurred by default, you choose when to reveal and
+    to whom. (This replaced Guardian Mode, which was never built and is
+    not in the product.)
+  - A live video selfie check is **in development**, marked "coming" in
+    copy (see the gold "Coming" pill in `app/how-it-works/page.tsx`) —
+    not claimed as live. There is no government-ID verification flow.
+- **Not offered** — do not write copy implying these exist: Guardian Mode,
+  audio calls, any pricing/premium tier, government-ID verification.
+- **Tagline**: "Where tradition meets intention — wherever home is."
+- **Rule**: nothing in copy describes a feature that isn't merged to `main`.
+  Aspirational features get a visibly distinct "coming" treatment instead
+  of being stated as current.
 
 ## Supabase Setup
 Run this SQL once in the Supabase dashboard SQL editor:
