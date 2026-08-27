@@ -110,9 +110,9 @@ export default function About() {
             >
               Every feature we ship is designed to encourage serious intent.
               Profiles are detailed and thoughtful. Verification is thorough.
-              Guardian Mode lets family participate meaningfully. Audio calls
-              allow voices to be heard before faces are seen. Privacy controls
-              ensure you share only what you&apos;re comfortable sharing.
+              You choose who sees your photos. Blurred by default — you
+              decide when to reveal, and to whom. Privacy controls ensure you
+              share only what you&apos;re comfortable sharing.
             </p>
 
             <h2
