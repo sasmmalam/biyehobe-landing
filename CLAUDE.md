@@ -16,7 +16,7 @@ Landing page for **BiyeHobe** — a private, verified matrimonial platform for t
 ## Brand Colors
 | Name   | Hex       | Usage |
 |--------|-----------|-------|
-| Green  | `#043927` | Primary — nav, trust strip, CTA sections |
+| Green  | `#1B4D3E` | Primary — nav, trust strip, CTA sections. Matches the app (`constants/theme.ts` PRIMARY, S38 colour audit); was `#043927` until L1b |
 | Gold   | `#C9952A` | Accent — buttons, icons, dividers |
 | Cream  | `#FAF8F5` | Background — section fills, card backgrounds |
 | Dark   | `#0D1F1A` | Footer background |
@@ -49,23 +49,32 @@ _Updated Session 43 (truth pass, parts 1–3) — replaces the prior version of
 this section, which described Guardian Mode and Gov ID verification as the
 primary USP even though neither was ever built._
 
+_L1b (2026-09-30): "photo privacy — blurred by default" removed. The app has
+no photo blur, and never did. Photo files sit at public, unguessable URLs
+(see `/privacy`)._
+
 - **Audience**: ALL Bangladeshis, worldwide — not faith-specific. Modesty-framed,
-  not religion-first. Religion and sect are optional profile fields only, never
-  required or assumed.
+  not religion-first. Religion is never assumed, but it **is** a required
+  onboarding question (with "Prefer not to say"); sect is asked only if
+  religion is Islam. Don't call religion "optional".
 - **Tone**: Premium, editorial, intentional. Vocabulary: modesty, decency,
   seriousness, family, intention. Never halal, deen, Islamic, or wali.
-- **Primary USP**:
-  - **A Trust Profile**, not a verified badge — shows what's confirmed
-    (phone, location, references) vs. what's self-reported. No badge that
-    means nothing.
-  - **Photo privacy** — blurred by default, you choose when to reveal and
-    to whom. (This replaced Guardian Mode, which was never built and is
-    not in the product.)
-  - A live video selfie check is **in development**, marked "coming" in
-    copy (see the gold "Coming" pill in `app/how-it-works/page.tsx`) —
-    not claimed as live. There is no government-ID verification flow.
+- **Primary USP** (all live in the app):
+  - **A verified tick that means something specific** — a liveness check
+    (via Didit) **and** the main photo matched to that selfie. Nothing more:
+    no ID check, and the tick doesn't vouch for name, age or marital status.
+  - **You stay in control** — edit your profile or remove photos any time,
+    block or report anyone, delete your account from the app. Other members
+    never see your email, phone number or exact location.
 - **Not offered** — do not write copy implying these exist: Guardian Mode,
-  audio calls, any pricing/premium tier, government-ID verification.
+  audio/video calls, any pricing/premium tier, government-ID verification,
+  photo blur / reveal / unlock, pausing or hiding your profile (the
+  `incognito_mode` column exists but nothing in the app sets it), unmatch
+  (blocking is what ends a match), a "Trust Profile" confirming phone /
+  location / references, manual review of every profile before it goes live.
+- **Known stale site copy** (not yet fixed — see `reports/latest.md`): the
+  Trust Profile, "every profile reviewed before it goes live", and the live
+  selfie check still marked "coming" (it's live in the app since S48–S54).
 - **Tagline**: "Where tradition meets intention — wherever home is."
 - **Rule**: nothing in copy describes a feature that isn't merged to `main`.
   Aspirational features get a visibly distinct "coming" treatment instead

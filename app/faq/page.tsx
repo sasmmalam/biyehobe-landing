@@ -15,12 +15,12 @@ const FAQ_ITEMS = [
     a: "Every profile is reviewed by a person before it goes live. A live video selfie check is in development.",
   },
   {
-    q: "What about photo privacy?",
-    a: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
+    q: "Who can see my photos?",
+    a: "Other signed-in BiyeHobe members can see the photos on your profile. You choose which photos to add — up to six — and you can remove any of them at any time.",
   },
   {
-    q: "Is my profile private?",
-    a: "Absolutely. Your photos are blurred by default and only revealed when both parties choose to unlock them. You can also set your profile to only be visible to people you have approved. You are always in control.",
+    q: "Who can see my profile?",
+    a: "Other signed-in members can see your profile — that's how the right person finds you. They never see your email, phone number or exact location. You can block anyone, which hides you from each other, report anyone, and delete your account at any time from the app.",
   },
   {
     q: "When does the app launch?",

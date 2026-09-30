@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 
-function IconEyeOff() {
+function IconSliders() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 7 10 7a12.9 12.9 0 0 1-2.9 3.94" />
-      <path d="M6.3 6.3C3.4 8.1 2 11 2 11s3 7 10 7a9.5 9.5 0 0 0 4.2-.94" />
-      <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
-      <line x1="2" y1="2" x2="22" y2="22" />
+      <line x1="4" y1="21" x2="4" y2="14" />
+      <line x1="4" y1="10" x2="4" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12" y2="3" />
+      <line x1="20" y1="21" x2="20" y2="16" />
+      <line x1="20" y1="12" x2="20" y2="3" />
+      <line x1="1" y1="14" x2="7" y2="14" />
+      <line x1="9" y1="8" x2="15" y2="8" />
+      <line x1="17" y1="16" x2="23" y2="16" />
     </svg>
   );
 }
@@ -34,12 +39,12 @@ function IconGlobe() {
 
 const TABS = [
   {
-    id: "privacy",
-    label: "Photo Privacy",
-    Icon: IconEyeOff,
-    heading: "You choose who sees you.",
-    desc: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
-    badge: "Blurred by default",
+    id: "control",
+    label: "Your Control",
+    Icon: IconSliders,
+    heading: "You stay in control.",
+    desc: "Edit your profile or remove a photo any time. Block or report anyone. Delete your account whenever you like, straight from the app.",
+    badge: "Block · Report · Delete",
   },
   {
     id: "trust",

@@ -70,8 +70,8 @@ const FAQ_ITEMS = [
     a: "No. BiyeHobe is for all Bangladeshis who are serious about marriage, regardless of religion. Faith, sect, and prayer habits are optional fields — never required, never assumed — and you can filter matches by what matters to you.",
   },
   {
-    q: "Is my profile private?",
-    a: "Absolutely. Your photos are blurred by default and only revealed when you choose. You control exactly who sees your profile and when.",
+    q: "Who can see my profile?",
+    a: "Other signed-in members can see your profile — that's how the right person finds you. They never see your email, phone number or exact location. You can block or report anyone, and delete your account at any time from the app.",
   },
   {
     q: "When does the app launch?",

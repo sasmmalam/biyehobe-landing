@@ -110,9 +110,9 @@ export default function About() {
             >
               Every feature we ship is designed to encourage serious intent.
               Profiles are detailed and thoughtful. Verification is thorough.
-              You choose who sees your photos. Blurred by default — you
-              decide when to reveal, and to whom. Privacy controls ensure you
-              share only what you&apos;re comfortable sharing.
+              You control your profile: edit it any time, block or report
+              anyone, and delete your account whenever you like. The most
+              personal questions always offer &ldquo;Prefer not to say.&rdquo;
             </p>
 
             <h2

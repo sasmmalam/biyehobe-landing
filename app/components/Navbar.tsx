@@ -59,7 +59,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
               fontSize: "20px",
               fontWeight: 700,
               letterSpacing: "0.06em",
-              color: "#043927",
+              color: "var(--green)",
               opacity: scrolled ? 1 : 0,
               transition: "opacity 0.25s ease",
               whiteSpace: "nowrap",

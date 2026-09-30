@@ -56,12 +56,9 @@ const STEPS: Step[] = [
     description:
       "Once verified, you can browse and receive match suggestions based on your preferences. Profiles show you everything that matters — values, family expectations, lifestyle compatibility — so you can make informed, intentional decisions about who you reach out to.",
     details: [
-      { text: "Browse profiles with blurred photos by default for privacy" },
-      { text: "Reveal photos only when both parties are comfortable" },
+      { text: "Browse profiles filtered by the preferences you set" },
+      { text: "Your email, phone number and exact location are never shown to other members" },
       { text: "Send a connection request to start a conversation" },
-      {
-        text: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
-      },
     ],
   },
   {
@@ -71,10 +68,8 @@ const STEPS: Step[] = [
     description:
       "BiyeHobe is designed to help you move forward with clarity and confidence. Family involvement is built in. And when the time is right, the next steps are yours to take — with the dignity and intentionality you both deserve.",
     details: [
-      {
-        text: "You choose who sees your photos. Blurred by default — you decide when to reveal, and to whom.",
-      },
-      { text: "Unmatch or block at any time with full control" },
+      { text: "Block or report anyone at any time" },
+      { text: "Delete your account whenever you like, straight from the app" },
       { text: "Our team is available for support throughout" },
     ],
   },
