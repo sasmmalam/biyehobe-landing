@@ -26,7 +26,7 @@ export default function Footer() {
           </span>
           <p
             className="mt-1 text-xs"
-            style={{ color: "rgba(255,255,255,0.38)", fontFamily: "var(--font-sans)" }}
+            style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-sans)" }}
           >
             Where tradition meets intention — wherever home is.
           </p>
@@ -54,7 +54,7 @@ export default function Footer() {
       >
         <p
           className="text-xs text-center"
-          style={{ color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}
+          style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}
         >
           © 2026 BiyeHobe. All rights reserved.
         </p>

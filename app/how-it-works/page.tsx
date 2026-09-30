@@ -85,7 +85,7 @@ export default function HowItWorks() {
       <section className="pt-28 pb-16 text-center" style={{ backgroundColor: "var(--cream)" }}>
         <p
           className="text-xs uppercase tracking-widest mb-4"
-          style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+          style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
         >
           Simple & Intentional
         </p>
@@ -127,8 +127,8 @@ export default function HowItWorks() {
                     className="text-6xl font-light mb-4"
                     style={{
                       fontFamily: "var(--font-display)",
-                      color: "var(--gold)",
-                      opacity: 0.6,
+                      color: "var(--gold-ink)",
+                      opacity: 0.75,
                     }}
                   >
                     {step.n}
@@ -182,8 +182,8 @@ export default function HowItWorks() {
                             <span
                               className="ml-2 inline-block px-2 py-0.5 rounded-full align-middle"
                               style={{
-                                border: "1px solid var(--gold)",
-                                color: "var(--gold)",
+                                border: "1px solid var(--gold-ink)",
+                                color: "var(--gold-ink)",
                                 fontSize: "11px",
                                 fontWeight: 500,
                                 letterSpacing: "0.02em",
@@ -223,7 +223,7 @@ export default function HowItWorks() {
           </p>
           <a
             href="/#waitlist"
-            className="inline-block px-9 py-4 rounded-full text-white text-sm font-medium transition-opacity hover:opacity-85"
+            className="inline-block px-9 py-4 rounded-full text-dark text-sm font-medium transition-opacity hover:opacity-85"
             style={{
               backgroundColor: "var(--gold)",
               fontFamily: "var(--font-sans)",

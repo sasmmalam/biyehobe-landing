@@ -284,7 +284,7 @@ export default function Privacy() {
         <P>
           BiyeHobe is operated by <strong>Shah Alam</strong>, Toronto, Ontario, Canada. Privacy questions, requests and complaints: <strong>{CONTACT_EMAIL}</strong>.
         </P>
-        <p className="text-sm italic mt-10" style={{ color: "rgba(13,31,26,0.5)" }}>
+        <p className="text-sm italic mt-10" style={{ color: "rgba(13,31,26,0.65)" }}>
           This policy is governed by the laws of the Province of Ontario and the federal laws of Canada applicable there.
         </p>
       </LegalBody>

@@ -3,6 +3,11 @@
 :root {
   --green: #1B4D3E;
   --gold: #C9952A;
+  /* Gold for TEXT. --gold itself is 2.5–2.7:1 on white/cream and 3.6:1 on
+     green, so it's for fills, borders and decorative icons only.
+     Ratios are WCAG 2.x, checked 2026-09-30 (reports/latest.md, L1e). */
+  --gold-ink: #8C6418;   /* on white 5.31, on cream 5.01 */
+  --gold-light: #E3BC68; /* on green 5.35 */
   --cream: #FAF8F5;
   --dark: #0D1F1A;
   --white: #FFFFFF;
@@ -11,6 +16,8 @@
 @theme inline {
   --color-green: var(--green);
   --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-gold-light: var(--gold-light);
   --color-cream: var(--cream);
   --color-dark: var(--dark);
   --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
@@ -30,5 +37,6 @@ body {
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  /* 4.74:1 on the waitlist input (white 12% over green, L1e); 0.45 was 2.76. */
+  color: rgba(255, 255, 255, 0.75);
 }

@@ -134,7 +134,7 @@ export default function WaitlistForm() {
               padding: "14px 28px",
               borderRadius: "999px",
               backgroundColor: "var(--gold)",
-              color: "white",
+              color: "var(--dark)",
               fontFamily: "var(--font-sans)",
               fontSize: "14px",
               fontWeight: 600,
@@ -154,7 +154,7 @@ export default function WaitlistForm() {
             style={{
               fontFamily: "var(--font-sans)",
               fontSize: "13px",
-              color: "var(--gold)",
+              color: "var(--gold-light)",
               textAlign: "center",
               marginTop: "10px",
             }}
@@ -167,7 +167,7 @@ export default function WaitlistForm() {
             style={{
               fontFamily: "var(--font-sans)",
               fontSize: "13px",
-              color: "#f87171",
+              color: "#fca5a5", // 5.08:1 on green; #f87171 was 3.49
               textAlign: "center",
               marginTop: "10px",
             }}

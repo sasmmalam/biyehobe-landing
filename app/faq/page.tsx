@@ -64,7 +64,7 @@ function FAQAccordion() {
             <ChevronDown
               size={18}
               style={{
-                color: "var(--gold)",
+                color: "var(--gold-ink)",
                 flexShrink: 0,
                 transform: open === i ? "rotate(180deg)" : "rotate(0deg)",
                 transition: "transform 0.22s ease",
@@ -118,7 +118,7 @@ export default function FAQ() {
       >
         <p
           className="text-xs uppercase tracking-widest mb-4"
-          style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+          style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
         >
           Help Center
         </p>
@@ -162,7 +162,7 @@ export default function FAQ() {
           </p>
           <a
             href="/#waitlist"
-            className="inline-block mt-6 px-9 py-4 rounded-full text-white text-sm font-medium transition-opacity hover:opacity-85"
+            className="inline-block mt-6 px-9 py-4 rounded-full text-dark text-sm font-medium transition-opacity hover:opacity-85"
             style={{
               backgroundColor: "var(--gold)",
               fontFamily: "var(--font-sans)",

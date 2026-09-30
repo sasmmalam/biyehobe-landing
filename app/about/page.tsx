@@ -18,7 +18,7 @@ export default function About() {
       <section className="pt-28 pb-16 text-center" style={{ backgroundColor: "var(--cream)" }}>
         <p
           className="text-xs uppercase tracking-widest mb-4"
-          style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+          style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
         >
           Our Story
         </p>
@@ -171,7 +171,7 @@ export default function About() {
 
             <a
               href="/#waitlist"
-              className="inline-block px-8 py-4 rounded-full text-white text-sm font-medium transition-opacity hover:opacity-85"
+              className="inline-block px-8 py-4 rounded-full text-dark text-sm font-medium transition-opacity hover:opacity-85"
               style={{
                 backgroundColor: "var(--gold)",
                 fontFamily: "var(--font-sans)",
@@ -188,7 +188,7 @@ export default function About() {
         <div className="max-w-3xl mx-auto px-5 sm:px-8 py-16 text-center">
           <p
             className="text-xs uppercase tracking-widest mb-4"
-            style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+            style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
           >
             Questions?
           </p>

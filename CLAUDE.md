@@ -17,11 +17,17 @@ Landing page for **BiyeHobe** — a private, verified matrimonial platform for t
 | Name   | Hex       | Usage |
 |--------|-----------|-------|
 | Green  | `#1B4D3E` | Primary — nav, trust strip, CTA sections. Matches the app (`constants/theme.ts` PRIMARY, S38 colour audit); was `#043927` until L1b |
-| Gold   | `#C9952A` | Accent — buttons, icons, dividers |
+| Gold   | `#C9952A` | Accent — button fills, borders, decorative icons, dividers. **Never text** (2.5–2.7:1 on white/cream, 3.6:1 on green) |
+| Gold ink | `#8C6418` | `--gold-ink` — gold **text** on white/cream (5.31 / 5.01) |
+| Gold light | `#E3BC68` | `--gold-light` — gold **text** on green (5.35) |
 | Cream  | `#FAF8F5` | Background — section fills, card backgrounds |
 | Dark   | `#0D1F1A` | Footer background |
 
 Colors are defined as CSS variables in `app/globals.css` under `:root` and registered via `@theme inline`.
+
+**Contrast rule (L1e, WCAG AA):** text on a gold button is `--dark` (6.36:1), never white (2.69).
+Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0.6)` on green, and
+`rgba(255,255,255,0.55)` on `--dark`. Check any new pair before shipping it.
 
 ## Typography
 - **Display**: `Cormorant` (Google Fonts — 400, 600, 700) — headings, logo, blockquotes

@@ -99,7 +99,7 @@ function FAQAccordion({ items = FAQ_ITEMS }: { items?: typeof FAQ_ITEMS }) {
             <ChevronDown
               size={18}
               style={{
-                color: "var(--gold)",
+                color: "var(--gold-ink)",
                 flexShrink: 0,
                 transform: open === i ? "rotate(180deg)" : "rotate(0deg)",
                 transition: "transform 0.22s ease",
@@ -109,7 +109,7 @@ function FAQAccordion({ items = FAQ_ITEMS }: { items?: typeof FAQ_ITEMS }) {
           {open === i && (
             <p
               className="pb-5 text-sm leading-relaxed"
-              style={{ color: "rgba(13,31,26,0.6)", fontFamily: "var(--font-sans)" }}
+              style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}
             >
               {item.a}
             </p>
@@ -222,7 +222,7 @@ export default function Home() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#waitlist"
-              className="px-9 py-4 rounded-full text-base font-medium text-white transition-opacity hover:opacity-85"
+              className="px-9 py-4 rounded-full text-base font-medium text-dark transition-opacity hover:opacity-85"
               style={{
                 backgroundColor: "var(--gold)",
                 fontFamily: "var(--font-sans)",
@@ -270,7 +270,7 @@ export default function Home() {
             <p
               className="text-xs uppercase tracking-widest mb-3"
               style={{
-                color: "var(--gold)",
+                color: "var(--gold-ink)",
                 fontFamily: "var(--font-sans)",
                 fontWeight: 500,
               }}
@@ -310,7 +310,7 @@ export default function Home() {
               <FadeUp key={step.n} delay={i * 130}>
                 <div className="flex flex-col items-center text-center">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-white text-lg mb-7"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-dark text-lg mb-7"
                     style={{
                       backgroundColor: "var(--gold)",
                       fontFamily: "var(--font-display)",
@@ -357,7 +357,7 @@ export default function Home() {
                 fontSize: "11px",
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
-                color: "var(--gold)",
+                color: "var(--gold-ink)",
                 marginBottom: "12px",
               }}
             >
@@ -396,7 +396,7 @@ export default function Home() {
                   fontSize: "11px",
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
-                  color: "var(--gold)",
+                  color: "var(--gold-light)",
                   marginBottom: "20px",
                 }}
               >
@@ -428,7 +428,7 @@ export default function Home() {
               <Link
                 href="/about"
                 className="text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-75"
-                style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+                style={{ color: "var(--gold-light)", fontFamily: "var(--font-sans)" }}
               >
                 Read Our Story →
               </Link>
@@ -455,7 +455,7 @@ export default function Home() {
               <p
                 className="mt-6 text-xs uppercase tracking-widest"
                 style={{
-                  color: "rgba(13,31,26,0.38)",
+                  color: "rgba(13,31,26,0.65)",
                   fontFamily: "var(--font-sans)",
                 }}
               >
@@ -477,7 +477,7 @@ export default function Home() {
                 fontSize: "11px",
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
-                color: "var(--gold)",
+                color: "var(--gold-ink)",
                 marginBottom: "12px",
               }}
             >
@@ -501,7 +501,7 @@ export default function Home() {
             <Link
               href="/faq"
               className="text-sm underline underline-offset-4 transition-opacity hover:opacity-70"
-              style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+              style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
             >
               See all questions →
             </Link>

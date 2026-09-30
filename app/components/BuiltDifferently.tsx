@@ -173,7 +173,7 @@ export default function BuiltDifferently() {
                 fontFamily: "var(--font-sans)",
                 fontSize: "13px",
                 fontWeight: 500,
-                color: "var(--gold)",
+                color: "var(--gold-ink)",
                 letterSpacing: "0.02em",
               }}
             >

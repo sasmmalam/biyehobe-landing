@@ -12,7 +12,7 @@ export function LegalHeader({ title, updated }: { title: string; updated: string
     <section className="pt-28 pb-16 px-5 text-center" style={{ backgroundColor: "var(--cream)" }}>
       <p
         className="text-xs uppercase tracking-widest mb-4"
-        style={{ color: "var(--gold)", fontFamily: "var(--font-sans)" }}
+        style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
       >
         Legal
       </p>
@@ -22,7 +22,7 @@ export function LegalHeader({ title, updated }: { title: string; updated: string
       >
         {title}
       </h1>
-      <p className="mt-6 text-sm" style={{ color: "rgba(13,31,26,0.5)", fontFamily: "var(--font-sans)" }}>
+      <p className="mt-6 text-sm" style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}>
         Last updated: {updated}
       </p>
     </section>
@@ -156,7 +156,7 @@ export function DataTable({
 
 export function InlineLink({ href, children }: { href: string; children: React.ReactNode }) {
   const cls = "underline underline-offset-4 transition-opacity hover:opacity-75";
-  const style = { color: "var(--gold)" };
+  const style = { color: "var(--gold-ink)" };
   if (href.startsWith("http")) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls} style={style}>

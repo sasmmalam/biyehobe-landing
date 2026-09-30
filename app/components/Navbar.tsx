@@ -83,7 +83,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
           ))}
           <a
             href="/#waitlist"
-            className="px-5 py-2 rounded-full text-sm font-medium text-white transition-opacity hover:opacity-85"
+            className="px-5 py-2 rounded-full text-sm font-medium text-dark transition-opacity hover:opacity-85"
             style={{ backgroundColor: "var(--gold)", fontFamily: "var(--font-sans)" }}
           >
             Join Waitlist
@@ -119,7 +119,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
           ))}
           <a
             href="/#waitlist"
-            className="text-sm font-medium text-white text-center py-3 rounded-full"
+            className="text-sm font-medium text-dark text-center py-3 rounded-full"
             style={{ backgroundColor: "var(--gold)" }}
             onClick={() => setMenuOpen(false)}
           >
