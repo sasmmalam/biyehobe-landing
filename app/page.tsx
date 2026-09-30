@@ -63,7 +63,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How does verification work?",
-    a: "Every profile is reviewed by our team before it goes live. We're also building a live video selfie check that matches your face to your photos, so the person you're talking to is the person in the pictures.",
+    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional.",
   },
   {
     q: "Is BiyeHobe only for Muslims?",
@@ -214,8 +214,8 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
-            Every profile reviewed. Photos private until you choose. Built by
-            one of us, in Toronto.
+            Verified means a live selfie and a photo that matches it. Built
+            by one of us, in Toronto.
           </p>
 
           {/* CTAs */}
@@ -248,8 +248,8 @@ export default function Home() {
       <section style={{ backgroundColor: "var(--green)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
           {[
-            "Reviewed Before Live",
-            "Photos Private By Default",
+            "Live Selfie Verification",
+            "No ID Documents",
             "We Never Sell Your Data",
           ].map((stat) => (
             <p
@@ -298,8 +298,8 @@ export default function Home() {
               },
               {
                 n: "2",
-                title: "Get Reviewed",
-                desc: "We review every profile before it goes live, and we act on every report.",
+                title: "Get Verified",
+                desc: "Take a quick live selfie check. We match your main photo against it, and the ✓ shows only when both pass.",
               },
               {
                 n: "3",

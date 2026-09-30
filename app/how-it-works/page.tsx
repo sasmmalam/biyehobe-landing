@@ -41,12 +41,13 @@ const STEPS: Step[] = [
     Icon: ShieldCheck,
     title: "Get Verified",
     description:
-      "Before your profile goes live, our team personally reviews your photos and profile. A live video selfie check is on the way, so the person you're talking to is always the person in the pictures.",
+      "Verification is optional, and it's two checks. A live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass.",
     details: [
-      { text: "Complete a live video selfie check", coming: true },
-      { text: "Our team manually reviews your photos and profile" },
-      { text: "Every profile is reviewed by a person before it goes live" },
-      { text: "A Trust Profile that shows what's confirmed and what's self-reported" },
+      { text: "Take a live selfie check — a few seconds of on-screen prompts" },
+      { text: "Your main photo is matched against that selfie" },
+      { text: "The ✓ shows only when both checks pass" },
+      { text: "If your main photo doesn't match, the ✓ comes off and the photo is flagged for review" },
+      { text: "No ID check — we never ask for documents" },
     ],
   },
   {
@@ -54,7 +55,7 @@ const STEPS: Step[] = [
     Icon: MessageCircle,
     title: "Discover & Connect",
     description:
-      "Once verified, you can browse and receive match suggestions based on your preferences. Profiles show you everything that matters — values, family expectations, lifestyle compatibility — so you can make informed, intentional decisions about who you reach out to.",
+      "Once your profile is complete, you can browse and receive match suggestions based on your preferences. Profiles show you everything that matters — values, family expectations, lifestyle compatibility — so you can make informed, intentional decisions about who you reach out to.",
     details: [
       { text: "Browse profiles filtered by the preferences you set" },
       { text: "Your email, phone number and exact location are never shown to other members" },

@@ -12,7 +12,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How does verification work?",
-    a: "Every profile is reviewed by a person before it goes live. A live video selfie check is in development.",
+    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional.",
   },
   {
     q: "Who can see my photos?",

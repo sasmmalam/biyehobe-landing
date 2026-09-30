@@ -47,12 +47,12 @@ const TABS = [
     badge: "Block · Report · Delete",
   },
   {
-    id: "trust",
-    label: "Trust Profile",
+    id: "verified",
+    label: "Verified Tick",
     Icon: IconShield,
-    heading: "A Trust Profile, not a checkmark.",
-    desc: "Every profile shows exactly what's been confirmed — phone, location, references — and what's self-reported. No badge that means nothing.",
-    badge: "Manual review",
+    heading: "A ✓ that means something.",
+    desc: "The ✓ shows only when two checks pass: a live selfie check, run by our partner Didit, and a match between your main photo and that selfie. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. No ID check.",
+    badge: "Live selfie + photo match",
   },
   {
     id: "diaspora",

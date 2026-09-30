@@ -12,7 +12,7 @@ import { getSupabase } from "@/lib/supabase";
 
 const TRUST_ITEMS = [
   { icon: "🔒", text: "No data sold. Ever." },
-  { icon: "✓", text: "Reviewed before live" },
+  { icon: "✓", text: "Live selfie verification" },
   { icon: "🌍", text: "Built for the diaspora" },
 ];
 

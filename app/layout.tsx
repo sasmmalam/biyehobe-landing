@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "BiyeHobe — Matrimonial for the Bangladeshi Diaspora",
   description:
-    "A private, verified space for the Bangladeshi diaspora worldwide. Join the waitlist.",
+    "A serious matrimonial app for Bangladeshis worldwide, with live selfie verification. Join the waitlist.",
 };
 
 export default function RootLayout({

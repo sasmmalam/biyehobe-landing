@@ -109,7 +109,8 @@ export default function About() {
               style={{ color: "rgba(13,31,26,0.72)" }}
             >
               Every feature we ship is designed to encourage serious intent.
-              Profiles are detailed and thoughtful. Verification is thorough.
+              Profiles are detailed and thoughtful. Verification is two real
+              checks: a live selfie, and your main photo matched against it.
               You control your profile: edit it any time, block or report
               anyone, and delete your account whenever you like. The most
               personal questions always offer &ldquo;Prefer not to say.&rdquo;

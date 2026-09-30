@@ -72,9 +72,14 @@ no photo blur, and never did. Photo files sit at public, unguessable URLs
   `incognito_mode` column exists but nothing in the app sets it), unmatch
   (blocking is what ends a match), a "Trust Profile" confirming phone /
   location / references, manual review of every profile before it goes live.
-- **Known stale site copy** (not yet fixed — see `reports/latest.md`): the
-  Trust Profile, "every profile reviewed before it goes live", and the live
-  selfie check still marked "coming" (it's live in the app since S48–S54).
+- **Verification copy (L1c)** must say exactly: optional; a live selfie
+  check (Didit) plus a match of the main photo against that selfie; the ✓
+  shows only when both pass; a main photo that doesn't match is flagged for
+  review and the ✓ comes off; no ID check. Never "reviewed before it goes
+  live" and never "coming" — it's live.
+- **Known stale site copy** (not yet fixed — see `reports/latest.md`): "faith
+  fields are optional", "family involvement is built in", "no swiping", and
+  "private beta" vs "collecting waitlist sign-ups".
 - **Tagline**: "Where tradition meets intention — wherever home is."
 - **Rule**: nothing in copy describes a feature that isn't merged to `main`.
   Aspirational features get a visibly distinct "coming" treatment instead
