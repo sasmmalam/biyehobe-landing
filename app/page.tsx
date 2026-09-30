@@ -67,7 +67,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is BiyeHobe only for Muslims?",
-    a: "No. BiyeHobe is for all Bangladeshis who are serious about marriage, regardless of religion. Faith, sect, and prayer habits are optional fields — never required, never assumed — and you can filter matches by what matters to you.",
+    a: "No. BiyeHobe is for all Bangladeshis who are serious about marriage, whatever their religion. We ask everyone their religion and how practising they are, and \"Prefer not to say\" is always an answer. If it matters to you, you can filter your matches by either.",
   },
   {
     q: "Who can see my profile?",
@@ -75,7 +75,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "When does the app launch?",
-    a: "We are currently building and collecting waitlist sign-ups. Early members will receive priority access. Join the waitlist to be first in line.",
+    a: "We're testing the app with a small group of people right now. Join the waitlist and we'll let you know when it opens to everyone.",
   },
 ];
 
@@ -304,7 +304,7 @@ export default function Home() {
               {
                 n: "3",
                 title: "Start Connecting",
-                desc: "Match, chat, and connect with serious intent — on your terms, with your family involved if you wish.",
+                desc: "When someone you like likes you back, it's a match — and you can start talking, with serious intent, on your terms.",
               },
             ].map((step, i) => (
               <FadeUp key={step.n} delay={i * 130}>

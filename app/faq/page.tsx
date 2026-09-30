@@ -24,7 +24,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "When does the app launch?",
-    a: "We are currently in private beta, building and refining the platform with early users. Those on the waitlist will receive priority access when we open doors. Join now to be among the first.",
+    a: "We're testing the app with a small group of people right now. Join the waitlist and we'll let you know when it opens to everyone.",
   },
   {
     q: "Can I use BiyeHobe if I live outside Bangladesh?",
@@ -32,15 +32,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "How are matches suggested?",
-    a: "Our matching engine considers your stated preferences — age range, location, education, religiosity, family background, and lifestyle — to surface profiles that are genuinely compatible. We prioritise quality over quantity.",
+    a: "The people you see are filtered by the preferences you set — age, height, religion, practising level, marital status, education, country and distance. Verified profiles are shown first, and you won't see the same person again once you've liked or passed on them.",
   },
   {
     q: "What happens if I report a bad actor?",
-    a: "Reports are taken extremely seriously. Our team investigates every report and permanently removes users who violate our community standards. Your safety is non-negotiable.",
+    a: "You can report anyone from their profile or from your chat. The report comes to us with the reason you chose, your note, and a copy of your recent messages with that person, and we decide what to do — from a warning to closing the account. You can also block them, which hides you from each other straight away.",
   },
   {
-    q: "How do I contact the BiyeHobe team?",
-    a: "You can reach us at the email provided when you sign up for the waitlist. We answer every report within 24 hours.",
+    q: "How do I contact BiyeHobe?",
+    a: "Email hello@biyehobe.com — a real person reads it.",
   },
 ];
 

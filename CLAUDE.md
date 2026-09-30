@@ -77,9 +77,12 @@ no photo blur, and never did. Photo files sit at public, unguessable URLs
   shows only when both pass; a main photo that doesn't match is flagged for
   review and the ✓ comes off; no ID check. Never "reviewed before it goes
   live" and never "coming" — it's live.
-- **Known stale site copy** (not yet fixed — see `reports/latest.md`): "faith
-  fields are optional", "family involvement is built in", "no swiping", and
-  "private beta" vs "collecting waitlist sign-ups".
+- **Launch state (L1d)**: the app is being tested with a small group; the
+  waitlist hears when it opens to everyone. Never promise waitlist
+  "priority access" — the Terms say joining guarantees no place or priority.
+- **Also not offered** (L1d): a family-involvement feature, a "matching
+  engine" beyond preference filters + verified-first ordering, a support
+  team or response-time promise (one person reads hello@biyehobe.com).
 - **Tagline**: "Where tradition meets intention — wherever home is."
 - **Rule**: nothing in copy describes a feature that isn't merged to `main`.
   Aspirational features get a visibly distinct "coming" treatment instead

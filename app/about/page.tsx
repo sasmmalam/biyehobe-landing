@@ -101,8 +101,9 @@ export default function About() {
               principles: intention, dignity, and family. We believe that
               marriage is one of the most important decisions a person will ever
               make, and the process of finding a spouse should reflect that
-              gravity. That means no swiping, no casual browsing, no anonymous
-              connections.
+              gravity. That&apos;s why profiles go well beyond a photo —
+              faith, family plans, education and lifestyle — so you can decide
+              with care.
             </p>
             <p
               className="text-base leading-relaxed mb-6"
@@ -148,16 +149,15 @@ export default function About() {
               className="text-3xl sm:text-4xl mb-6 mt-12"
               style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
             >
-              What&apos;s Coming
+              Where We Are
             </h2>
             <p
               className="text-base leading-relaxed mb-6"
               style={{ color: "rgba(13,31,26,0.72)" }}
             >
-              We are currently in private beta, carefully building and refining
-              the platform with feedback from our waitlist community. When we
-              launch, it will be to a curated group of early members who helped
-              shape what BiyeHobe has become.
+              Right now we&apos;re testing the app with a small group of
+              people and fixing what they find. When it opens to everyone,
+              we&apos;ll let everyone on the waitlist know.
             </p>
             <p
               className="text-base leading-relaxed mb-10"

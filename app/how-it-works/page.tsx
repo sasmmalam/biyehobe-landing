@@ -67,11 +67,11 @@ const STEPS: Step[] = [
     Icon: Heart,
     title: "Move Forward Together",
     description:
-      "BiyeHobe is designed to help you move forward with clarity and confidence. Family involvement is built in. And when the time is right, the next steps are yours to take — with the dignity and intentionality you both deserve.",
+      "BiyeHobe is designed to help you move forward with clarity and confidence. How and when you involve your family is up to you. And when the time is right, the next steps are yours to take — with the dignity and intentionality you both deserve.",
     details: [
       { text: "Block or report anyone at any time" },
       { text: "Delete your account whenever you like, straight from the app" },
-      { text: "Our team is available for support throughout" },
+      { text: "Questions? Email hello@biyehobe.com — a real person reads it" },
     ],
   },
 ];
