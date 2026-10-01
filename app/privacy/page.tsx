@@ -27,7 +27,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "30 September 2026";
+const UPDATED = "1 October 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — BiyeHobe",
@@ -50,7 +50,7 @@ export default function Privacy() {
           <UL>
             <LI>We collect what you put in your profile, your photos, your messages, and — only if you choose to verify — one selfie.</LI>
             <LI>Other members see your profile, but never your email, phone number, exact location or selfie.</LI>
-            <LI>Your photos are stored privately and shown only to signed-in members. With photo privacy on — the default for women, and a setting for everyone — they appear blurred in the app until you and the other person have both liked each other.</LI>
+            <LI>Your photos are stored privately and shown only to signed-in members. If you choose to turn on photo privacy, they appear blurred in the app until you and the other person have both liked each other. It&apos;s off unless you turn it on.</LI>
             <LI>We don&apos;t sell your data, show you ads, or use analytics or tracking tools.</LI>
             <LI>You can delete your account in the app at any time. A few safety records are kept, and we list them below.</LI>
           </UL>
@@ -178,7 +178,7 @@ export default function Privacy() {
           <strong>How your photos are shared:</strong>{" "}your photos are stored privately. They are shown only to signed-in members who are allowed to see your profile, through temporary links that stop working after about an hour. Nobody can open them without signing in, and someone you&apos;ve blocked, or who has blocked you, can&apos;t load them at all.
         </P>
         <P>
-          <strong>Photo privacy:</strong>{" "}with photo privacy on, your photos appear blurred in the app to other members until you have both liked each other. It is on by default for women, and anyone can turn it on or off under Profile → &ldquo;Blur my photos until we match&rdquo;. The blur is applied by the app on the other member&apos;s phone, so it controls what they see in BiyeHobe. It doesn&apos;t stop someone you&apos;ve matched with from taking a screenshot of your photos.
+          <strong>Photo privacy:</strong>{" "}with photo privacy on, your photos appear blurred in the app to other members until you have both liked each other. It&apos;s your choice: we offer it when you add your photos, and you can turn it on or off at any time under Profile → &ldquo;Blur my photos until we match&rdquo;. It stays off unless you turn it on. The blur is applied by the app on the other member&apos;s phone, so it controls what they see in BiyeHobe. It doesn&apos;t stop someone you&apos;ve matched with from taking a screenshot of your photos.
         </P>
         <P>
           <strong>About messages:</strong>{" "}messages are protected in transit and stored in our database, but they are not end-to-end encrypted. Only you and the person you&apos;re talking to can read them in the app. We can access them if we need to — for example, to review a report.
