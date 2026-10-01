@@ -27,7 +27,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "29 September 2026";
+const UPDATED = "30 September 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — BiyeHobe",
@@ -50,6 +50,7 @@ export default function Privacy() {
           <UL>
             <LI>We collect what you put in your profile, your photos, your messages, and — only if you choose to verify — one selfie.</LI>
             <LI>Other members see your profile, but never your email, phone number, exact location or selfie.</LI>
+            <LI>Your photos are stored privately and shown only to signed-in members. With photo privacy on — the default for women, and a setting for everyone — they appear blurred in the app until you and the other person have both liked each other.</LI>
             <LI>We don&apos;t sell your data, show you ads, or use analytics or tracking tools.</LI>
             <LI>You can delete your account in the app at any time. A few safety records are kept, and we list them below.</LI>
           </UL>
@@ -91,7 +92,7 @@ export default function Privacy() {
 
         <H3>Your photos</H3>
         <P>
-          Up to six profile photos. The first one is your main photo and can be checked against your verification selfie (see the next section).
+          Up to six profile photos. The first one is your main photo and can be checked against your verification selfie (see the next section). Your photos are stored privately, not at public web addresses — see <a href="#how-others-see-you">How other members see you</a>.
         </P>
 
         <H3>What you do in the app</H3>
@@ -158,7 +159,7 @@ export default function Privacy() {
         <H2 id="how-others-see-you">How other members see you</H2>
         <P>Any signed-in BiyeHobe member can see:</P>
         <UL>
-          <LI>Your first name, username and photos</LI>
+          <LI>Your first name, username and photos (blurred until you match, if photo privacy is on — see below)</LI>
           <LI>Your date of birth, height and gender</LI>
           <LI>Your city and country — never your exact location</LI>
           <LI>Your education, profession, job title and bio</LI>
@@ -174,7 +175,10 @@ export default function Privacy() {
           If you block someone, or they block you, neither of you can see the other&apos;s profile any more.
         </P>
         <P>
-          <strong>About photo links:</strong>{" "}your photos are stored at long, hard-to-guess web addresses so the app can load them quickly. Anyone who has the address of one of your photos can open that image without signing in. Photos aren&apos;t blurred in the app.
+          <strong>How your photos are shared:</strong>{" "}your photos are stored privately. They are shown only to signed-in members who are allowed to see your profile, through temporary links that stop working after about an hour. Nobody can open them without signing in, and someone you&apos;ve blocked, or who has blocked you, can&apos;t load them at all.
+        </P>
+        <P>
+          <strong>Photo privacy:</strong>{" "}with photo privacy on, your photos appear blurred in the app to other members until you have both liked each other. It is on by default for women, and anyone can turn it on or off under Profile → &ldquo;Blur my photos until we match&rdquo;. The blur is applied by the app on the other member&apos;s phone, so it controls what they see in BiyeHobe. It doesn&apos;t stop someone you&apos;ve matched with from taking a screenshot of your photos.
         </P>
         <P>
           <strong>About messages:</strong>{" "}messages are protected in transit and stored in our database, but they are not end-to-end encrypted. Only you and the person you&apos;re talking to can read them in the app. We can access them if we need to — for example, to review a report.
@@ -248,7 +252,7 @@ export default function Privacy() {
 
         <H2 id="security">How we protect it</H2>
         <P>
-          Access rules in our database stop members reading anything beyond what&apos;s listed above. Your verification selfie is in private storage, and our own tools log every time they open it. Only the founder has administrative access. Data is encrypted in transit.
+          Access rules in our database stop members reading anything beyond what&apos;s listed above. Your photos and your verification selfie are in private storage; photos are only ever handed out as temporary links to signed-in members allowed to see your profile, and our own tools log every time they open your selfie. Only the founder has administrative access. Data is encrypted in transit.
         </P>
         <P>
           We&apos;re a small operation and won&apos;t pretend to have a security team. If something ever goes wrong, we&apos;ll tell you promptly and honestly, and report it to the Office of the Privacy Commissioner of Canada as the law requires.
