@@ -36,6 +36,116 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Blog post body (S62) ─────────────────────────────────────────────────────
+   Styles the HTML that lib/blog.ts renders from Markdown. Body text is the
+   legal pages' ink at 72% (7:1 on white); links are --gold-ink (5.31). */
+.post-body {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgba(13, 31, 26, 0.72);
+  overflow-wrap: break-word;
+}
+.post-body > :first-child {
+  margin-top: 0;
+}
+.post-body p,
+.post-body ul,
+.post-body ol,
+.post-body blockquote,
+.post-body pre,
+.post-body img {
+  margin: 0 0 1.5rem;
+}
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+  scroll-margin-top: 6rem;
+}
+.post-body h2 {
+  font-size: 2.125rem;
+  margin: 3rem 0 1.25rem;
+}
+.post-body h3 {
+  font-size: 1.625rem;
+  margin: 2.25rem 0 1rem;
+}
+.post-body h4 {
+  font-size: 1.375rem;
+  margin: 2rem 0 0.75rem;
+}
+.post-body strong {
+  color: var(--dark);
+  font-weight: 500;
+}
+.post-body a {
+  color: var(--gold-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.post-body a:hover {
+  opacity: 0.75;
+}
+.post-body ul,
+.post-body ol {
+  padding-left: 1.5rem;
+}
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
+.post-body li {
+  margin-bottom: 0.5rem;
+}
+.post-body li::marker {
+  color: var(--gold-ink);
+}
+.post-body blockquote {
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--dark);
+}
+.post-body blockquote > :last-child {
+  margin-bottom: 0;
+}
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+.post-body code {
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  background: var(--cream);
+  color: var(--dark);
+}
+.post-body pre {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--cream);
+  overflow-x: auto;
+}
+.post-body pre code {
+  padding: 0;
+  background: none;
+}
+.post-body hr {
+  margin: 2.5rem 0;
+  border: none;
+  border-top: 1px solid rgba(13, 31, 26, 0.1);
+}
+
 ::placeholder {
   /* 4.74:1 on the waitlist input (white 12% over green, L1e); 0.45 was 2.76. */
   color: rgba(255, 255, 255, 0.75);

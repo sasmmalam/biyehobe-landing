@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant, DM_Sans } from "next/font/google";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -16,10 +17,13 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+// Site-wide defaults. Each page sets its own title, description, canonical
+// and share tags through pageMetadata() in lib/site.ts.
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "BiyeHobe — Matrimonial for the Bangladeshi Diaspora",
-  description:
-    "A serious matrimonial app for Bangladeshis worldwide, with live selfie verification. Join the waitlist.",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
 };
 
 export default function RootLayout({

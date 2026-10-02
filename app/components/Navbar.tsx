@@ -9,6 +9,10 @@ const NAV_LINKS = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
+  // Set at build time in next.config.ts: only once a post is published.
+  ...(process.env.NEXT_PUBLIC_HAS_BLOG_POSTS === "true"
+    ? [{ label: "Blog", href: "/blog" }]
+    : []),
 ];
 
 export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean }) {

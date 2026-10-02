@@ -3,11 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Logo from "./components/Logo";
-import BuiltDifferently from "./components/BuiltDifferently";
-import WaitlistForm from "./components/WaitlistForm";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Logo from "../components/Logo";
+import BuiltDifferently from "../components/BuiltDifferently";
+import WaitlistForm from "../components/WaitlistForm";
 
 // ── Fade-up animation wrapper ─────────────────────────────────────────────────
 

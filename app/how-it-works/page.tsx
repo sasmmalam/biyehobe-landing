@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { ShieldCheck, UserCircle, MessageCircle, Heart } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "How It Works — BiyeHobe",
   description:
     "A step-by-step guide to finding your match on BiyeHobe.",
-};
+  path: "/how-it-works",
+});
 
 interface StepDetail {
   text: string;

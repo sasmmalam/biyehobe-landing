@@ -111,6 +111,8 @@ export default function WaitlistForm() {
           <input
             type="email"
             required
+            aria-label="Email address"
+            autoComplete="email"
             placeholder="your@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

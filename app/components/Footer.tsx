@@ -4,6 +4,10 @@ const FOOTER_LINKS = [
   { label: "About", href: "/about" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "FAQ", href: "/faq" },
+  // Set at build time in next.config.ts: only once a post is published.
+  ...(process.env.NEXT_PUBLIC_HAS_BLOG_POSTS === "true"
+    ? [{ label: "Blog", href: "/blog" }]
+    : []),
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "Delete Account", href: "/delete-account" },

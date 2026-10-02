@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About — BiyeHobe",
   description:
     "Learn about our story, our mission, and why we built BiyeHobe for the Bangladeshi diaspora worldwide.",
-};
+  path: "/about",
+});
 
 export default function About() {
   return (

@@ -38,7 +38,14 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 ## Key Files
 | File | Purpose |
 |------|---------|
-| `app/page.tsx` | Full home page — navbar, hero, trust strip, how it works, features, mission, FAQ, waitlist, footer |
+| `app/(home)/page.tsx` | Full home page — navbar, hero, trust strip, how it works, features, mission, FAQ, waitlist, footer. The `(home)` route group exists so `layout.tsx` beside it can give `/` its metadata + Organization JSON-LD (the page is a client component) |
+| `lib/site.ts` | S62 SEO: `SITE_URL`, `pageMetadata()` (title/description/canonical/OG/Twitter — every page uses it), `STATIC_PAGES` for the sitemap (bump `lastModified` when a page's content changes) |
+| `lib/blog.ts` | S62 blog: reads `content/blog/*.md`, validates frontmatter (bad frontmatter fails the build), renders sanitized Markdown. Drafts show only in `next dev` |
+| `content/blog/<slug>.md` | Blog posts. `welcome.md` is a draft template |
+| `app/blog/` | `/blog`, `/blog/[slug]`, `/blog/category/[category]`, `/blog/rss.xml` |
+| `app/sitemap.ts`, `app/robots.ts` | Generated `sitemap.xml` / `robots.txt` |
+| `app/og-default.png/`, `app/logo.png/` | Build-time brand images (`lib/brand-image.tsx`, font in `assets/fonts`) |
+| `app/{privacy,terms,delete-account,faq}/layout.tsx` | SEO tags only — legal pages untouched; titles/descriptions there duplicate the page's |
 | `app/layout.tsx` | Root layout, font loading, metadata |
 | `app/globals.css` | CSS variables, Tailwind v4 theme tokens, base styles |
 | `app/components/Navbar.tsx` | Sticky nav (transparent → white on scroll), mobile hamburger, `alwaysWhite` prop for inner pages |
@@ -122,6 +129,7 @@ This project uses Tailwind CSS v4 which has **no `tailwind.config.ts`**. Custom 
 |---------|------|---------|--------|
 | 31 | 2026-04-28 | Landing page scaffolded and deployed to Vercel. Waitlist form connected to Supabase. Live at https://biyehobe-landing.vercel.app | ✅ Complete |
 | 32 | 2026-04-30 | Full premium redesign — dark editorial luxury. New color system (#043927 + #C9952A), Cormorant + DM Sans typography, 4 pages built (home, /about, /how-it-works, /faq), diaspora repositioning, Guardian Mode elevated as primary USP, Hero.png local asset wired up | ✅ Complete |
+| 62 | 2026-10-01 | Blog (Markdown in `content/blog`, static) + site-wide SEO: metadataBase, canonicals, OG/Twitter, sitemap, robots, RSS, JSON-LD. "Blog" nav/footer link appears only when ≥1 post is published (`NEXT_PUBLIC_HAS_BLOG_POSTS`, set in `next.config.ts`). No analytics added | ✅ Complete |
 
 ## Session 33 Priorities
 - **Landing page polish round 2**
