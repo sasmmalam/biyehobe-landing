@@ -62,9 +62,11 @@ _Updated Session 43 (truth pass, parts 1–3) — replaces the prior version of
 this section, which described Guardian Mode and Gov ID verification as the
 primary USP even though neither was ever built._
 
-_L1b (2026-09-30): "photo privacy — blurred by default" removed. The app has
-no photo blur, and never did. Photo files sit at public, unguessable URLs
-(see `/privacy`)._
+_S59/S59b (2026-10-01): photo blur **is** offered — this replaces the L1b note
+that said the app had none. It is a member's choice and **off by default**;
+a blurred photo unblurs after a mutual like. The blur is applied in the app
+and does not stop screenshots. Never write "blurred by default". For how
+photo files are stored, `/privacy` is the source of truth._
 
 - **Audience**: ALL Bangladeshis, worldwide — not faith-specific. Modesty-framed,
   not religion-first. Religion is never assumed, but it **is** a required
@@ -79,9 +81,12 @@ no photo blur, and never did. Photo files sit at public, unguessable URLs
   - **You stay in control** — edit your profile or remove photos any time,
     block or report anyone, delete your account from the app. Other members
     never see your email, phone number or exact location.
+  - **Photo blur, if you want it** (S59/S59b) — off unless the member turns
+    it on; unblurs after a mutual like. Applied in the app; it does not stop
+    screenshots, so never present it as protection against copying.
 - **Not offered** — do not write copy implying these exist: Guardian Mode,
   audio/video calls, any pricing/premium tier, government-ID verification,
-  photo blur / reveal / unlock, pausing or hiding your profile (the
+  pausing or hiding your profile (the
   `incognito_mode` column exists but nothing in the app sets it), unmatch
   (blocking is what ends a match), a "Trust Profile" confirming phone /
   location / references, manual review of every profile before it goes live.
@@ -145,5 +150,5 @@ This project uses Tailwind CSS v4 which has **no `tailwind.config.ts`**. Custom 
 
 ## Project Info
 - **GitHub**: sasmmalam/biyehobe-landing
-- **Live**: https://biyehobe-landing.vercel.app
+- **Live**: https://biyehobe.com (www redirects to the bare domain)
 - **Developer**: sasmm.alam@gmail.com

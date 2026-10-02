@@ -167,7 +167,7 @@ export function WaitlistCta() {
           className="text-4xl sm:text-5xl text-white mb-5"
           style={{ fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.15 }}
         >
-          Be first in your city when BiyeHobe opens.
+          Be first to know when BiyeHobe opens in your city.
         </h2>
         <p
           className="text-base mb-10"
