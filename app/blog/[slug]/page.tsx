@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
   return {
     ...pageMetadata({
-      title: `${post.title} — BiyeHobe`,
+      title: post.seoTitle ?? `${post.title} — BiyeHobe`,
       description: post.description,
       path: `/blog/${post.slug}`,
       image: post.cover ? { url: post.cover, alt: post.coverAlt ?? post.title } : undefined,
@@ -73,7 +73,7 @@ function postJsonLd(post: Post) {
       "@type": "BlogPosting",
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       url,
-      headline: post.title,
+      headline: post.seoTitle ?? post.title,
       description: post.description,
       datePublished: `${post.date}T00:00:00.000Z`,
       dateModified: `${post.updated ?? post.date}T00:00:00.000Z`,

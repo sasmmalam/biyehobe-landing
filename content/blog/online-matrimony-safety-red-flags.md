@@ -1,18 +1,41 @@
 ---
-title: "Online Matrimony Safety: 10 Red Flags and How to Check Someone Is Real"
-description: "A practical safety guide for Bangladeshi diaspora singles and families using matrimonial sites and apps: the warning signs, and simple ways to verify a match."
+title: "Online matrimony red flags every Bangladeshi family should know"
+seoTitle: "Bangladeshi Matrimony Red Flags: Spot Fake Profiles"
+description: "Safety guide for Bangladeshi singles and families abroad: 10 red flags on matrimony sites and apps, and how to verify someone is real."
 date: 2026-10-02
+updated: 2026-10-09
 category: "Safety & Privacy"
 tags: [safety, scams, verification, matrimony, diaspora]
 draft: false
 ---
 
 Looking for a spouse online is normal now. Families in Toronto, London, New York and Dhaka all
-use matrimonial sites, apps and WhatsApp groups. Most people you meet are sincere. A few are not,
-and they count on you being hopeful, busy, or far from home.
+use matrimonial sites, apps and WhatsApp groups. Bangladeshi matrimony has moved online along with
+them: the biodata that once passed from hand to hand now arrives as a PDF or a profile link. Most
+people you meet are sincere. A few are not, and they count on you being hopeful, busy, or far from
+home.
 
 This guide is for anyone searching, and for parents and siblings helping them. Keep it simple:
 **slow down, verify, and never send money.**
+
+## Red flags specific to Bangladeshi matches abroad
+
+Distance is what makes these harder to spot. In the Bangladeshi diaspora, a match is often in
+another country, and the two families may never have met.
+
+- **A "Canada/UK/US-based" match who keeps delaying a video call or a meeting.** Living abroad
+  is easy to claim and hard to check from far away. Someone who is really there can show you, on
+  a call, in an ordinary moment of their day.
+- **Pressure to marry quickly, or early talk of sponsorship and visas.** Wanting to settle abroad
+  is not wrong in itself, but it should not be the first topic or the reason to hurry. For
+  official information on how sponsorship works in Canada, see the
+  [Government of Canada page on sponsoring a spouse or partner](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/spouse-partner-children.html).
+- **Requests for money, gifts or help "for family back home".** A sick parent, a land dispute, a
+  sibling's fees. The need may sound familiar and urgent. It is still a request for money from
+  someone you have not met.
+- **Family details you cannot verify.** No relatives that you, or a trusted ghotok or elder, can
+  actually speak to. This applies just as much when the person says they are an NRB with family
+  in Bangladesh: there should be someone, somewhere, who knows them.
 
 ## 10 red flags
 
@@ -50,7 +73,7 @@ decide fast is pressure to stop thinking.
 ### 7. They refuse to involve family
 
 In our culture, families usually want to meet early. Someone who keeps delaying any contact with
-parents, siblings or a wali, with no good reason, is worth questioning.
+parents, siblings or elders, with no good reason, is worth questioning.
 
 ### 8. They ask for private photos or personal documents
 
@@ -76,6 +99,15 @@ Trust that feeling. Pausing costs nothing. You can always pick a conversation ba
 - **Meet in public, with someone you trust nearby**, and tell a friend or family member where you are.
 - **Keep the conversation on the platform** until you are comfortable. If someone behaves badly,
   report and block them there.
+
+## How families can help verify
+
+- **Involve a trusted elder or ghotok.** Someone with their own connections can ask around in a
+  way that a profile never allows.
+- **Have a video call with family present.** A relaxed conversation with parents or siblings in
+  the room tells you a lot, on both sides.
+- **Never share money or documents before meeting.** That goes for the whole family, not only the
+  person searching.
 
 ## If something has already gone wrong
 

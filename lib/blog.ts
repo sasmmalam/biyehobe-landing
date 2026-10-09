@@ -24,6 +24,7 @@ export type Category = (typeof CATEGORIES)[number];
 
 export const DEFAULT_AUTHOR = "BiyeHobe Team";
 const MAX_DESCRIPTION = 160;
+const MAX_SEO_TITLE = 60;
 const WORDS_PER_MINUTE = 200;
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
@@ -33,6 +34,12 @@ const IS_PROD = process.env.NODE_ENV === "production";
 export interface Post {
   slug: string;
   title: string;
+  /**
+   * The full <title>, used as written (no " — BiyeHobe" suffix) for the search
+   * result, OpenGraph/Twitter and the JSON-LD headline. `title` stays the
+   * visible heading. Optional.
+   */
+  seoTitle?: string;
   description: string;
   /** ISO date, YYYY-MM-DD. */
   date: string;
@@ -96,6 +103,12 @@ function parsePost(file: string): Post {
   const title = typeof data.title === "string" ? data.title.trim() : "";
   if (!title) fail(file, `"title" is required`);
 
+  const seoTitle = typeof data.seoTitle === "string" ? data.seoTitle.trim() : "";
+  if (data.seoTitle != null && !seoTitle) fail(file, `"seoTitle" must be text`);
+  if (seoTitle.length > MAX_SEO_TITLE) {
+    fail(file, `"seoTitle" is ${seoTitle.length} characters — the limit is ${MAX_SEO_TITLE}`);
+  }
+
   const description = typeof data.description === "string" ? data.description.trim() : "";
   if (!description) fail(file, `"description" is required`);
   if (description.length > MAX_DESCRIPTION) {
@@ -140,6 +153,7 @@ function parsePost(file: string): Post {
   return {
     slug,
     title,
+    seoTitle: seoTitle || undefined,
     description,
     date,
     updated,
