@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Noto_Sans_Bengali } from "next/font/google";
 import { notFound } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -24,6 +25,16 @@ import {
   jsonLdString,
   pageMetadata,
 } from "@/lib/site";
+
+// For Bangla passages in a post body only (.post-body [lang="bn"] in
+// globals.css). Not preloaded, so a post without Bangla never downloads it.
+const notoBengali = Noto_Sans_Bengali({
+  variable: "--font-bengali",
+  subsets: ["bengali"],
+  weight: ["400", "500"],
+  display: "swap",
+  preload: false,
+});
 
 // Only posts that exist at build time get a page; anything else 404s.
 export const dynamicParams = false;
@@ -209,7 +220,10 @@ export default async function BlogPost({ params }: Props) {
                 </div>
               )}
 
-              <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
+              <div
+                className={`post-body ${notoBengali.variable}`}
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
 
               {post.tags.length > 0 && (
                 <ul

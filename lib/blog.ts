@@ -210,12 +210,17 @@ interface HastNode {
   tagName?: string;
   properties?: Record<string, unknown>;
   children?: HastNode[];
+  value?: string;
 }
+
+const BANGLA = /[ঀ-৿]/;
+const BANGLA_BLOCKS = new Set(["p", "li", "h2", "h3", "h4"]);
 
 /**
  * Runs after sanitising. Keeps the page to one <h1> (the post title) by
- * demoting any `#` heading in the body, requires alt text on images, and
- * makes off-site links open safely in a new tab.
+ * demoting any `#` heading in the body, requires alt text on images,
+ * makes off-site links open safely in a new tab, and marks blocks written in
+ * Bangla with lang="bn" (globals.css gives those Noto Sans Bengali).
  */
 function rehypePostRules(file: string) {
   return () => (tree: HastNode) => {
@@ -223,6 +228,12 @@ function rehypePostRules(file: string) {
       if (node.type === "element") {
         const props = (node.properties ??= {});
         if (node.tagName === "h1") node.tagName = "h2";
+        if (
+          BANGLA_BLOCKS.has(node.tagName ?? "") &&
+          node.children?.some((c) => c.type === "text" && BANGLA.test(c.value ?? ""))
+        ) {
+          props.lang = "bn";
+        }
         if (node.tagName === "img") {
           if (typeof props.alt !== "string" || !props.alt.trim()) {
             fail(file, `image ${String(props.src)} has no alt text — write ![describe the image](${String(props.src)})`);

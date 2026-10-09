@@ -46,6 +46,11 @@ body {
   color: rgba(13, 31, 26, 0.72);
   overflow-wrap: break-word;
 }
+/* Bangla blocks (lib/blog.ts sets lang="bn"). --font-bengali is loaded in
+   app/blog/[slug]/page.tsx; size and colour stay the body's. */
+.post-body [lang="bn"] {
+  font-family: var(--font-bengali), var(--font-sans);
+}
 .post-body > :first-child {
   margin-top: 0;
 }

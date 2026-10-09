@@ -33,7 +33,9 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 - **Display**: `Cormorant` (Google Fonts — 400, 600, 700) — headings, logo, blockquotes
 - **Body**: `DM Sans` (Google Fonts — 300, 400, 500) — all body text, nav links, labels
 - Loaded via `next/font/google` in `app/layout.tsx`, injected as `--font-cormorant` and `--font-dm-sans` CSS variables
-- No Bangla/Bengali font imports
+- No Bangla/Bengali font imports, with one exception: `Noto Sans Bengali` is loaded in
+  `app/blog/[slug]/page.tsx` (not preloaded) for Bangla passages in a blog post body, which
+  `lib/blog.ts` marks with `lang="bn"`
 
 ## Key Files
 | File | Purpose |
