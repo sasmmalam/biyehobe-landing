@@ -55,7 +55,12 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 | `app/about/page.tsx` | About + Mission full page |
 | `app/how-it-works/page.tsx` | Step-by-step breakdown |
 | `app/faq/page.tsx` | Expanded FAQ (10 questions, accordion) |
-| `lib/supabase.ts` | Typed Supabase client (lazy init) |
+| `app/components/WaitlistForm.tsx` | Waitlist v2 form (email, Woman/Man, city, country, typo hint, honeypot). Posts to `/api/waitlist`; the browser never talks to Supabase |
+| `app/api/waitlist/route.ts` | POST: validates, rate-limits (5/IP/hour by `ip_hash`), inserts `pending` with the service role, emails the confirm link via Resend |
+| `app/waitlist/confirm/page.tsx` | The emailed link. Confirms the row, emails hello@ the new-signup note, shows the referral link |
+| `lib/waitlist.ts` | **Server only**: service-role client, tokens, both emails, `confirmByToken()`. `lib/waitlist-shared.ts` holds what the form also needs (`CONSENT_TEXT`, options, link helpers) |
+| `supabase/migrations/waitlist_v2.sql` (+ `_ROLLBACK.sql`) | Waitlist v2 schema; drops the anon insert policy. Applied by hand in the SQL editor |
+| `app/components/ReferralShare.tsx` | Referral link + Copy + WhatsApp, on green or on white |
 | `public/Hero.png` | Hero background image (South Asian couple, culturally aligned) — must be present for hero to render |
 | `vercel.json` | Vercel deployment config |
 
@@ -109,7 +114,10 @@ photo files are stored, `/privacy` is the source of truth._
   of being stated as current.
 
 ## Supabase Setup
-Run this SQL once in the Supabase dashboard SQL editor:
+Waitlist v2 (2026-10-09): `supabase/migrations/waitlist_v2.sql` adds gender, city, country,
+referral, confirmation and consent columns and **drops the anon insert policy** — only the
+service role writes. Signups are `pending` until the emailed link is opened; counts, the
+hello@ note and referrals use confirmed rows only. The original table was:
 
 ```sql
 CREATE TABLE waitlist (
@@ -125,8 +133,12 @@ CREATE POLICY "Anyone can join waitlist" ON waitlist FOR INSERT WITH CHECK (true
 Set in Vercel dashboard and locally in `.env.local`:
 ```
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key   # legacy JWT, never sb_publishable_
+SUPABASE_SERVICE_ROLE_KEY=   # server only — never NEXT_PUBLIC_, never logged
+WAITLIST_SALT=               # server only — salts the IP hash
+RESEND_API_KEY=              # server only — sender hello@send.biyehobe.com
 ```
+Names are listed in `.env.example`.
 
 ## Tailwind v4 Note
 This project uses Tailwind CSS v4 which has **no `tailwind.config.ts`**. Custom tokens live in `app/globals.css` using the `@theme inline` directive. Brand colors and fonts are referenced in components via inline `style` props using CSS variables (e.g. `var(--green)`, `var(--font-display)`).

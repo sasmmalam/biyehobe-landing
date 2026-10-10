@@ -15,6 +15,14 @@ export const DEFAULT_OG_IMAGE = "/og-default.png";
 export const LOGO_IMAGE = "/logo.png";
 export const RSS_PATH = "/blog/rss.xml";
 
+/** Footer icons and the Organization JSON-LD `sameAs`. */
+export const SOCIAL_LINKS = [
+  { name: "Instagram", href: "https://instagram.com/biyehobe" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61595085905701" },
+  { name: "TikTok", href: "https://www.tiktok.com/@biyehobe" },
+  { name: "YouTube", href: "https://www.youtube.com/@biyehobe" },
+] as const;
+
 export function absoluteUrl(path: string): string {
   if (path.startsWith("http")) return path;
   return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
@@ -110,6 +118,7 @@ export const ORGANIZATION_JSON_LD = {
   logo: absoluteUrl(LOGO_IMAGE),
   email: CONTACT_EMAIL,
   description: SITE_DESCRIPTION,
+  sameAs: SOCIAL_LINKS.map((s) => s.href),
 };
 
 /**
@@ -117,7 +126,7 @@ export const ORGANIZATION_JSON_LD = {
  * content last changed — bump it when you edit the page.
  */
 export const STATIC_PAGES: { path: string; lastModified: string }[] = [
-  { path: "/", lastModified: "2026-09-30" },
+  { path: "/", lastModified: "2026-10-09" },
   { path: "/about", lastModified: "2026-09-30" },
   { path: "/how-it-works", lastModified: "2026-09-30" },
   { path: "/faq", lastModified: "2026-09-30" },
