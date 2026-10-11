@@ -60,6 +60,8 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 | `app/waitlist/confirm/page.tsx` | The emailed link. Confirms the row, emails hello@ the new-signup note, shows the referral link |
 | `lib/waitlist.ts` | **Server only**: service-role client, tokens, both emails, `confirmByToken()`. `lib/waitlist-shared.ts` holds what the form also needs (`CONSENT_TEXT`, options, link helpers) |
 | `supabase/migrations/waitlist_v2.sql` (+ `_ROLLBACK.sql`) | Waitlist v2 schema; drops the anon insert policy. Applied by hand in the SQL editor |
+| `app/waitlist/unsubscribe/page.tsx`, `app/api/waitlist/unsubscribe/route.ts` | Unsubscribe (v3). The page unsubscribes on open and has a Re-subscribe button; the route is the one-click POST mail apps call, and also handles that button. Neither reveals whether a token belongs to anyone |
+| `supabase/migrations/waitlist_v3_unsubscribe.sql` (+ `_ROLLBACK.sql`) | Adds status `unsubscribed`, `unsubscribed_at`, `unsubscribe_token_hash` |
 | `app/components/ReferralShare.tsx` | Referral link + Copy + WhatsApp, on green or on white |
 | `public/Hero.png` | Hero background image (South Asian couple, culturally aligned) — must be present for hero to render |
 | `vercel.json` | Vercel deployment config |
@@ -117,7 +119,15 @@ photo files are stored, `/privacy` is the source of truth._
 Waitlist v2 (2026-10-09): `supabase/migrations/waitlist_v2.sql` adds gender, city, country,
 referral, confirmation and consent columns and **drops the anon insert policy** — only the
 service role writes. Signups are `pending` until the emailed link is opened; counts, the
-hello@ note and referrals use confirmed rows only. The original table was:
+hello@ note and referrals use confirmed rows only.
+
+**Emailing the waitlist (v3):** every email to a waitlist member must be sent with
+`sendWaitlistEmail()` in `lib/waitlist.ts` — it adds the person's unsubscribe link, the business
+line and the `List-Unsubscribe` headers. Only email rows with `status = 'confirmed'`; never
+`unsubscribed`. The unsubscribe token is an HMAC of the email keyed with `WAITLIST_SALT`, so
+**don't rotate `WAITLIST_SALT`** (links in already-sent emails would stop working).
+
+The original table was:
 
 ```sql
 CREATE TABLE waitlist (

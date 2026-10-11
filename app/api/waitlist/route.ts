@@ -115,7 +115,9 @@ export async function POST(request: Request) {
   }
 
   if (existing) {
-    // Pending: send a fresh link, at most once every 10 minutes.
+    // Pending, or unsubscribed and signing up again: send a fresh link, at
+    // most once every 10 minutes. An unsubscribed row stays unsubscribed
+    // until that link is opened, so nobody else can re-subscribe them.
     const lastSent = existing.confirm_sent_at ? Date.parse(existing.confirm_sent_at) : 0;
     if (Date.now() - lastSent < RESEND_COOLDOWN_MS) return PENDING();
     const token = newConfirmToken();
@@ -123,12 +125,12 @@ export async function POST(request: Request) {
       .from("waitlist")
       .update({ confirm_token_hash: sha256(token), confirm_sent_at: new Date().toISOString() })
       .eq("id", existing.id)
-      .eq("status", "pending");
+      .in("status", ["pending", "unsubscribed"]);
     if (error) {
       console.error(`[waitlist] resend update failed: ${error.code}`);
       return UNAVAILABLE();
     }
-    if (!(await sendConfirmationEmail(existing.email, token))) {
+    if (!(await sendConfirmationEmail(db, existing, token))) {
       await db.from("waitlist").update({ confirm_sent_at: null }).eq("id", existing.id);
       return SEND_FAILED();
     }
@@ -194,7 +196,8 @@ export async function POST(request: Request) {
   }
   if (!insertedId) return UNAVAILABLE();
 
-  if (!(await sendConfirmationEmail(email, token))) {
+  const recipient = { id: insertedId, email, unsubscribe_token_hash: null };
+  if (!(await sendConfirmationEmail(db, recipient, token))) {
     // Leave the row; clearing confirm_sent_at lets a retry send straight away.
     await db.from("waitlist").update({ confirm_sent_at: null }).eq("id", insertedId);
     return SEND_FAILED();
