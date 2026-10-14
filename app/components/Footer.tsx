@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SOCIAL_LINKS } from "@/lib/site";
+import { LEGAL_NAME, SOCIAL_LINKS } from "@/lib/site";
 
 const FOOTER_LINKS = [
   { label: "About", href: "/about" },
@@ -110,7 +110,7 @@ export default function Footer() {
           className="text-xs text-center"
           style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}
         >
-          © 2026 BiyeHobe. All rights reserved.
+          © 2026 BiyeHobe. Operated by {LEGAL_NAME} All rights reserved.
         </p>
       </div>
     </footer>

@@ -27,7 +27,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "1 October 2026";
+const UPDATED = "14 October 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — BiyeHobe",
@@ -60,7 +60,7 @@ export default function Privacy() {
 
         <H2 id="who-we-are">Who we are</H2>
         <P>
-          BiyeHobe is a matrimonial app for Bangladeshis, wherever they live. It is operated by <strong>Shah Alam</strong>{" "}in Toronto, Ontario, Canada, who is responsible for your information. Questions go to <strong>{CONTACT_EMAIL}</strong>, and a real person reads them.
+          BiyeHobe is a matrimonial app for Bangladeshis, wherever they live. It is operated by <strong>Ibaya Digital Inc.</strong>, a Canadian corporation based in Toronto, Ontario, which is responsible for your information. Questions go to <strong>{CONTACT_EMAIL}</strong>, and a real person reads them.
         </P>
 
         <H2 id="what-we-collect">What we collect</H2>
@@ -286,7 +286,7 @@ export default function Privacy() {
 
         <H2 id="contact">Contact</H2>
         <P>
-          BiyeHobe is operated by <strong>Shah Alam</strong>, Toronto, Ontario, Canada. Privacy questions, requests and complaints: <strong>{CONTACT_EMAIL}</strong>.
+          BiyeHobe is operated by <strong>Ibaya Digital Inc.</strong>, Toronto, Ontario, Canada. Privacy questions, requests and complaints: <strong>{CONTACT_EMAIL}</strong>.
         </P>
         <p className="text-sm italic mt-10" style={{ color: "rgba(13,31,26,0.65)" }}>
           This policy is governed by the laws of the Province of Ontario and the federal laws of Canada applicable there.

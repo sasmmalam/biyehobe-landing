@@ -8,6 +8,8 @@ export const SITE_NAME = "BiyeHobe";
 export const SITE_DESCRIPTION =
   "A serious matrimonial app for Bangladeshis worldwide, with live selfie verification. Join the waitlist.";
 export const CONTACT_EMAIL = "hello@biyehobe.com";
+/** The corporation that operates BiyeHobe (federal CBCA corporation, Toronto). Exact casing. */
+export const LEGAL_NAME = "Ibaya Digital Inc.";
 
 /** Generated at build time by app/og-default.png/route.tsx (1200×630). */
 export const DEFAULT_OG_IMAGE = "/og-default.png";
@@ -114,6 +116,7 @@ export const ORGANIZATION_JSON_LD = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
+  legalName: LEGAL_NAME,
   url: SITE_URL,
   logo: absoluteUrl(LOGO_IMAGE),
   email: CONTACT_EMAIL,
@@ -126,11 +129,11 @@ export const ORGANIZATION_JSON_LD = {
  * content last changed — bump it when you edit the page.
  */
 export const STATIC_PAGES: { path: string; lastModified: string }[] = [
-  { path: "/", lastModified: "2026-10-09" },
+  { path: "/", lastModified: "2026-10-14" },
   { path: "/about", lastModified: "2026-09-30" },
   { path: "/how-it-works", lastModified: "2026-09-30" },
   { path: "/faq", lastModified: "2026-09-30" },
-  { path: "/privacy", lastModified: "2026-10-01" },
-  { path: "/terms", lastModified: "2026-09-29" },
+  { path: "/privacy", lastModified: "2026-10-14" },
+  { path: "/terms", lastModified: "2026-10-14" },
   { path: "/delete-account", lastModified: "2026-09-29" },
 ];

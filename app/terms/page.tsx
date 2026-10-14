@@ -24,7 +24,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "29 September 2026";
+const UPDATED = "14 October 2026";
 
 export const metadata: Metadata = {
   title: "Terms of Use — BiyeHobe",
@@ -163,7 +163,7 @@ export default function Terms() {
 
         <H2>Contact</H2>
         <P>
-          BiyeHobe is operated by <strong>Shah Alam</strong>, Toronto, Ontario, Canada. <strong>{CONTACT_EMAIL}</strong>{" "}— a real person reads it.
+          BiyeHobe is operated by <strong>Ibaya Digital Inc.</strong>, Toronto, Ontario, Canada. <strong>{CONTACT_EMAIL}</strong>{" "}— a real person reads it.
         </P>
       </LegalBody>
 
