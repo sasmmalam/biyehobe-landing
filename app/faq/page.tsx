@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const FAQ_ITEMS = [
+interface FaqItem {
+  q: string;
+  a: string;
+  bullets?: string[];
+  link?: { href: string; label: string };
+}
+
+const FAQ_ITEMS: FaqItem[] = [
   {
     q: "Who is BiyeHobe for?",
     a: "BiyeHobe is built for the Bangladeshi diaspora — NRBs living abroad, Bangladeshis open to relocating, and anyone seeking a meaningful, intentional match within the community.",
@@ -25,6 +33,16 @@ const FAQ_ITEMS = [
   {
     q: "When does the app launch?",
     a: "We're testing the app with a small group of people right now. Join the waitlist and we'll let you know when it opens to everyone.",
+  },
+  {
+    q: "What do Founding Members get?",
+    a: "The first 500 confirmed waitlist members are Founding Members. Perks start when the app launches.",
+    bullets: [
+      "First 100 (50 women + 50 men): 6 months of premium free, a permanent Founding Member badge, and an invite to the first GTA Founding Members meetup (early 2027).",
+      "Members 101–500: 3 months of premium free + 50% off the first year.",
+      "Referrals: +1 free month for each friend who joins (up to 6). 3 friends move you into the First 100.",
+    ],
+    link: { href: "/terms#founding-members", label: "Full offer terms" },
   },
   {
     q: "Can I use BiyeHobe if I live outside Bangladesh?",
@@ -72,15 +90,31 @@ function FAQAccordion() {
             />
           </button>
           {open === i && (
-            <p
+            <div
               className="pb-5 text-sm leading-relaxed"
               style={{
                 color: "rgba(13,31,26,0.62)",
                 fontFamily: "var(--font-sans)",
               }}
             >
-              {item.a}
-            </p>
+              <p>{item.a}</p>
+              {item.bullets && (
+                <ul className="list-disc pl-5 mt-3 flex flex-col gap-2">
+                  {item.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              )}
+              {item.link && (
+                <Link
+                  href={item.link.href}
+                  className="inline-block mt-3 underline underline-offset-4"
+                  style={{ color: "var(--gold-ink)" }}
+                >
+                  {item.link.label}
+                </Link>
+              )}
+            </div>
           )}
         </div>
       ))}
@@ -96,7 +130,7 @@ const FAQ_JSON_LD = {
     name: item.q,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.a,
+      text: [item.a, ...(item.bullets ?? [])].join(" "),
     },
   })),
 };

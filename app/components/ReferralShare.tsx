@@ -96,6 +96,17 @@ export default function ReferralShare({
       >
         {link}
       </p>
+      {/* Copy only: tiers and referral months are worked out at launch. */}
+      <p
+        style={{
+          fontFamily: "var(--font-sans)",
+          fontSize: "14px",
+          color: t.hint,
+          marginBottom: "16px",
+        }}
+      >
+        Each friend who joins = +1 free month (up to 6). 3 friends → you move into the First 100.
+      </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <button type="button" onClick={copy} style={{ ...BUTTON, ...t.primary }}>
           {copied ? "Copied" : "Copy link"}

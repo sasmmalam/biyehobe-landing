@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import ReferralShare from "./ReferralShare";
 import {
   CONSENT_TEXT,
   DEFAULT_COUNTRY,
+  type FoundingStats,
   GENDER_OPTIONS,
   type Gender,
   MAX_PLACE_LENGTH,
@@ -119,6 +121,29 @@ const PANEL_TITLE: React.CSSProperties = {
 
 type Result = { kind: "pending" } | { kind: "confirmed"; referralLink: string };
 
+const FULL_NOTE = "spots are full — you'll join as a Founding Member (3 months free + 50% off year one).";
+
+/** "12 spots left for women · 30 for men", or a "full" line for a side at 0. */
+function SpotsLeft({ stats }: { stats: FoundingStats | null }) {
+  // Nothing to count down once the offer has closed.
+  if (!stats || stats.totalLeft === 0) return null;
+  const style = { ...NOTE, marginTop: "4px", fontSize: "14px", color: "rgba(255,255,255,0.85)" };
+  const { womenLeft, menLeft } = stats;
+  if (womenLeft > 0 && menLeft > 0) {
+    return (
+      <p style={style} aria-live="polite">
+        {womenLeft} spots left for women · {menLeft} for men
+      </p>
+    );
+  }
+  return (
+    <p style={style} aria-live="polite">
+      {womenLeft === 0 ? `Women's First-100 ${FULL_NOTE}` : `${womenLeft} First-100 spots left for women.`}{" "}
+      {menLeft === 0 ? `Men's First-100 ${FULL_NOTE}` : `${menLeft} First-100 spots left for men.`}
+    </p>
+  );
+}
+
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState<Gender | "">("");
@@ -129,6 +154,21 @@ export default function WaitlistForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<Result | null>(null);
+  const [stats, setStats] = useState<FoundingStats | null>(null);
+
+  // Live Founding Members counter. If this fails the counter just isn't shown.
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/waitlist/stats")
+      .then((res) => (res.ok ? (res.json() as Promise<FoundingStats>) : null))
+      .then((data) => {
+        if (!cancelled && data && typeof data.womenLeft === "number") setStats(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Keep ?r=CODE from the landing URL for the rest of the visit, so it still
   // goes with the form if the visitor reads another page first.
@@ -230,18 +270,30 @@ export default function WaitlistForm() {
         ))}
       </div>
 
-      <p
-        style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "15px",
-          lineHeight: 1.6,
-          color: "white",
-          marginBottom: "24px",
-        }}
-      >
-        <strong style={{ color: "var(--gold-light)", fontWeight: 500 }}>Founding Members:</strong>{" "}
-        the first 500 people get premium free during our founding period.
-      </p>
+      <div style={{ marginBottom: "24px" }}>
+        <p
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "15px",
+            lineHeight: 1.6,
+            color: "white",
+          }}
+        >
+          <strong style={{ color: "var(--gold-light)", fontWeight: 500 }}>Founding Members</strong>{" "}
+          — first 100 get 6 months premium free
+        </p>
+        <SpotsLeft stats={stats} />
+        <p style={{ ...NOTE, marginTop: "6px", fontSize: "12px", color: "rgba(255,255,255,0.72)" }}>
+          Perks start when the app launches. Offer closes at 500 members or on launch day, whichever
+          comes first. Premium means paid features, once they exist.{" "}
+          <Link
+            href="/terms#founding-members"
+            style={{ color: "var(--gold-light)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+          >
+            Offer terms
+          </Link>
+        </p>
+      </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div>

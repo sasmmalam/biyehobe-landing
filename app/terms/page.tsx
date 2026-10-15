@@ -135,7 +135,21 @@ export default function Terms() {
 
         <H2>The website and waitlist</H2>
         <P>
-          You must be 18 or older to join the waitlist, and please only sign up with your own email address. Joining doesn&apos;t guarantee a place, priority or any particular feature.
+          You must be 18 or older to join the waitlist, and please only sign up with your own email address. Joining doesn&apos;t guarantee a place, priority or any particular feature, apart from the Founding Members perks below.
+        </P>
+
+        <H2 id="founding-members">Founding Members offer</H2>
+        <P>The first 500 confirmed waitlist members are Founding Members:</P>
+        <UL>
+          <LI><strong>The First 100</strong>{" "}(50 women and 50 men): 6 months of premium free, a permanent &ldquo;Founding Member&rdquo; badge, and an invitation to the first GTA Founding Members meetup (early 2027).</LI>
+          <LI><strong>Members 101–500:</strong>{" "}3 months of premium free, plus 50% off the first year.</LI>
+          <LI><strong>Referrals:</strong>{" "}+1 free month for each friend you refer who joins, up to +6 months. Three successful referrals move you into the First 100.</LI>
+        </UL>
+        <P>
+          Perks start when the app launches. The offer closes when we reach 500 members or on launch day, whichever comes first. &ldquo;Premium&rdquo; means paid features, once they exist.
+        </P>
+        <P>
+          Spots are counted per confirmed waitlist sign-up; duplicate or fake sign-ups and self-referrals don&apos;t count; we may end the offer early only by closing it to new sign-ups — perks already earned are kept.
         </P>
 
         <H2>What belongs to us</H2>

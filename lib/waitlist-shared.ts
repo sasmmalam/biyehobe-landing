@@ -29,6 +29,16 @@ export function whatsappShareUrl(link: string): string {
   return `https://wa.me/?text=${encodeURIComponent(text)}`;
 }
 
+/** What GET /api/waitlist/stats answers with: aggregates of confirmed rows only. */
+export interface FoundingStats {
+  women: number;
+  men: number;
+  total: number;
+  womenLeft: number;
+  menLeft: number;
+  totalLeft: number;
+}
+
 /** What POST /api/waitlist answers with. */
 export type WaitlistResponse =
   | { status: "pending" }

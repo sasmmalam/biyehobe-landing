@@ -5,6 +5,7 @@ const FOOTER_LINKS = [
   { label: "About", href: "/about" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "FAQ", href: "/faq" },
+  { label: "Become a Ghotok Partner", href: "/ghotok-partners" },
   // Set at build time in next.config.ts: only once a post is published.
   ...(process.env.NEXT_PUBLIC_HAS_BLOG_POSTS === "true"
     ? [{ label: "Blog", href: "/blog" }]

@@ -1,7 +1,7 @@
 import { createHash, createHmac, randomBytes, randomInt } from "node:crypto";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { CONTACT_EMAIL, SITE_URL } from "./site";
-import { referralLink } from "./waitlist-shared";
+import { type FoundingStats, referralLink } from "./waitlist-shared";
 
 // Server-only waitlist code: the service-role Supabase client, tokens, the
 // emails and confirm / unsubscribe. Imported by the route handlers under
@@ -10,6 +10,8 @@ import { referralLink } from "./waitlist-shared";
 // them, a token or an IP.
 
 export const FOUNDING_MEMBER_LIMIT = 500;
+/** The First 100 is 50 women + 50 men. */
+export const FIRST_100_PER_GENDER = 50;
 export const CONFIRM_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 const SENDER = "BiyeHobe <hello@send.biyehobe.com>";
@@ -116,7 +118,11 @@ async function ensureUnsubscribeToken(db: SupabaseClient, row: Recipient): Promi
 
 // ── Email (Resend) ───────────────────────────────────────────────────────────
 
-async function sendEmail(message: {
+/**
+ * Sends one email through Resend. Only for notes to hello@ — anything to a
+ * waitlist member goes through sendWaitlistEmail() instead.
+ */
+export async function sendEmail(message: {
   to: string;
   subject: string;
   text: string;
@@ -276,6 +282,41 @@ async function countConfirmed(db: SupabaseClient, gender?: "female" | "male"): P
   if (gender) query = query.eq("gender", gender);
   const { count } = await query;
   return count ?? 0;
+}
+
+/**
+ * Founding Members spots left, from confirmed rows only. Aggregates and
+ * nothing else — this is what GET /api/waitlist/stats returns. Null when the
+ * database can't be read, so the form hides the counter rather than show a
+ * wrong number. Rows from before v2 have no gender and count in `total` only.
+ */
+export async function getFoundingStats(): Promise<FoundingStats | null> {
+  const db = getWaitlistDb();
+  if (!db) return null;
+  const count = async (gender?: "female" | "male") => {
+    let query = db
+      .from("waitlist")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "confirmed");
+    if (gender) query = query.eq("gender", gender);
+    const { count, error } = await query;
+    if (error) throw new Error(error.code);
+    return count ?? 0;
+  };
+  try {
+    const [women, men, total] = await Promise.all([count("female"), count("male"), count()]);
+    return {
+      women,
+      men,
+      total,
+      womenLeft: Math.max(0, FIRST_100_PER_GENDER - women),
+      menLeft: Math.max(0, FIRST_100_PER_GENDER - men),
+      totalLeft: Math.max(0, FOUNDING_MEMBER_LIMIT - total),
+    };
+  } catch (e) {
+    console.error(`[waitlist] stats failed: ${(e as Error).message}`);
+    return null;
+  }
 }
 
 /** Tells hello@ about a newly confirmed signup. Counts are confirmed rows only. */
