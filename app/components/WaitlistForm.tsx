@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import LocationFields from "./LocationFields";
 import ReferralShare from "./ReferralShare";
 import {
   CONSENT_TEXT,
@@ -9,7 +10,6 @@ import {
   type FoundingStats,
   GENDER_OPTIONS,
   type Gender,
-  MAX_PLACE_LENGTH,
   type WaitlistResponse,
 } from "@/lib/waitlist-shared";
 
@@ -383,32 +383,15 @@ export default function WaitlistForm() {
           })}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3">
-          <input
-            type="text"
-            name="city"
-            required
-            maxLength={MAX_PLACE_LENGTH}
-            aria-label="City"
-            autoComplete="address-level2"
-            placeholder="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            style={FIELD}
-          />
-          <input
-            type="text"
-            name="country"
-            required
-            maxLength={MAX_PLACE_LENGTH}
-            aria-label="Country"
-            autoComplete="country-name"
-            placeholder="Country"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            style={FIELD}
-          />
-        </div>
+        <LocationFields
+          idPrefix="waitlist"
+          className="flex flex-col sm:flex-row gap-3"
+          country={country}
+          city={city}
+          onCountryChange={setCountry}
+          onCityChange={setCity}
+          fieldStyle={FIELD}
+        />
 
         {/* Honeypot — hidden from people and screen readers; bots fill it in. */}
         <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}>

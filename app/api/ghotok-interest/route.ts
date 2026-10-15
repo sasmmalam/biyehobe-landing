@@ -7,7 +7,7 @@ import {
   type GhotokResponse,
 } from "@/lib/ghotok-shared";
 
-// POST /api/ghotok-interest — the Ghotok Partner interest form. Inserts with
+// POST /api/ghotok-interest — the Matchmaker (Ghotok) Partner interest form. Inserts with
 // the service role (the table has RLS on and no anon/auth policies), then
 // emails hello@. No auto-reply. Same honeypot and per-IP rate limit as
 // /api/waitlist; the IP is only ever stored as a salted hash.
@@ -148,7 +148,7 @@ export async function POST(request: Request) {
   // The row is saved either way; a failed note is logged by sendEmail().
   await sendEmail({
     to: CONTACT_EMAIL,
-    subject: `New Ghotok Partner interest: ${d.fullName}, ${d.city}`,
+    subject: `New Matchmaker (Ghotok) Partner interest: ${d.fullName}, ${d.city}`,
     text: [
       `Name: ${d.fullName}`,
       `Email: ${email}`,

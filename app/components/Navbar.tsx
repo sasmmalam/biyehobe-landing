@@ -13,6 +13,7 @@ const NAV_LINKS = [
   ...(process.env.NEXT_PUBLIC_HAS_BLOG_POSTS === "true"
     ? [{ label: "Blog", href: "/blog" }]
     : []),
+  { label: "For Matchmakers", href: "/ghotok-partners" },
 ];
 
 export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean }) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import LocationFields from "./LocationFields";
 import {
   GHOTOK_CONSENT_TEXT,
   GHOTOK_LIMITS,
@@ -8,7 +9,7 @@ import {
   type GhotokResponse,
 } from "@/lib/ghotok-shared";
 
-// The Ghotok Partner interest form on /ghotok-partners (on white). Posts to
+// The Matchmaker (Ghotok) Partner interest form on /ghotok-partners (on white). Posts to
 // /api/ghotok-interest; the browser never talks to Supabase.
 
 const FIELD: React.CSSProperties = {
@@ -80,7 +81,7 @@ export default function GhotokInterestForm() {
           Thank you — we&apos;ve got your details.
         </p>
         <p style={{ fontFamily: "var(--font-sans)", fontSize: "15px", color: "rgba(13,31,26,0.72)" }}>
-          We&apos;ll be in touch about the Partner program before launch.
+          We&apos;ll be in touch about the Matchmaker (Ghotok) Partners program before launch.
         </p>
       </div>
     );
@@ -118,10 +119,18 @@ export default function GhotokInterestForm() {
       {input("fullName", "Full name", { required: true, autoComplete: "name" })}
       {input("email", "Email", { type: "email", required: true, autoComplete: "email" })}
       {input("phone", "Phone / WhatsApp", { type: "tel", autoComplete: "tel" })}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {input("city", "City", { required: true, autoComplete: "address-level2" })}
-        {input("country", "Country", { required: true, autoComplete: "country-name" })}
-      </div>
+      <LocationFields
+        idPrefix="ghotok"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+        country={values.country}
+        city={values.city}
+        onCountryChange={(country) => setValues((v) => ({ ...v, country }))}
+        onCityChange={(city) => setValues((v) => ({ ...v, city }))}
+        fieldStyle={FIELD}
+        labelStyle={LABEL}
+        countryPlaceholder="Choose your country"
+        invalid={{ country: invalid("country"), city: invalid("city") }}
+      />
       {input("network", "Community or network")}
       <div>
         <label htmlFor="ghotok-howHelp" style={LABEL}>

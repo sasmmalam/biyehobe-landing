@@ -3,7 +3,7 @@
 
 /** The consent checkbox label, stored word for word in `consent_text`. */
 export const GHOTOK_CONSENT_TEXT =
-  "BiyeHobe may contact me about the Partner program. Operated by Ibaya Digital Inc.";
+  "BiyeHobe may contact me about the Matchmaker (Ghotok) Partners program. Operated by Ibaya Digital Inc.";
 
 export const GHOTOK_LIMITS = {
   fullName: 120,

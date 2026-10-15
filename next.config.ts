@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_HAS_BLOG_POSTS: String(hasPublishedPosts()),
   },
+  async redirects() {
+    return [{ source: "/matchmakers", destination: "/ghotok-partners", permanent: true }];
+  },
 };
 
 export default nextConfig;
