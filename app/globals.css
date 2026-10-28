@@ -155,3 +155,47 @@ body {
   /* 4.74:1 on the waitlist input (white 12% over green, L1e); 0.45 was 2.76. */
   color: rgba(255, 255, 255, 0.75);
 }
+
+/* ── Home page people imagery ─────────────────────────────────────────────────
+   Hero crop: on narrow screens the 16:9 photo is cropped hard, so aim at the
+   couple; on wide screens keep their faces in frame. */
+.hero-img {
+  object-position: 52% center;
+}
+@media (min-width: 768px) {
+  .hero-img {
+    object-position: center 30%;
+  }
+}
+/* Slow Ken Burns on the hero photo only. */
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+.hero-kenburns {
+  transform-origin: 55% 35%;
+  animation: hero-kenburns 12s ease-out forwards;
+}
+/* Horizontal image strips: swipe/scroll inside their own box, no scrollbar. */
+.strip {
+  scrollbar-width: none;
+}
+.strip::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns {
+    animation: none;
+  }
+  /* FadeUp sets these inline; show content at once instead. */
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

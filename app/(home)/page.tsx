@@ -2,7 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+} from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
@@ -42,7 +49,7 @@ function FadeUp({
   return (
     <div
       ref={ref}
-      className={className}
+      className={`fade-up ${className}`}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -120,6 +127,302 @@ function FAQAccordion({ items = FAQ_ITEMS }: { items?: typeof FAQ_ITEMS }) {
   );
 }
 
+// ── People imagery ────────────────────────────────────────────────────────────
+// AI-generated lifestyle photos in public/images/people. They are not members:
+// every section that shows them carries <IllustrativeNote />.
+
+function peopleImg(name: string, widths: number[]) {
+  return {
+    src: `/images/people/${name}-${widths[0]}.webp`,
+    srcSet: widths
+      .map((w) => `/images/people/${name}-${w}.webp ${w}w`)
+      .join(", "),
+  };
+}
+
+const CITIES = [
+  { name: "Toronto", img: "city-toronto", alt: "A woman with a coffee at a café window in Toronto" },
+  { name: "New York", img: "city-newyork", alt: "A woman in a hijab holding a coffee on a New York pier, the Brooklyn Bridge behind her" },
+  { name: "London", img: "city-london", alt: "A man by the Thames with the Houses of Parliament behind him" },
+  { name: "Sydney", img: "city-sydney", alt: "A woman sitting by Sydney Harbour with the Opera House behind her" },
+  { name: "Montreal", img: "city-montreal", alt: "A man in a knitted hat holding a hot coffee on a Montreal street" },
+  { name: "Calgary", img: "city-calgary", alt: "A man sitting on a car with the Calgary skyline and the Rockies behind him" },
+  { name: "Dubai", img: "city-dubai", alt: "A woman in a salwar kameez on a Dubai promenade at night" },
+];
+
+const PROFESSIONALS = [
+  { role: "Doctor", img: "pro-doctor", alt: "A doctor in a hijab and white coat, smiling in a hospital corridor" },
+  { role: "Dentist", img: "pro-dentist", alt: "A dentist in navy scrubs, arms folded, in a dental clinic" },
+  { role: "Engineer", img: "pro-engineer", alt: "An engineer with a coffee at a desk of monitors" },
+  { role: "Teacher", img: "pro-teacher", alt: "A teacher holding a tablet beside a whiteboard of equations" },
+  { role: "Analyst", img: "pro-office", alt: "An analyst in a blazer at an office desk overlooking the city" },
+];
+
+const JOURNEY = [
+  {
+    img: "journey-1-coffee",
+    alt: "A couple talking over coffee in a café",
+    title: "The first coffee",
+    text: "Chat only when you both like each other.",
+  },
+  {
+    img: "journey-2-nikah",
+    alt: "A bride and groom signing their marriage papers at their wedding",
+    title: "The nikah",
+    text: "Families involved at your pace.",
+  },
+  {
+    img: "journey-3-family",
+    alt: "A mother photographing her husband and toddler under cherry blossoms",
+    title: "A family of your own",
+    text: "Wherever home is.",
+  },
+];
+
+function IllustrativeNote({
+  onDark = false,
+  className = "",
+}: {
+  onDark?: boolean;
+  className?: string;
+}) {
+  return (
+    <p
+      className={className}
+      style={{
+        fontFamily: "var(--font-sans)",
+        fontSize: "13px",
+        color: onDark ? "rgba(255,255,255,0.8)" : "rgba(13,31,26,0.65)",
+      }}
+    >
+      Illustrative images.
+    </p>
+  );
+}
+
+function SectionHeading({ title, line }: { title: string; line: string }) {
+  return (
+    <>
+      <h2
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 700,
+          fontSize: "clamp(40px, 6vw, 60px)",
+          color: "var(--dark)",
+          lineHeight: 1.1,
+        }}
+      >
+        {title}
+      </h2>
+      <p
+        className="mt-4 text-base leading-relaxed max-w-xl"
+        style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}
+      >
+        {line}
+      </p>
+    </>
+  );
+}
+
+// Pure HTML/CSS phone, no device brand. The profile is fictional.
+function PhoneProfile() {
+  return (
+    <figure className="mx-auto" style={{ width: "280px", maxWidth: "100%" }}>
+      <div
+        style={{
+          backgroundColor: "var(--dark)",
+          borderRadius: "44px",
+          padding: "10px",
+          boxShadow: "0 30px 60px -24px rgba(13,31,26,0.45)",
+        }}
+      >
+        <div
+          className="relative overflow-hidden"
+          style={{ backgroundColor: "white", borderRadius: "34px" }}
+        >
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 -translate-x-1/2 rounded-full"
+            style={{
+              top: "10px",
+              width: "88px",
+              height: "24px",
+              backgroundColor: "var(--dark)",
+            }}
+          />
+          <div style={{ height: "44px" }} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/people/phone-profile-f-600.webp"
+            alt="Example profile photo: a woman resting her chin on her hand at a café table"
+            width={600}
+            height={750}
+            loading="lazy"
+            decoding="async"
+            className="block w-full h-auto"
+            style={{ aspectRatio: "4 / 5", objectFit: "cover" }}
+          />
+          <div className="px-5 pt-4 pb-3">
+            <div className="flex items-center gap-2">
+              <span
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
+                  fontSize: "26px",
+                  lineHeight: 1.1,
+                  color: "var(--dark)",
+                }}
+              >
+                Nadia, 29
+              </span>
+              <BadgeCheck
+                size={22}
+                fill="var(--gold)"
+                color="white"
+                aria-hidden="true"
+              />
+              <span
+                className="uppercase tracking-widest"
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  color: "var(--gold-ink)",
+                }}
+              >
+                Verified
+              </span>
+            </div>
+            <p
+              className="mt-1.5 flex items-center gap-1.5 text-sm"
+              style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}
+            >
+              <MapPin size={15} color="var(--gold-ink)" aria-hidden="true" />
+              Toronto
+            </p>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-5 rounded-full"
+              style={{
+                width: "112px",
+                height: "4px",
+                backgroundColor: "rgba(13,31,26,0.2)",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      <figcaption className="mt-4 text-center">
+        <IllustrativeNote />
+      </figcaption>
+    </figure>
+  );
+}
+
+function CityStrip() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const update = () => {
+    const el = ref.current;
+    if (!el) return;
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
+  };
+
+  useEffect(() => {
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const scroll = (dir: 1 | -1) => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollBy({
+      left: dir * el.clientWidth * 0.8,
+      behavior: reduce ? "auto" : "smooth",
+    });
+  };
+
+  const arrow = (dir: 1 | -1, disabled: boolean) => (
+    <button
+      type="button"
+      onClick={() => scroll(dir)}
+      disabled={disabled}
+      aria-label={dir === 1 ? "Scroll to more cities" : "Scroll back to earlier cities"}
+      className="w-11 h-11 rounded-full flex items-center justify-center transition-opacity hover:opacity-75 disabled:opacity-30 disabled:cursor-default"
+      style={{ border: "1px solid var(--gold)", color: "var(--dark)" }}
+    >
+      {dir === 1 ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+    </button>
+  );
+
+  return (
+    <>
+      <div className="hidden sm:flex justify-end gap-3 mb-5">
+        {arrow(-1, atStart)}
+        {arrow(1, atEnd)}
+      </div>
+      <div
+        ref={ref}
+        onScroll={update}
+        role="region"
+        aria-label="Cities"
+        tabIndex={0}
+        className="strip overflow-x-auto snap-x snap-mandatory"
+      >
+        <ul className="flex gap-4">
+          {CITIES.map((city) => (
+            <li
+              key={city.name}
+              className="snap-start shrink-0"
+              style={{ width: "min(62vw, 220px)" }}
+            >
+              <figure
+                className="relative overflow-hidden rounded-2xl"
+                style={{ aspectRatio: "4 / 5" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/images/people/${city.img}-600.webp`}
+                  alt={city.alt}
+                  width={600}
+                  height={750}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(13,31,26,0.8) 0%, rgba(13,31,26,0) 45%)",
+                  }}
+                />
+                <figcaption
+                  className="absolute left-4 bottom-3"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 700,
+                    fontSize: "24px",
+                    color: "white",
+                  }}
+                >
+                  {city.name}
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -130,25 +433,43 @@ export default function Home() {
       {/* ── Hero ── */}
       <section
         className="relative flex items-center justify-center text-center"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "94vh" }}
       >
-        {/* Background image */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Hero.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center" }}
-        />
+        {/* Background image. Phones get the 1200 file whatever their pixel
+            density — it sits under a dark overlay, and the 1920 one would
+            slow the first paint. The hero stops short of 100vh on purpose:
+            Chrome treats a viewport-filling image as a background and
+            won't count it as the LCP element. */}
+        <picture className="absolute inset-0 overflow-hidden">
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/people/hero-niagara-1200.webp"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            {...peopleImg("hero-niagara", [800, 1200, 1920])}
+            sizes="100vw"
+            alt="A laughing couple at Niagara Falls; she wipes the mist from his glasses"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            loading="eager"
+            className="hero-img hero-kenburns absolute inset-0 w-full h-full object-cover"
+          />
+        </picture>
 
-        {/* Gradient overlay */}
+        {/* Gradient overlay — dark enough behind the text for 4.5:1 */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.65) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 30%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.75) 100%)",
           }}
+        />
+
+        <IllustrativeNote
+          onDark
+          className="absolute z-10 right-4 bottom-3 sm:right-6 sm:bottom-4"
         />
 
         <div
@@ -289,59 +610,67 @@ export default function Home() {
             </h2>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-            {[
-              {
-                n: "1",
-                title: "Create Your Profile",
-                desc: "Answer a few meaningful questions about yourself — your values, lifestyle, and what you are looking for in a partner.",
-              },
-              {
-                n: "2",
-                title: "Get Verified",
-                desc: "Take a quick live selfie check. We match your main photo against it, and the ✓ shows only when both pass.",
-              },
-              {
-                n: "3",
-                title: "Start Connecting",
-                desc: "When someone you like likes you back, it's a match — and you can start talking, with serious intent, on your terms.",
-              },
-            ].map((step, i) => (
-              <FadeUp key={step.n} delay={i * 130}>
-                <div className="flex flex-col items-center text-center">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-dark text-lg mb-7"
-                    style={{
-                      backgroundColor: "var(--gold)",
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                    }}
-                  >
-                    {step.n}
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-16 lg:gap-20 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-12 lg:gap-10">
+              {[
+                {
+                  n: "1",
+                  title: "Create Your Profile",
+                  desc: "Answer a few meaningful questions about yourself — your values, lifestyle, and what you are looking for in a partner.",
+                },
+                {
+                  n: "2",
+                  title: "Get Verified",
+                  desc: "Take a quick live selfie check. We match your main photo against it, and the ✓ shows only when both pass.",
+                },
+                {
+                  n: "3",
+                  title: "Start Connecting",
+                  desc: "When someone you like likes you back, it's a match — and you can start talking, with serious intent, on your terms.",
+                },
+              ].map((step, i) => (
+                <FadeUp key={step.n} delay={i * 130}>
+                  <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left lg:gap-6">
+                    <div
+                      className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center text-dark text-lg mb-7 lg:mb-0"
+                      style={{
+                        backgroundColor: "var(--gold)",
+                        fontFamily: "var(--font-display)",
+                        fontWeight: 700,
+                      }}
+                    >
+                      {step.n}
+                    </div>
+                    <div>
+                      <h3
+                        className="mb-3"
+                        style={{
+                          fontFamily: "var(--font-display)",
+                          fontWeight: 700,
+                          fontSize: "24px",
+                          color: "var(--dark)",
+                        }}
+                      >
+                        {step.title}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{
+                          color: "#1a1a1a",
+                          fontFamily: "var(--font-sans)",
+                        }}
+                      >
+                        {step.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h3
-                    className="mb-3"
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                      fontSize: "24px",
-                      color: "var(--dark)",
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{
-                      color: "#1a1a1a",
-                      fontFamily: "var(--font-sans)",
-                    }}
-                  >
-                    {step.desc}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
+                </FadeUp>
+              ))}
+            </div>
+
+            <FadeUp delay={200}>
+              <PhoneProfile />
+            </FadeUp>
           </div>
         </div>
       </section>
@@ -377,6 +706,65 @@ export default function Home() {
 
           <FadeUp delay={100}>
             <BuiltDifferently />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── Bangladeshis everywhere ── */}
+      <section style={{ backgroundColor: "var(--cream)" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+          <FadeUp className="mb-10">
+            <SectionHeading
+              title="Bangladeshis everywhere"
+              line="From Toronto to Sydney, find someone who shares your roots — close to where you live."
+            />
+          </FadeUp>
+          <FadeUp delay={100}>
+            <CityStrip />
+            <IllustrativeNote className="mt-4" />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── Built for busy professionals ── */}
+      <section style={{ backgroundColor: "white" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+          <FadeUp className="mb-10">
+            <SectionHeading
+              title="Built for busy professionals"
+              line="Doctors, engineers, teachers — when work takes your time, we make the introduction."
+            />
+          </FadeUp>
+          <FadeUp delay={100}>
+            <ul className="strip flex gap-4 overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:gap-6 lg:overflow-visible">
+              {PROFESSIONALS.map((pro) => (
+                <li
+                  key={pro.role}
+                  className="snap-start shrink-0 w-[min(46vw,200px)] lg:w-auto"
+                >
+                  <figure>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/images/people/${pro.img}-600.webp`}
+                      alt={pro.alt}
+                      width={600}
+                      height={750}
+                      loading="lazy"
+                      decoding="async"
+                      className="block w-full h-auto rounded-2xl object-cover"
+                      style={{ aspectRatio: "4 / 5" }}
+                    />
+                    <figcaption
+                      className="mt-3 text-sm font-medium"
+                      style={{ color: "var(--dark)", fontFamily: "var(--font-sans)" }}
+                    >
+                      {pro.role}
+                    </figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+            <IllustrativeNote className="mt-6" />
           </FadeUp>
         </div>
       </section>
@@ -506,6 +894,74 @@ export default function Home() {
               See all questions →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ── From hello to nikah ── */}
+      <section style={{ backgroundColor: "var(--cream)" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+          <FadeUp className="mb-12">
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: "clamp(40px, 6vw, 60px)",
+                color: "var(--dark)",
+                lineHeight: 1.1,
+              }}
+            >
+              From hello to nikah
+            </h2>
+          </FadeUp>
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+            {JOURNEY.map((step, i) => (
+              <li key={step.img}>
+                <FadeUp delay={i * 130}>
+                  <div className="relative">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      {...peopleImg(step.img, [800, 1200])}
+                      sizes="(min-width: 1152px) 350px, (min-width: 768px) 30vw, 100vw"
+                      alt={step.alt}
+                      width={1200}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
+                      className="block w-full h-auto rounded-2xl object-cover"
+                      style={{ aspectRatio: "16 / 9" }}
+                    />
+                    {i < JOURNEY.length - 1 && (
+                      <ArrowRight
+                        size={20}
+                        color="var(--gold)"
+                        aria-hidden="true"
+                        className="hidden md:block absolute top-1/2 -translate-y-1/2"
+                        style={{ right: "-34px" }}
+                      />
+                    )}
+                  </div>
+                  <h3
+                    className="mt-5 mb-1"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 700,
+                      fontSize: "24px",
+                      color: "var(--dark)",
+                    }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}
+                  >
+                    {step.text}
+                  </p>
+                </FadeUp>
+              </li>
+            ))}
+          </ol>
+          <IllustrativeNote className="mt-8" />
         </div>
       </section>
 
