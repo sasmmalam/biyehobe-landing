@@ -433,43 +433,25 @@ export default function Home() {
       {/* ── Hero ── */}
       <section
         className="relative flex items-center justify-center text-center"
-        style={{ minHeight: "94vh" }}
+        style={{ minHeight: "100vh" }}
       >
-        {/* Background image. Phones get the 1200 file whatever their pixel
-            density — it sits under a dark overlay, and the 1920 one would
-            slow the first paint. The hero stops short of 100vh on purpose:
-            Chrome treats a viewport-filling image as a background and
-            won't count it as the LCP element. */}
-        <picture className="absolute inset-0 overflow-hidden">
-          <source
-            media="(max-width: 767px)"
-            srcSet="/images/people/hero-niagara-1200.webp"
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            {...peopleImg("hero-niagara", [800, 1200, 1920])}
-            sizes="100vw"
-            alt="A laughing couple at Niagara Falls; she wipes the mist from his glasses"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-            loading="eager"
-            className="hero-img hero-kenburns absolute inset-0 w-full h-full object-cover"
-          />
-        </picture>
+        {/* Background image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/Hero.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center" }}
+        />
 
-        {/* Gradient overlay — dark enough behind the text for 4.5:1 */}
+        {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 30%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.75) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.65) 100%)",
           }}
-        />
-
-        <IllustrativeNote
-          onDark
-          className="absolute z-10 right-4 bottom-3 sm:right-6 sm:bottom-4"
         />
 
         <div
