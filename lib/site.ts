@@ -66,7 +66,7 @@ export function pageMetadata({
         url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "BiyeHobe — Where tradition meets intention, wherever home is.",
+        alt: "BiyeHobe — Connecting souls, wherever home is.",
       };
 
   return {
@@ -129,7 +129,7 @@ export const ORGANIZATION_JSON_LD = {
  * content last changed — bump it when you edit the page.
  */
 export const STATIC_PAGES: { path: string; lastModified: string }[] = [
-  { path: "/", lastModified: "2026-10-14" },
+  { path: "/", lastModified: "2026-10-27" },
   { path: "/about", lastModified: "2026-09-30" },
   { path: "/how-it-works", lastModified: "2026-09-30" },
   { path: "/faq", lastModified: "2026-10-14" },

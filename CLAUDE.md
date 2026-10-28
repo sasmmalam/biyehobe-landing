@@ -110,7 +110,7 @@ photo files are stored, `/privacy` is the source of truth._
 - **Also not offered** (L1d): a family-involvement feature, a "matching
   engine" beyond preference filters + verified-first ordering, a support
   team or response-time promise (one person reads hello@biyehobe.com).
-- **Tagline**: "Where tradition meets intention — wherever home is."
+- **Tagline**: "Connecting souls, wherever home is."
 - **Rule**: nothing in copy describes a feature that isn't merged to `main`.
   Aspirational features get a visibly distinct "coming" treatment instead
   of being stated as current.

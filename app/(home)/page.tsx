@@ -196,7 +196,7 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.45)",
             }}
           >
-            Where tradition meets intention — wherever home is.
+            Connecting souls, wherever home is.
           </p>
 
           {/* Sub-tagline */}
@@ -449,7 +449,7 @@ export default function Home() {
                   fontStyle: "italic",
                 }}
               >
-                &ldquo;Where tradition meets intention — wherever home
+                &ldquo;Connecting souls, wherever home
                 is.&rdquo;
               </blockquote>
               <p

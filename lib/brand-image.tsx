@@ -53,7 +53,7 @@ export async function defaultOgImage() {
         <Knot size={150} />
         <div style={{ marginTop: 28, fontSize: 124, color: CREAM, letterSpacing: 4 }}>BiyeHobe</div>
         <div style={{ marginTop: 14, fontSize: 40, color: GOLD_LIGHT }}>
-          Where tradition meets intention — wherever home is.
+          Connecting souls, wherever home is.
         </div>
       </div>
     ),

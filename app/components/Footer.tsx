@@ -53,7 +53,7 @@ export default function Footer() {
             className="mt-1 text-xs"
             style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-sans)" }}
           >
-            Where tradition meets intention — wherever home is.
+            Connecting souls, wherever home is.
           </p>
           <ul
             className="mt-4 -ml-2.5 flex items-center justify-center sm:justify-start gap-1"
