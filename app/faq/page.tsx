@@ -208,7 +208,7 @@ export default function FAQ() {
           >
             Join the waitlist
           </a>
-          <GoldOfferLine onDark className="mt-5" />
+          <GoldOfferLine onDark introduce className="mt-5" />
         </div>
       </section>
 
