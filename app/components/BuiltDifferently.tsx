@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 function IconSliders() {
   return (
@@ -18,11 +19,13 @@ function IconSliders() {
   );
 }
 
-function IconShield() {
+function IconPeople() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <polyline points="9 12 11 14 15 10" />
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   );
 }
@@ -37,23 +40,9 @@ function IconGlobe() {
   );
 }
 
+// S67: verification, photo control, blocking and reporting moved to the
+// "Safety first" home section and /safety, so they aren't repeated here.
 const TABS = [
-  {
-    id: "control",
-    label: "Your Control",
-    Icon: IconSliders,
-    heading: "You stay in control.",
-    desc: "Edit your profile or remove a photo any time. Block or report anyone. Delete your account whenever you like, straight from the app.",
-    badge: "Block · Report · Delete",
-  },
-  {
-    id: "verified",
-    label: "Verified Tick",
-    Icon: IconShield,
-    heading: "A ✓ that means something.",
-    desc: "The ✓ shows only when two checks pass: a live selfie check, run by our partner Didit, and a match between your main photo and that selfie. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. No ID check.",
-    badge: "Live selfie + photo match",
-  },
   {
     id: "diaspora",
     label: "Diaspora-First",
@@ -61,6 +50,22 @@ const TABS = [
     heading: "Built for wherever home is.",
     desc: "Whether you're in Toronto, London, or Dhaka — BiyeHobe finds matches across the diaspora, not just locally.",
     badge: "Global + local",
+  },
+  {
+    id: "depth",
+    label: "Profiles With Depth",
+    Icon: IconSliders,
+    heading: "More than a photo.",
+    desc: "Profiles cover faith, family plans, education and lifestyle, so you can decide with care. The most personal questions always offer \"Prefer not to say\".",
+    badge: "Faith · Family · Lifestyle",
+  },
+  {
+    id: "everyone",
+    label: "Every Bangladeshi",
+    Icon: IconPeople,
+    heading: "For all of us.",
+    desc: "BiyeHobe is for every Bangladeshi who is serious about marriage, whatever their religion. If faith matters to you, you can filter by it.",
+    badge: "Open to all",
   },
 ];
 
@@ -209,6 +214,21 @@ export default function BuiltDifferently() {
           </div>
         </div>
       </div>
+
+      <p
+        className="mt-6 text-sm"
+        style={{ fontFamily: "var(--font-sans)", color: "rgba(13,31,26,0.72)" }}
+      >
+        Verification, photo blur and reporting are explained on{" "}
+        <Link
+          href="/safety"
+          className="underline underline-offset-4 transition-opacity hover:opacity-70"
+          style={{ color: "var(--gold-ink)" }}
+        >
+          Safety &amp; trust
+        </Link>
+        .
+      </p>
     </div>
   );
 }

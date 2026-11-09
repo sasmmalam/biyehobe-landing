@@ -7,6 +7,7 @@ import Logo from "./Logo";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "/how-it-works" },
+  { label: "Safety", href: "/safety" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
   // Set at build time in next.config.ts: only once a post is published.
@@ -75,7 +76,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-7 whitespace-nowrap">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -98,7 +99,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden transition-colors"
+          className="lg:hidden transition-colors"
           style={{ color: scrolled ? "var(--dark)" : "white" }}
           aria-label="Toggle menu"
         >
@@ -108,7 +109,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
 
       {menuOpen && (
         <div
-          className="md:hidden px-5 py-5 flex flex-col gap-5"
+          className="lg:hidden px-5 py-5 flex flex-col gap-5"
           style={{ backgroundColor: "white", borderTop: "1px solid rgba(0,0,0,0.06)" }}
         >
           {NAV_LINKS.map((link) => (

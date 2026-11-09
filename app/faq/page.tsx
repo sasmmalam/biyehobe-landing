@@ -20,15 +20,17 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "How does verification work?",
-    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional.",
+    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass, so someone using another person's photos can't get it. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional. Details like education and job are shown as self-reported.",
+    link: { href: "/safety#verified", label: "More on verification" },
   },
   {
     q: "Who can see my photos?",
-    a: "Other signed-in BiyeHobe members can see the photos on your profile. You choose which photos to add — up to six — and you can remove any of them at any time.",
+    a: "Other signed-in BiyeHobe members can see the photos on your profile. You choose which photos to add — up to six — and you can remove any of them at any time. If you turn on \"Blur my photos until we match\" in Profile, other members see them blurred until you both like each other. It's off unless you turn it on, and it doesn't stop someone you match with from taking a screenshot.",
+    link: { href: "/safety#photos", label: "More on photo blur" },
   },
   {
     q: "Who can see my profile?",
-    a: "Other signed-in members can see your profile — that's how the right person finds you. They never see your email, phone number or exact location. You can block anyone, which hides you from each other, report anyone, and delete your account at any time from the app.",
+    a: "Other signed-in members can see your profile — that's how the right person finds you. They see your city, never your email, phone number or exact location. Nobody can message you unless you both like each other. You can block anyone, which hides you from each other, report or unmatch anyone, and delete your account at any time from the app.",
   },
   {
     q: "When does the app launch?",
@@ -54,7 +56,8 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "What happens if I report a bad actor?",
-    a: "You can report anyone from their profile or from your chat. The report comes to us with the reason you chose, your note, and a copy of your recent messages with that person, and we decide what to do — from a warning to closing the account. You can also block them, which hides you from each other straight away.",
+    a: "You can report anyone from their profile or from your chat, and for 30 days after an unmatch. The report comes to us with the reason you chose, your note, and a copy of your recent messages with that person. Every report is reviewed by a person, and a report alone never removes anyone. Fake profiles, scams, anyone under 18, sexual harassment and threats mean removal straight away; other problems get a suspension or a warning first. The person is never told who reported them. You can also block them, which hides you from each other straight away.",
+    link: { href: "/safety#policy", label: "Our full report policy" },
   },
   {
     q: "How do I contact BiyeHobe?",

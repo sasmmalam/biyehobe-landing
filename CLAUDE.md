@@ -62,6 +62,8 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 | `supabase/migrations/waitlist_v2.sql` (+ `_ROLLBACK.sql`) | Waitlist v2 schema; drops the anon insert policy. Applied by hand in the SQL editor |
 | `app/waitlist/unsubscribe/page.tsx`, `app/api/waitlist/unsubscribe/route.ts` | Unsubscribe (v3). The page unsubscribes on open and has a Re-subscribe button; the route is the one-click POST mail apps call, and also handles that button. Neither reveals whether a token belongs to anyone |
 | `supabase/migrations/waitlist_v3_unsubscribe.sql` (+ `_ROLLBACK.sql`) | Adds status `unsubscribed`, `unsubscribed_at`, `unsubscribe_token_hash` |
+| `app/safety/page.tsx` | S67 Safety & trust page: verification, photo blur, messages, report/block/unmatch, report policy, location, data, tips |
+| `app/components/PhoneScreen.tsx` | S67 CSS phone frame around a real app screenshot (`public/images/app`, 946×1848) + `<ScreensCaption />`, which must accompany every block of screens |
 | `app/components/ReferralShare.tsx` | Referral link + Copy + WhatsApp, on green or on white |
 | `public/Hero.png` | Hero background image (South Asian couple, culturally aligned) — must be present for hero to render |
 | `vercel.json` | Vercel deployment config |
@@ -96,9 +98,14 @@ photo files are stored, `/privacy` is the source of truth._
 - **Not offered** — do not write copy implying these exist: Guardian Mode,
   audio/video calls, any pricing/premium tier, government-ID verification,
   pausing or hiding your profile (the
-  `incognito_mode` column exists but nothing in the app sets it), unmatch
-  (blocking is what ends a match), a "Trust Profile" confirming phone /
+  `incognito_mode` column exists but nothing in the app sets it), a "Trust Profile" confirming phone /
   location / references, manual review of every profile before it goes live.
+- **Safety facts (S67, live in the app)** — nobody can message you until you both like
+  each other; a like can carry one short note; Discover shows only the opposite gender;
+  report (6 reasons), block, unmatch and withdraw like from any profile or chat; the
+  reported person is never told who reported them; reporting stays open 30 days after
+  an unmatch ("Recently unmatched"). The report policy (Zero tolerance / Serious / Minor)
+  is published on `/safety` — keep any other copy about reports consistent with it.
 - **Verification copy (L1c)** must say exactly: optional; a live selfie
   check (Didit) plus a match of the main photo against that selfie; the ✓
   shows only when both pass; a main photo that doesn't match is flagged for
@@ -159,6 +166,7 @@ This project uses Tailwind CSS v4 which has **no `tailwind.config.ts`**. Custom 
 | 31 | 2026-04-28 | Landing page scaffolded and deployed to Vercel. Waitlist form connected to Supabase. Live at https://biyehobe-landing.vercel.app | ✅ Complete |
 | 32 | 2026-04-30 | Full premium redesign — dark editorial luxury. New color system (#043927 + #C9952A), Cormorant + DM Sans typography, 4 pages built (home, /about, /how-it-works, /faq), diaspora repositioning, Guardian Mode elevated as primary USP, Hero.png local asset wired up | ✅ Complete |
 | 62 | 2026-10-01 | Blog (Markdown in `content/blog`, static) + site-wide SEO: metadataBase, canonicals, OG/Twitter, sitemap, robots, RSS, JSON-LD. "Blog" nav/footer link appears only when ≥1 post is published (`NEXT_PUBLIC_HAS_BLOG_POSTS`, set in `next.config.ts`). No analytics added | ✅ Complete |
+| 67 | 2026-11-08 | Real app screens (`PhoneScreen`) in How it works + new home "Safety first, especially for women" section; `/safety` page with the report policy; Safety in nav/footer; FAQ + BuiltDifferently aligned | ✅ Complete |
 
 ## Session 33 Priorities
 - **Landing page polish round 2**
