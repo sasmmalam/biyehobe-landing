@@ -42,7 +42,7 @@ export default async function ConfirmWaitlist({ searchParams }: Props) {
                 className="p-6 sm:p-8 rounded-2xl"
                 style={{ backgroundColor: "white", border: "1px solid rgba(13,31,26,0.1)" }}
               >
-                <ReferralShare link={confirmed.referralLink} tone="onLight" />
+                <ReferralShare link={confirmed.referralLink} tone="onLight" introduceGold />
               </div>
             </>
           ) : (

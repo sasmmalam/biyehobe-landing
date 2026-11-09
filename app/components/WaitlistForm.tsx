@@ -120,7 +120,9 @@ const PANEL_TITLE: React.CSSProperties = {
 
 type Result = { kind: "pending" } | { kind: "confirmed"; referralLink: string };
 
-export default function WaitlistForm() {
+/** `introduceGold`: true where this form is the page's first mention of
+ *  BiyeHobe Gold (blog posts); the home page introduces it in the hero. */
+export default function WaitlistForm({ introduceGold = true }: { introduceGold?: boolean } = {}) {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState<Gender | "">("");
   const [city, setCity] = useState("");
@@ -196,7 +198,7 @@ export default function WaitlistForm() {
     return (
       <div style={PANEL} role="status">
         <p style={PANEL_TITLE}>You&apos;re on the list.</p>
-        <ReferralShare link={result.referralLink} tone="onGreen" />
+        <ReferralShare link={result.referralLink} tone="onGreen" introduceGold={introduceGold} />
       </div>
     );
   }
@@ -233,7 +235,7 @@ export default function WaitlistForm() {
 
       {/* S68: the founding-spots counter is no longer shown (GET
           /api/waitlist/stats still works); one plain offer line instead. */}
-      <GoldOfferLine onDark className="mb-6" />
+      <GoldOfferLine onDark introduce={introduceGold} className="mb-6" />
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div>

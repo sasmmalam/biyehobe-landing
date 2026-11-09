@@ -182,7 +182,7 @@ export default function About() {
             >
               Join the waitlist
             </a>
-            <GoldOfferLine className="mt-5" />
+            <GoldOfferLine introduce className="mt-5" />
           </div>
         </div>
       </section>

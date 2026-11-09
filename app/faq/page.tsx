@@ -38,11 +38,11 @@ const FAQ_ITEMS: FaqItem[] = [
     a: "We're testing the app with a small group of people right now. Join the waitlist and we'll let you know when it opens to everyone.",
   },
   {
-    q: "What do Founding Members get?",
-    a: "The first 500 confirmed waitlist members are Founding Members. Perks start when the app launches.",
+    q: "What do I get for joining the waitlist?",
+    a: "Everyone who joins the waitlist before it closes gets at least 3 months of BiyeHobe Gold, our premium membership, free at launch. The first 500 confirmed waitlist members are Founding Members. Perks start when the app launches.",
     bullets: [
-      "First 100 (50 women + 50 men): 6 months of premium free, a permanent Founding Member badge, and an invite to the first GTA Founding Members meetup (early 2027).",
-      "Members 101–500: 3 months of premium free + 50% off the first year.",
+      "First 100 (50 women + 50 men): 6 months of BiyeHobe Gold free, a permanent Founding Member badge, and an invite to the first GTA Founding Members meetup (early 2027).",
+      "Members 101–500: 3 months of BiyeHobe Gold free + 50% off the first year.",
       "Referrals: +1 free month for each friend who joins (up to 6). 3 friends move you into the First 100.",
     ],
     link: { href: "/terms#founding-members", label: "Full offer terms" },

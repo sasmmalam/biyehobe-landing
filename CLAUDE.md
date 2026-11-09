@@ -96,7 +96,7 @@ photo files are stored, `/privacy` is the source of truth._
     it on; unblurs after a mutual like. Applied in the app; it does not stop
     screenshots, so never present it as protection against copying.
 - **Not offered** — do not write copy implying these exist: Guardian Mode,
-  audio/video calls, any pricing/premium tier, government-ID verification,
+  audio/video calls, a live paid tier or any paid feature (see BiyeHobe Gold below), government-ID verification,
   pausing or hiding your profile (the
   `incognito_mode` column exists but nothing in the app sets it), a "Trust Profile" confirming phone /
   location / references, manual review of every profile before it goes live.
@@ -106,6 +106,14 @@ photo files are stored, `/privacy` is the source of truth._
   reported person is never told who reported them; reporting stays open 30 days after
   an unmatch ("Recently unmatched"). The report policy (Zero tolerance / Serious / Minor)
   is published on `/safety` — keep any other copy about reports consistent with it.
+- **BiyeHobe Gold (S68)** is the name of the future paid membership — the thing the
+  waitlist offer gives away ("3 months of BiyeHobe Gold free when we launch"). It doesn't
+  exist in the app yet: never describe what it includes. First mention per page:
+  "BiyeHobe Gold, our premium membership". Never "premium" on its own. Gold accents use
+  `--gold` (#C9952A) only; Gold **text** follows the gold-ink / gold-light rule. The
+  offer's terms live at `/terms#founding-members`; every waitlist CTA carries
+  `<GoldOfferLine />` (`app/components/GoldOffer.tsx`). No founding counts, tier names or
+  "spots" on the home page.
 - **Verification copy (L1c)** must say exactly: optional; a live selfie
   check (Didit) plus a match of the main photo against that selfie; the ✓
   shows only when both pass; a main photo that doesn't match is flagged for
@@ -167,6 +175,7 @@ This project uses Tailwind CSS v4 which has **no `tailwind.config.ts`**. Custom 
 | 32 | 2026-04-30 | Full premium redesign — dark editorial luxury. New color system (#043927 + #C9952A), Cormorant + DM Sans typography, 4 pages built (home, /about, /how-it-works, /faq), diaspora repositioning, Guardian Mode elevated as primary USP, Hero.png local asset wired up | ✅ Complete |
 | 62 | 2026-10-01 | Blog (Markdown in `content/blog`, static) + site-wide SEO: metadataBase, canonicals, OG/Twitter, sitemap, robots, RSS, JSON-LD. "Blog" nav/footer link appears only when ≥1 post is published (`NEXT_PUBLIC_HAS_BLOG_POSTS`, set in `next.config.ts`). No analytics added | ✅ Complete |
 | 67 | 2026-11-08 | Real app screens (`PhoneScreen`) in How it works + new home "Safety first, especially for women" section; `/safety` page with the report policy; Safety in nav/footer; FAQ + BuiltDifferently aligned | ✅ Complete |
+| 68 | 2026-11-08 | Waitlist simplified ("Join the waitlist" + 3-months BiyeHobe Gold line, counter hidden); paid membership named BiyeHobe Gold | ✅ Complete |
 
 ## Session 33 Priorities
 - **Landing page polish round 2**

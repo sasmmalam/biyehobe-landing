@@ -234,7 +234,7 @@ export default function HowItWorks() {
           >
             Join the waitlist
           </a>
-          <GoldOfferLine onDark className="mt-5" />
+          <GoldOfferLine onDark introduce className="mt-5" />
         </div>
       </section>
 

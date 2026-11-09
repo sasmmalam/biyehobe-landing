@@ -571,7 +571,7 @@ export default function Home() {
               Learn how it works ↓
             </a>
           </div>
-          <GoldOfferLine onDark shadow className="mt-6 max-w-md" />
+          <GoldOfferLine onDark shadow introduce className="mt-6 max-w-md" />
         </div>
       </section>
 
@@ -970,7 +970,7 @@ export default function Home() {
             >
               Built for NRBs and Bangladeshis worldwide, with intention.
             </p>
-            <WaitlistForm />
+            <WaitlistForm introduceGold={false} />
           </FadeUp>
         </div>
       </section>
