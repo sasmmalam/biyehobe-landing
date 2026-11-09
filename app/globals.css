@@ -188,7 +188,40 @@ body {
   display: none;
 }
 
+/* ── App screens in a phone frame (S67, app/components/PhoneScreen.tsx) ───────
+   The wrapper is a size container, so the frame's radius and bezel are a
+   share of the phone's width (36px radius / 8px bezel at 260px). The px
+   values before each cqw line are the fallback for older browsers. */
+.phone-wrap {
+  container-type: inline-size;
+  flex-shrink: 0;
+}
+.phone-frame {
+  background: var(--green);
+  padding: 7px;
+  padding: 3cqw;
+  border-radius: 36px;
+  border-radius: 13.8cqw;
+  box-shadow: 0 24px 48px -20px rgba(13, 31, 26, 0.45),
+    0 4px 12px -4px rgba(13, 31, 26, 0.18);
+}
+.phone-screen {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 946 / 1848;
+  border-radius: 29px;
+  border-radius: 10.8cqw;
+  background: var(--cream);
+}
+.phone-tilt {
+  transform: rotate(var(--tilt, 0deg));
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .phone-tilt {
+    transform: none;
+  }
   .hero-kenburns {
     animation: none;
   }
