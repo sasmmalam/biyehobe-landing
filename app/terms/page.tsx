@@ -100,6 +100,9 @@ export default function Terms() {
         <P>
           We review reports and decide what to do. That can include no action, a warning, removing content, or suspending or closing an account. We can&apos;t promise to tell you the outcome of every report.
         </P>
+        <P>
+          How we handle reports, including the steps we take, is set out on our <InlineLink href="/safety#policy">Safety &amp; trust page</InlineLink>.
+        </P>
 
         <H2>What &ldquo;verified&rdquo; means</H2>
         <P>
@@ -125,7 +128,7 @@ export default function Terms() {
 
         <H2>Leaving BiyeHobe</H2>
         <P>
-          You can delete your account at any time in the app under <strong>Profile → Delete Account</strong>. If you no longer have the app, see <InlineLink href="/delete-account">Delete your account</InlineLink>. Deletion is permanent. It&apos;s explained in full, including the few safety records we keep, on that page.
+          You can delete your account at any time in the app under <strong>Profile → Settings → Delete account</strong>. If you no longer have the app, see <InlineLink href="/delete-account">Delete your account</InlineLink>. Deletion is permanent. It&apos;s explained in full, including the few safety records we keep, on that page.
         </P>
 
         <H2>Cost</H2>

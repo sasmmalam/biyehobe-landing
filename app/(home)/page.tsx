@@ -278,14 +278,14 @@ const SAFETY_CARDS: ScreenCard[] = [
     text: "Turn on photo blur and your photos stay blurred until you both like each other.",
   },
   {
-    src: "/images/app/03-profile-note-like-back.webp",
-    alt: "A profile with a note sent with a like, and a Like back to chat button",
+    src: "/images/app/15-say-salam.webp",
+    alt: "A new chat between two matched members, which opens only after both liked each other, suggesting a first message: Say salam to Farhana",
     title: "No messages from strangers",
     text: "Chat opens only after you both like each other.",
   },
   {
-    src: "/images/app/01-discover-woman-verified.webp",
-    alt: "A profile card with a gold verified tick next to the name Farhana Akter, 32",
+    src: "/images/app/02-discover-man-verified.webp",
+    alt: "What a woman sees in Discover: a verified man's profile card with a gold tick next to the name Sabbir Rahman, 34",
     title: "Verified means a real, live person",
     text: "The ✓ shows only after a live selfie check and a match of the main photo to that selfie.",
   },

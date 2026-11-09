@@ -27,7 +27,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "14 October 2026";
+const UPDATED = "8 November 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — BiyeHobe",
@@ -263,7 +263,7 @@ export default function Privacy() {
         <UL>
           <LI><strong>See</strong>{" "}what we hold about you — ask, and we&apos;ll send you a copy</LI>
           <LI><strong>Correct</strong>{" "}it — most of it you can edit in the app yourself</LI>
-          <LI><strong>Delete</strong>{" "}it — in the app under <strong>Profile → Delete Account</strong>, or <InlineLink href="/delete-account">by email</InlineLink>{" "}if you no longer have the app</LI>
+          <LI><strong>Delete</strong>{" "}it — in the app under <strong>Profile → Settings → Delete account</strong>, or <InlineLink href="/delete-account">by email</InlineLink>{" "}if you no longer have the app</LI>
           <LI><strong>Withdraw consent</strong>{" "}to verification, by asking us to remove your selfie</LI>
           <LI><strong>Ask a question</strong>{" "}about any of this and get a real answer</LI>
         </UL>

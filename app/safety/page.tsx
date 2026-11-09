@@ -449,7 +449,7 @@ export default function SafetyPage() {
         ]}
       >
         <Lines>
-          <p>You can delete your account any time, straight from the app.</p>
+          <p>You can delete your account any time, from Settings in the app.</p>
           <p>
             What&apos;s deleted and the few safety records we keep are set out
             in our <InlineLink href="/privacy">Privacy Policy</InlineLink> and

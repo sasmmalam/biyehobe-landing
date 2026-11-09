@@ -26,7 +26,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "29 September 2026";
+const UPDATED = "8 November 2026";
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Delete my account")}`;
 
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function DeleteAccount() {
         <H2 id="in-the-app">In the app</H2>
         <ol className="flex flex-col gap-3 mb-6 list-decimal pl-6" style={{ color: "rgba(13,31,26,0.72)" }}>
           <li className="text-base leading-relaxed pl-1">Open BiyeHobe and go to the <strong>Profile</strong>{" "}tab.</li>
-          <li className="text-base leading-relaxed pl-1">Tap <strong>Delete Account</strong>.</li>
+          <li className="text-base leading-relaxed pl-1">Tap <strong>Settings</strong>, then <strong>Delete account</strong>.</li>
           <li className="text-base leading-relaxed pl-1">Read what will be deleted, type the confirmation word shown, and tap <strong>Delete my account permanently</strong>.</li>
         </ol>
         <P>
