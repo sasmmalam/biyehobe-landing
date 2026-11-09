@@ -24,7 +24,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "14 October 2026";
+const UPDATED = "8 November 2026";
 
 export const metadata: Metadata = {
   title: "Terms of Use — BiyeHobe",
@@ -139,6 +139,7 @@ export default function Terms() {
         </P>
 
         <H2 id="founding-members">Founding Members offer</H2>
+        <P>Everyone who joins the waitlist before it closes gets at least 3 months of BiyeHobe Gold free at launch.</P>
         <P>The first 500 confirmed waitlist members are Founding Members:</P>
         <UL>
           <LI><strong>The First 100</strong>{" "}(50 women and 50 men): 6 months of premium free, a permanent &ldquo;Founding Member&rdquo; badge, and an invitation to the first GTA Founding Members meetup (early 2027).</LI>

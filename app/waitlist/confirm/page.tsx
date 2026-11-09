@@ -8,7 +8,7 @@ import { confirmByToken } from "@/lib/waitlist";
 // confirms the signup. Not in the sitemap and not indexed.
 
 export const metadata = {
-  title: "Confirm your waitlist spot — BiyeHobe",
+  title: "Confirm your email — BiyeHobe waitlist",
   robots: { index: false, follow: false },
   referrer: "no-referrer" as const,
 };

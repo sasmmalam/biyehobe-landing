@@ -92,7 +92,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
             className="px-5 py-2 rounded-full text-sm font-medium text-dark transition-opacity hover:opacity-85"
             style={{ backgroundColor: "var(--gold)", fontFamily: "var(--font-sans)" }}
           >
-            Join Waitlist
+            Join the waitlist
           </a>
         </div>
 
@@ -129,7 +129,7 @@ export default function Navbar({ alwaysWhite = false }: { alwaysWhite?: boolean 
             style={{ backgroundColor: "var(--gold)" }}
             onClick={() => setMenuOpen(false)}
           >
-            Join Waitlist
+            Join the waitlist
           </a>
         </div>
       )}

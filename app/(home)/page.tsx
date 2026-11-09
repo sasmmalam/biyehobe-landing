@@ -14,6 +14,7 @@ import Logo from "../components/Logo";
 import BuiltDifferently from "../components/BuiltDifferently";
 import WaitlistForm from "../components/WaitlistForm";
 import PhoneScreen, { ScreensCaption } from "../components/PhoneScreen";
+import GoldOfferLine from "../components/GoldOffer";
 
 // ── Fade-up animation wrapper ─────────────────────────────────────────────────
 
@@ -557,7 +558,7 @@ export default function Home() {
                 fontFamily: "var(--font-sans)",
               }}
             >
-              Join the Waitlist
+              Join the waitlist
             </a>
             <a
               href="#how"
@@ -570,6 +571,7 @@ export default function Home() {
               Learn how it works ↓
             </a>
           </div>
+          <GoldOfferLine onDark shadow className="mt-6 max-w-md" />
         </div>
       </section>
 
@@ -824,7 +826,7 @@ export default function Home() {
                   fontFamily: "var(--font-sans)",
                 }}
               >
-                — The BiyeHobe Founding Team
+                — The BiyeHobe Team
               </p>
             </FadeUp>
           </div>

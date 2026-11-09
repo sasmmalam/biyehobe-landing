@@ -208,7 +208,7 @@ export function sendConfirmationEmail(
   const url = `${SITE_URL}/waitlist/confirm?t=${token}`;
   const ignore = "Didn't sign up? Ignore this email and you won't hear from us again.";
   return sendWaitlistEmail(db, recipient, {
-    subject: "Confirm your BiyeHobe waitlist spot",
+    subject: "Confirm your email for the BiyeHobe waitlist",
     text: [
       "Confirm your email to join the BiyeHobe waitlist:",
       url,
@@ -220,7 +220,7 @@ export function sendConfirmationEmail(
             </tr>
             <tr>
               <td style="padding-bottom:28px;">
-                <a href="${url}" style="display:inline-block;padding:14px 28px;border-radius:999px;background-color:#1B4D3E;color:#FFFFFF;font-size:15px;font-weight:bold;text-decoration:none;">Confirm my spot</a>
+                <a href="${url}" style="display:inline-block;padding:14px 28px;border-radius:999px;background-color:#1B4D3E;color:#FFFFFF;font-size:15px;font-weight:bold;text-decoration:none;">Confirm my email</a>
               </td>
             </tr>
             <tr>

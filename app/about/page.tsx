@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import GoldOfferLine from "../components/GoldOffer";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -179,8 +180,9 @@ export default function About() {
                 fontFamily: "var(--font-sans)",
               }}
             >
-              Join the Waitlist
+              Join the waitlist
             </a>
+            <GoldOfferLine className="mt-5" />
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { getFoundingStats } from "@/lib/waitlist";
 
-// GET /api/waitlist/stats — Founding Members spots left, for the counter in
-// the waitlist form. Counts of confirmed rows only: never an email, a code or
+// GET /api/waitlist/stats — Founding Members spots left. Since S68 the site
+// no longer shows the counter; the endpoint is kept for internal use. Counts of confirmed rows only: never an email, a code or
 // a row. Worked out per request (not at build time) and cached at the edge
 // for 60 seconds, so the counter costs at most one set of counts a minute.
 

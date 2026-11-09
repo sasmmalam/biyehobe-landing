@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ShieldCheck, UserCircle, MessageCircle, Heart } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import GoldOfferLine from "../components/GoldOffer";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -231,8 +232,9 @@ export default function HowItWorks() {
               fontFamily: "var(--font-sans)",
             }}
           >
-            Join the Waitlist
+            Join the waitlist
           </a>
+          <GoldOfferLine onDark className="mt-5" />
         </div>
       </section>
 

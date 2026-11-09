@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import GoldOfferLine from "../components/GoldOffer";
 
 interface FaqItem {
   q: string;
@@ -205,8 +206,9 @@ export default function FAQ() {
               fontFamily: "var(--font-sans)",
             }}
           >
-            Join the Waitlist
+            Join the waitlist
           </a>
+          <GoldOfferLine onDark className="mt-5" />
         </div>
       </section>
 

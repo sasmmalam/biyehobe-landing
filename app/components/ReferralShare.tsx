@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { GOLD_TERMS_HREF } from "./GoldOffer";
 import { whatsappShareUrl } from "@/lib/waitlist-shared";
 
 // A member's referral link with Copy and WhatsApp buttons. Used in the
@@ -12,6 +14,7 @@ const TONES = {
     linkBorder: "1px solid rgba(255,255,255,0.28)",
     linkColor: "white",
     hint: "rgba(255,255,255,0.72)",
+    link: "var(--gold-light)",
     // Gold fill takes --dark text (6.36:1), never white.
     primary: { backgroundColor: "var(--gold)", color: "var(--dark)", border: "none" },
     secondary: {
@@ -25,6 +28,7 @@ const TONES = {
     linkBorder: "1px solid rgba(13,31,26,0.15)",
     linkColor: "var(--dark)",
     hint: "rgba(13,31,26,0.72)",
+    link: "var(--gold-ink)",
     primary: { backgroundColor: "var(--green)", color: "white", border: "none" },
     secondary: {
       backgroundColor: "white",
@@ -51,9 +55,12 @@ const BUTTON: React.CSSProperties = {
 export default function ReferralShare({
   link,
   tone,
+  introduceGold = false,
 }: {
   link: string;
   tone: keyof typeof TONES;
+  /** First mention of BiyeHobe Gold on the page: adds "our premium membership". */
+  introduceGold?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
   const t = TONES[tone];
@@ -96,7 +103,8 @@ export default function ReferralShare({
       >
         {link}
       </p>
-      {/* Copy only: tiers and referral months are worked out at launch. */}
+      {/* Copy only: referral months are worked out at launch. No tier or
+          spots wording here (S68) — the full offer is on /terms. */}
       <p
         style={{
           fontFamily: "var(--font-sans)",
@@ -105,7 +113,15 @@ export default function ReferralShare({
           marginBottom: "16px",
         }}
       >
-        Each friend who joins = +1 free month (up to 6). 3 friends → you move into the First 100.
+        You&apos;ll get at least 3 months of BiyeHobe Gold{introduceGold ? ", our premium membership," : ""}{" "}
+        <Link
+          href={GOLD_TERMS_HREF}
+          className="underline underline-offset-4"
+          style={{ color: t.link }}
+        >
+          free
+        </Link>{" "}
+        when we launch. Each friend who joins adds a free month, up to 6.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <button type="button" onClick={copy} style={{ ...BUTTON, ...t.primary }}>
