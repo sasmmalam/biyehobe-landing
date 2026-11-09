@@ -4,17 +4,16 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  MapPin,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import BuiltDifferently from "../components/BuiltDifferently";
 import WaitlistForm from "../components/WaitlistForm";
+import PhoneScreen, { ScreensCaption } from "../components/PhoneScreen";
 
 // ── Fade-up animation wrapper ─────────────────────────────────────────────────
 
@@ -63,14 +62,17 @@ function FadeUp({
 
 // ── FAQ accordion ─────────────────────────────────────────────────────────────
 
-const FAQ_ITEMS = [
+const SAFETY_LINK = { href: "/safety", label: "How we keep BiyeHobe safe →" };
+
+const FAQ_ITEMS: { q: string; a: string; link?: { href: string; label: string } }[] = [
   {
     q: "Who is BiyeHobe for?",
     a: "BiyeHobe is built for the Bangladeshi diaspora — NRBs and locals alike — who are ready for a serious, intentional relationship and want a dignified, private platform to find their match.",
   },
   {
     q: "How does verification work?",
-    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional.",
+    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass, so someone using another person's photos can't get it. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional. Details like education and job are shown as self-reported.",
+    link: SAFETY_LINK,
   },
   {
     q: "Is BiyeHobe only for Muslims?",
@@ -78,7 +80,8 @@ const FAQ_ITEMS = [
   },
   {
     q: "Who can see my profile?",
-    a: "Other signed-in members can see your profile — that's how the right person finds you. They never see your email, phone number or exact location. You can block or report anyone, and delete your account at any time from the app.",
+    a: "Other signed-in members can see your profile — that's how the right person finds you. They see your city, never your email, phone number or exact location. If you like, your photos can stay blurred until you both like each other, and nobody can message you until then. You can report, block or unmatch anyone, and delete your account at any time from the app.",
+    link: SAFETY_LINK,
   },
   {
     q: "When does the app launch?",
@@ -114,12 +117,21 @@ function FAQAccordion({ items = FAQ_ITEMS }: { items?: typeof FAQ_ITEMS }) {
             />
           </button>
           {open === i && (
-            <p
+            <div
               className="pb-5 text-sm leading-relaxed"
               style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}
             >
-              {item.a}
-            </p>
+              <p>{item.a}</p>
+              {item.link && (
+                <Link
+                  href={item.link.href}
+                  className="inline-block mt-3 underline underline-offset-4"
+                  style={{ color: "var(--gold-ink)" }}
+                >
+                  {item.link.label}
+                </Link>
+              )}
+            </div>
           )}
         </div>
       ))}
@@ -224,98 +236,112 @@ function SectionHeading({ title, line }: { title: string; line: string }) {
   );
 }
 
-// Pure HTML/CSS phone, no device brand. The profile is fictional.
-function PhoneProfile() {
+// ── Real app screens ──────────────────────────────────────────────────────────
+// Screenshots from the app with fictional profiles: every block that shows
+// them carries <ScreensCaption />.
+
+type ScreenCard = { src: string; alt: string; title: string; text: string };
+
+const HOW_STEPS: ScreenCard[] = [
+  {
+    src: "/images/app/01-discover-woman-verified.webp",
+    alt: "The Discover screen showing a verified profile: Farhana Akter, 32, CPA accountant in New York, with Pass, Like and Send Note buttons",
+    title: "Discover",
+    text: "Browse profiles that fit what you're looking for. Verified people come first.",
+  },
+  {
+    src: "/images/app/03-profile-note-like-back.webp",
+    alt: "A profile with a short note sent with a like: I liked that you put family first in your profile. Would be happy to talk.",
+    title: "Like, with a note",
+    text: "Like someone, and add one short note if you want to say why.",
+  },
+  {
+    src: "/images/app/05-match.webp",
+    alt: "The It's a match screen: two profile photos side by side, the words You and Farhana liked each other, and a Send a message button",
+    title: "It's a match",
+    text: "When they like you back, you're matched.",
+  },
+  {
+    src: "/images/app/06-chat-families.webp",
+    alt: "A chat between two matched members, talking about work and about bringing in their families when they are ready",
+    title: "Chat",
+    text: "Now you can talk, and bring your families in when you're ready.",
+  },
+];
+
+const SAFETY_CARDS: ScreenCard[] = [
+  {
+    src: "/images/app/04-likes-blur.webp",
+    alt: "The Likes screen: one person's photo shows clearly, another is blurred with a lock until you both like each other",
+    title: "Photos stay private until you match",
+    text: "Turn on photo blur and your photos stay blurred until you both like each other.",
+  },
+  {
+    src: "/images/app/03-profile-note-like-back.webp",
+    alt: "A profile with a note sent with a like, and a Like back to chat button",
+    title: "No messages from strangers",
+    text: "Chat opens only after you both like each other.",
+  },
+  {
+    src: "/images/app/01-discover-woman-verified.webp",
+    alt: "A profile card with a gold verified tick next to the name Farhana Akter, 32",
+    title: "Verified means a real, live person",
+    text: "The ✓ shows only after a live selfie check and a match of the main photo to that selfie.",
+  },
+  {
+    src: "/images/app/07-safety-sheet.webp",
+    alt: "The menu in a chat with Unmatch, Report this profile and Block, and the line: Reporting is private, Lamiya is not told",
+    title: "Report, block or unmatch in two taps",
+    text: "From any profile or chat. The person is never told who reported them.",
+  },
+];
+
+// Phone + title + one line, four in a row. Below lg: a swipeable row that
+// scrolls inside itself (no page overflow). From lg: a 4-column grid.
+function ScreenCards({
+  cards,
+  numbered = false,
+}: {
+  cards: ScreenCard[];
+  numbered?: boolean;
+}) {
+  const List = numbered ? "ol" : "ul";
   return (
-    <figure className="mx-auto" style={{ width: "280px", maxWidth: "100%" }}>
-      <div
-        style={{
-          backgroundColor: "var(--dark)",
-          borderRadius: "44px",
-          padding: "10px",
-          boxShadow: "0 30px 60px -24px rgba(13,31,26,0.45)",
-        }}
-      >
-        <div
-          className="relative overflow-hidden"
-          style={{ backgroundColor: "white", borderRadius: "34px" }}
-        >
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 -translate-x-1/2 rounded-full"
+    <List className="strip -mx-5 sm:-mx-8 px-5 sm:px-8 scroll-px-5 sm:scroll-px-8 pt-2 pb-8 flex gap-6 overflow-x-auto snap-x snap-mandatory lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-visible">
+      {cards.map((card, i) => (
+        <li key={card.title} className="snap-start shrink-0 w-[200px] lg:w-auto">
+          <PhoneScreen
+            src={card.src}
+            alt={card.alt}
+            className="w-[200px] lg:w-full lg:max-w-[260px] lg:mx-auto"
+            sizes="(min-width: 1152px) 250px, (min-width: 1024px) 22vw, 200px"
+          />
+          <h3
+            className="mt-6"
             style={{
-              top: "10px",
-              width: "88px",
-              height: "24px",
-              backgroundColor: "var(--dark)",
+              fontFamily: "var(--font-display)",
+              fontWeight: 700,
+              fontSize: "22px",
+              lineHeight: 1.2,
+              color: "var(--dark)",
             }}
-          />
-          <div style={{ height: "44px" }} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/people/phone-profile-f-600.webp"
-            alt="Example profile photo: a woman resting her chin on her hand at a café table"
-            width={600}
-            height={750}
-            loading="lazy"
-            decoding="async"
-            className="block w-full h-auto"
-            style={{ aspectRatio: "4 / 5", objectFit: "cover" }}
-          />
-          <div className="px-5 pt-4 pb-3">
-            <div className="flex items-center gap-2">
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "26px",
-                  lineHeight: 1.1,
-                  color: "var(--dark)",
-                }}
-              >
-                Nadia, 29
+          >
+            {numbered && (
+              <span aria-hidden="true" style={{ color: "var(--gold-ink)" }}>
+                {i + 1}.{" "}
               </span>
-              <BadgeCheck
-                size={22}
-                fill="var(--gold)"
-                color="white"
-                aria-hidden="true"
-              />
-              <span
-                className="uppercase tracking-widest"
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontWeight: 500,
-                  fontSize: "11px",
-                  color: "var(--gold-ink)",
-                }}
-              >
-                Verified
-              </span>
-            </div>
-            <p
-              className="mt-1.5 flex items-center gap-1.5 text-sm"
-              style={{ color: "rgba(13,31,26,0.65)", fontFamily: "var(--font-sans)" }}
-            >
-              <MapPin size={15} color="var(--gold-ink)" aria-hidden="true" />
-              Toronto
-            </p>
-            <div
-              aria-hidden="true"
-              className="mx-auto mt-5 rounded-full"
-              style={{
-                width: "112px",
-                height: "4px",
-                backgroundColor: "rgba(13,31,26,0.2)",
-              }}
-            />
-          </div>
-        </div>
-      </div>
-      <figcaption className="mt-4 text-center">
-        <IllustrativeNote />
-      </figcaption>
-    </figure>
+            )}
+            {card.title}
+          </h3>
+          <p
+            className="mt-2 text-sm leading-relaxed"
+            style={{ color: "rgba(13,31,26,0.72)", fontFamily: "var(--font-sans)" }}
+          >
+            {card.text}
+          </p>
+        </li>
+      ))}
+    </List>
   );
 }
 
@@ -569,7 +595,7 @@ export default function Home() {
       {/* ── How It Works ── */}
       <section id="how" style={{ backgroundColor: "var(--cream)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
-          <FadeUp className="text-center mb-16">
+          <FadeUp className="text-center mb-12">
             <p
               className="text-xs uppercase tracking-widest mb-3"
               style={{
@@ -592,73 +618,42 @@ export default function Home() {
             </h2>
           </FadeUp>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-16 lg:gap-20 items-center">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-12 lg:gap-10">
-              {[
-                {
-                  n: "1",
-                  title: "Create Your Profile",
-                  desc: "Answer a few meaningful questions about yourself — your values, lifestyle, and what you are looking for in a partner.",
-                },
-                {
-                  n: "2",
-                  title: "Get Verified",
-                  desc: "Take a quick live selfie check. We match your main photo against it, and the ✓ shows only when both pass.",
-                },
-                {
-                  n: "3",
-                  title: "Start Connecting",
-                  desc: "When someone you like likes you back, it's a match — and you can start talking, with serious intent, on your terms.",
-                },
-              ].map((step, i) => (
-                <FadeUp key={step.n} delay={i * 130}>
-                  <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left lg:gap-6">
-                    <div
-                      className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center text-dark text-lg mb-7 lg:mb-0"
-                      style={{
-                        backgroundColor: "var(--gold)",
-                        fontFamily: "var(--font-display)",
-                        fontWeight: 700,
-                      }}
-                    >
-                      {step.n}
-                    </div>
-                    <div>
-                      <h3
-                        className="mb-3"
-                        style={{
-                          fontFamily: "var(--font-display)",
-                          fontWeight: 700,
-                          fontSize: "24px",
-                          color: "var(--dark)",
-                        }}
-                      >
-                        {step.title}
-                      </h3>
-                      <p
-                        className="text-sm leading-relaxed"
-                        style={{
-                          color: "#1a1a1a",
-                          fontFamily: "var(--font-sans)",
-                        }}
-                      >
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                </FadeUp>
-              ))}
-            </div>
+          <FadeUp delay={100}>
+            <ScreenCards cards={HOW_STEPS} numbered />
+            <ScreensCaption />
+          </FadeUp>
+        </div>
+      </section>
 
-            <FadeUp delay={200}>
-              <PhoneProfile />
-            </FadeUp>
-          </div>
+      {/* ── Safety first ──
+          Straight after How it works: the steps end at "Chat", and the next
+          question, above all for women, is whether that's safe. */}
+      <section id="safety" style={{ backgroundColor: "white" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+          <FadeUp className="mb-12">
+            <SectionHeading
+              title="Safety first, especially for women"
+              line="You decide who sees your photos and who can talk to you. Here is how that works in the app."
+            />
+          </FadeUp>
+          <FadeUp delay={100}>
+            <ScreenCards cards={SAFETY_CARDS} />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <ScreensCaption />
+              <Link
+                href="/safety"
+                className="text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-70"
+                style={{ color: "var(--gold-ink)", fontFamily: "var(--font-sans)" }}
+              >
+                How we keep BiyeHobe safe →
+              </Link>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* ── Built Differently ── */}
-      <section style={{ backgroundColor: "white" }}>
+      <section style={{ backgroundColor: "var(--cream)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
           <FadeUp className="mb-12">
             <p
@@ -693,7 +688,7 @@ export default function Home() {
       </section>
 
       {/* ── Bangladeshis everywhere ── */}
-      <section style={{ backgroundColor: "var(--cream)" }}>
+      <section style={{ backgroundColor: "white" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
           <FadeUp className="mb-10">
             <SectionHeading
@@ -709,7 +704,7 @@ export default function Home() {
       </section>
 
       {/* ── Built for busy professionals ── */}
-      <section style={{ backgroundColor: "white" }}>
+      <section style={{ backgroundColor: "var(--cream)" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
           <FadeUp className="mb-10">
             <SectionHeading
