@@ -20,7 +20,22 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_HAS_BLOG_POSTS: String(hasPublishedPosts()),
   },
   async redirects() {
-    return [{ source: "/matchmakers", destination: "/ghotok-partners", permanent: true }];
+    // Legacy URLs from the domain's previous site, still in search indexes.
+    const legacy: [string, string][] = [
+      ["/bangladeshi-matrimoni", "/"],
+      ["/bangladeshi-singles", "/"],
+      ["/bangladeshi-muslim", "/"],
+      ["/australian-bangladeshi", "/"],
+      ["/contact-us", "/about"],
+      ["/blog-detail2", "/blog"],
+    ];
+    return [
+      { source: "/matchmakers", destination: "/ghotok-partners", permanent: true },
+      ...legacy.flatMap(([from, to]) => [
+        { source: from, destination: to, permanent: true },
+        { source: `${from}/`, destination: to, permanent: true },
+      ]),
+    ];
   },
 };
 
