@@ -222,7 +222,10 @@ const BANGLA_BLOCKS = new Set(["p", "li", "h2", "h3", "h4"]);
  * makes off-site links open safely in a new tab, and marks blocks written in
  * Bangla with lang="bn" (globals.css gives those Noto Sans Bengali).
  */
-function rehypePostRules(file: string) {
+function rehypePostRules(source: string) {
+  const fail = (message: string): never => {
+    throw new Error(`${source}: ${message}`);
+  };
   return () => (tree: HastNode) => {
     const visit = (node: HastNode) => {
       if (node.type === "element") {
@@ -236,7 +239,7 @@ function rehypePostRules(file: string) {
         }
         if (node.tagName === "img") {
           if (typeof props.alt !== "string" || !props.alt.trim()) {
-            fail(file, `image ${String(props.src)} has no alt text — write ![describe the image](${String(props.src)})`);
+            fail(`image ${String(props.src)} has no alt text — write ![describe the image](${String(props.src)})`);
           }
           props.loading = "lazy";
           props.decoding = "async";
@@ -259,12 +262,20 @@ function rehypePostRules(file: string) {
  * goes through rehype-sanitize's GitHub-style allowlist.
  */
 export async function renderPostHtml(post: Post): Promise<string> {
+  return renderMarkdownHtml(post.body, `content/blog/${post.slug}.md`);
+}
+
+/**
+ * The same sanitised renderer for other Markdown content (lib/locations.ts).
+ * `source` names the file in build errors, e.g. "content/locations/uk.md".
+ */
+export async function renderMarkdownHtml(markdown: string, source: string): Promise<string> {
   const html = await unified()
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypeSanitize)
-    .use(rehypePostRules(`${post.slug}.md`))
+    .use(rehypePostRules(source))
     .use(rehypeStringify)
-    .process(post.body);
+    .process(markdown);
   return String(html);
 }

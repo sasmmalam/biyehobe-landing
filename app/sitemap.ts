@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { categorySlug, getActiveCategories, getPosts } from "@/lib/blog";
+import { LOCATIONS_LAST_MODIFIED, getLocations } from "@/lib/locations";
 import { STATIC_PAGES, absoluteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -15,6 +16,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(page.path),
     lastModified: page.lastModified,
   }));
+
+  // Country landing pages: one per file in content/locations.
+  const locations = getLocations();
+  if (locations.length > 0) {
+    entries.push({ url: absoluteUrl("/bangladeshi-matrimony"), lastModified: LOCATIONS_LAST_MODIFIED });
+    for (const location of locations) {
+      entries.push({
+        url: absoluteUrl(`/bangladeshi-matrimony/${location.slug}`),
+        lastModified: LOCATIONS_LAST_MODIFIED,
+      });
+    }
+  }
 
   // /blog and its category pages are listed only once there is something on them.
   if (posts.length > 0) {

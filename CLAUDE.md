@@ -45,6 +45,10 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 | `lib/blog.ts` | S62 blog: reads `content/blog/*.md`, validates frontmatter (bad frontmatter fails the build), renders sanitized Markdown. Drafts show only in `next dev` |
 | `content/blog/<slug>.md` | Blog posts. `welcome.md` is a draft template |
 | `app/blog/` | `/blog`, `/blog/[slug]`, `/blog/category/[category]`, `/blog/rss.xml` |
+| `lib/locations.ts` | Country landing pages: reads `content/locations/*.md`, validates frontmatter (`country`, `seoTitle` ≤60, `description` ≤160, `heading`, `intro`, `cities`, `faq` ≥1; bad frontmatter fails the build), renders the body with `renderMarkdownHtml()` from `lib/blog.ts`. `LOCATIONS_LAST_MODIFIED` is the sitemap date — bump it when the pages change |
+| `content/locations/<slug>.md` | One country page each (canada, usa, uk, australia); the filename is the URL slug. A new file appears in the index and sitemap automatically |
+| `app/bangladeshi-matrimony/page.tsx` | Index "Bangladeshi matrimony around the world": cards linking each country page |
+| `app/bangladeshi-matrimony/[country]/page.tsx` | Country page: hero (h1, intro, city chips), Markdown body (`.post-body`), always-open FAQ, waitlist CTA. JSON-LD: FAQPage + BreadcrumbList. The footer's "BiyeHobe in Canada · USA · UK · Australia" row is hard-coded in `Footer.tsx` — update it when adding a country |
 | `app/sitemap.ts`, `app/robots.ts` | Generated `sitemap.xml` / `robots.txt` |
 | `app/og-default.png/`, `app/logo.png/` | Build-time brand images (`lib/brand-image.tsx`, font in `assets/fonts`) |
 | `app/{privacy,terms,delete-account,faq}/layout.tsx` | SEO tags only — legal pages untouched; titles/descriptions there duplicate the page's |

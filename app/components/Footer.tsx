@@ -16,6 +16,15 @@ const FOOTER_LINKS = [
   { label: "Delete Account", href: "/delete-account" },
 ];
 
+// Country landing pages (content/locations). Hard-coded because the footer is
+// also rendered inside client components and can't read the content folder.
+const COUNTRY_LINKS = [
+  { label: "Canada", href: "/bangladeshi-matrimony/canada" },
+  { label: "USA", href: "/bangladeshi-matrimony/usa" },
+  { label: "UK", href: "/bangladeshi-matrimony/uk" },
+  { label: "Australia", href: "/bangladeshi-matrimony/australia" },
+];
+
 // Outline icons, drawn with currentColor. Keyed by SOCIAL_LINKS[].name.
 const SOCIAL_ICONS: Record<(typeof SOCIAL_LINKS)[number]["name"], React.ReactNode> = {
   Instagram: (
@@ -103,6 +112,24 @@ export default function Footer() {
           ))}
         </div>
       </div>
+
+      <nav
+        aria-label="BiyeHobe by country"
+        className="max-w-6xl mx-auto px-5 sm:px-8 pb-6 text-xs text-center sm:text-right"
+        style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}
+      >
+        <Link href="/bangladeshi-matrimony" className="transition-colors hover:text-white">
+          BiyeHobe in
+        </Link>{" "}
+        {COUNTRY_LINKS.map((link, i) => (
+          <span key={link.href}>
+            {i > 0 && <span aria-hidden="true"> · </span>}
+            <Link href={link.href} className="transition-colors hover:text-white">
+              {link.label}
+            </Link>
+          </span>
+        ))}
+      </nav>
 
       <div
         className="max-w-6xl mx-auto px-5 sm:px-8 py-4"
