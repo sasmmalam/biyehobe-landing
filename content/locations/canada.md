@@ -1,7 +1,7 @@
 ---
 country: "Canada"
 seoTitle: "Bangladeshi Matrimony in Canada: Toronto, Montreal & More"
-description: "A serious, private way for Bangladeshi singles in Canada to meet: Toronto, Montreal, Calgary, Ottawa and beyond. Verified profiles, photo privacy, made for us."
+description: "A serious, private way for Bangladeshi singles in Canada to meet: Toronto, Montreal, Calgary, Ottawa and beyond. Selfie verification and photo privacy."
 heading: "Bangladeshi matrimony in Canada"
 intro: "From Toronto to Calgary, Bangladeshi Canadians are building careers, families and lives here. Finding a life partner who shares both worlds shouldn't depend on luck."
 cities: [Toronto, Montreal, Calgary, Edmonton, Ottawa, Vancouver]
