@@ -24,7 +24,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "8 November 2026";
+const UPDATED = "20 November 2026";
 
 export const metadata: Metadata = {
   title: "Terms of Use — BiyeHobe",
@@ -101,7 +101,7 @@ export default function Terms() {
           We review reports and decide what to do. That can include no action, a warning, removing content, or suspending or closing an account. We can&apos;t promise to tell you the outcome of every report.
         </P>
         <P>
-          How we handle reports, including the steps we take, is set out on our <InlineLink href="/safety#policy">Safety &amp; trust page</InlineLink>.
+          How we handle reports, including the steps we take, is set out on our <InlineLink href="/safety#policy">Safety &amp; trust page</InlineLink>. Our zero-tolerance standards on child sexual abuse and exploitation, and how we report it to the authorities, are on our <InlineLink href="/child-safety">Child safety standards</InlineLink>{" "}page.
         </P>
 
         <H2>What &ldquo;verified&rdquo; means</H2>

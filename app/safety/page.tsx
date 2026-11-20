@@ -383,6 +383,11 @@ export default function SafetyPage() {
               removes anyone.
             </p>
             <p>The reporter&apos;s identity is never shared.</p>
+            <p>
+              BiyeHobe is for adults only. How we prevent and report child
+              sexual abuse and exploitation is set out in our{" "}
+              <InlineLink href="/child-safety">child safety standards</InlineLink>.
+            </p>
           </Lines>
 
           <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
