@@ -42,7 +42,7 @@ Muted text is at least `rgba(13,31,26,0.62)` on white/cream, `rgba(255,255,255,0
 |------|---------|
 | `app/(home)/page.tsx` | Full home page — navbar, hero, trust strip, how it works, features, mission, FAQ, waitlist, footer. The `(home)` route group exists so `layout.tsx` beside it can give `/` its metadata + Organization JSON-LD (the page is a client component) |
 | `lib/site.ts` | S62 SEO: `SITE_URL`, `pageMetadata()` (title/description/canonical/OG/Twitter — every page uses it), `STATIC_PAGES` for the sitemap (bump `lastModified` when a page's content changes) |
-| `lib/blog.ts` | S62 blog: reads `content/blog/*.md`, validates frontmatter (bad frontmatter fails the build), renders sanitized Markdown. Drafts show only in `next dev` |
+| `lib/blog.ts` | S62 blog: reads `content/blog/*.md`, validates frontmatter (bad frontmatter fails the build), renders sanitized Markdown. Drafts show only in `next dev`. **Scheduling:** a post whose `date` is after today (Toronto) is hidden from production until a build runs on that date; `.github/workflows/daily-publish.yml` rebuilds daily via the `VERCEL_DEPLOY_HOOK` secret. A visible post linking to a draft/scheduled post fails the build |
 | `content/blog/<slug>.md` | Blog posts. `welcome.md` is a draft template |
 | `app/blog/` | `/blog`, `/blog/[slug]`, `/blog/category/[category]`, `/blog/rss.xml` |
 | `lib/locations.ts` | Country landing pages: reads `content/locations/*.md`, validates frontmatter (`country`, `seoTitle` ≤60, `description` ≤160, `heading`, `intro`, `cities`, `faq` ≥1; bad frontmatter fails the build), renders the body with `renderMarkdownHtml()` from `lib/blog.ts`. `LOCATIONS_LAST_MODIFIED` is the sitemap date — bump it when the pages change |

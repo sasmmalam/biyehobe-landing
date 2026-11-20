@@ -1,0 +1,30 @@
+# Daily rebuild so scheduled blog posts go live on their date.
+#
+# A post in content/blog/ whose `date` is in the future (Toronto time) is left
+# out of the build (see getPosts() in lib/blog.ts). This job asks Vercel to
+# rebuild production once a day; the build that runs on or after a post's date
+# publishes it and adds it to the sitemap and RSS feed.
+#
+# Setup (once): Vercel → biyehobe-landing → Settings → Git → Deploy Hooks →
+# create one for branch "main", then GitHub → repo → Settings → Secrets and
+# variables → Actions → New secret VERCEL_DEPLOY_HOOK = that URL.
+name: Daily publish
+
+on:
+  schedule:
+    - cron: "15 10 * * *" # 10:15 UTC = 5:15 AM Toronto (EST), 6:15 AM (EDT)
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel production build
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "VERCEL_DEPLOY_HOOK secret is not set" >&2
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK"

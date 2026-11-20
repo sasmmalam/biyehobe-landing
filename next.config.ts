@@ -12,7 +12,16 @@ function hasPublishedPosts(): boolean {
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
-    .some((f) => matter(fs.readFileSync(path.join(dir, f), "utf8")).data.draft !== true);
+    .some((f) => {
+      const data = matter(fs.readFileSync(path.join(dir, f), "utf8")).data;
+      if (data.draft === true) return false;
+      // Scheduled posts (date in the future, Toronto time) don't count yet.
+      const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date ?? "");
+      const today = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/Toronto", year: "numeric", month: "2-digit", day: "2-digit",
+      }).format(new Date());
+      return date <= today;
+    });
 }
 
 const nextConfig: NextConfig = {

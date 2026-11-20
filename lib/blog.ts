@@ -31,6 +31,24 @@ const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const IS_PROD = process.env.NODE_ENV === "production";
 
+/**
+ * Today's date in Toronto as YYYY-MM-DD. A post whose `date` is later than
+ * this is SCHEDULED: it stays out of a production build (pages, sitemap, RSS)
+ * until a build runs on or after that date. The daily rebuild in
+ * .github/workflows/daily-publish.yml is what makes scheduled posts appear.
+ */
+export function todayIso(): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Toronto",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
+/** Internal blog links in a post body: /blog/<slug> or https://biyehobe.com/blog/<slug>. */
+const BLOG_LINK = /\]\((?:https:\/\/biyehobe\.com)?\/blog\/([a-z0-9-]+)\/?(?:#[^)]*)?\)/g;
+
 export interface Post {
   slug: string;
   title: string;
@@ -171,9 +189,9 @@ function parsePost(file: string): Post {
 let cache: Post[] | undefined;
 
 /**
- * Posts that may be shown, newest first. Drafts are included only outside
- * production (`next dev`), so they can be previewed locally but never reach
- * the built site, the sitemap or the RSS feed.
+ * Posts that may be shown, newest first. Drafts and scheduled posts (date in
+ * the future) are included only outside production (`next dev`), so they can
+ * be previewed locally but never reach the built site, the sitemap or RSS.
  */
 export function getPosts(): Post[] {
   if (cache && IS_PROD) return cache;
@@ -182,8 +200,21 @@ export function getPosts(): Post[] {
     : [];
   cache = files
     .map(parsePost)
-    .filter((p) => !(IS_PROD && p.draft))
+    .filter((p) => !(IS_PROD && (p.draft || p.date > todayIso())))
     .sort((a, b) => (a.date === b.date ? a.slug.localeCompare(b.slug) : a.date < b.date ? 1 : -1));
+  if (IS_PROD) {
+    // A visible post must never link to a draft or a not-yet-published post:
+    // that link would 404 until the target goes live. Fail the build instead.
+    const visible = new Set(cache.map((p) => p.slug));
+    for (const post of cache) {
+      for (const m of post.body.matchAll(BLOG_LINK)) {
+        if (m[1] === "category") continue;
+        if (!visible.has(m[1])) {
+          fail(`${post.slug}.md`, `links to /blog/${m[1]}, which is not published yet (draft, scheduled or missing)`);
+        }
+      }
+    }
+  }
   return cache;
 }
 
