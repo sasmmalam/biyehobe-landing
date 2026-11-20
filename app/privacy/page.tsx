@@ -69,7 +69,6 @@ export default function Privacy() {
         <UL>
           <LI><strong>Email address and password.</strong>{" "}Your password is stored in scrambled (hashed) form by our database provider. We can&apos;t read it.</LI>
           <LI><strong>First name, and your gender.</strong>{" "}We also give you a username automatically.</LI>
-          <LI><strong>Phone number</strong>{" "}— only if you choose to sign in with a text-message code.</LI>
         </UL>
 
         <H3>Your profile</H3>
@@ -212,7 +211,7 @@ export default function Privacy() {
           ]}
         />
         <P>
-          If you sign in with a text-message code, the code is sent through our database provider&apos;s SMS service. Our hosting providers also keep short-lived technical logs, which can include IP addresses, for security and troubleshooting.
+          Our hosting providers keep short-lived technical logs, which can include IP addresses, for security and troubleshooting.
         </P>
 
         <H2 id="outside-canada">Your data is stored outside Canada</H2>

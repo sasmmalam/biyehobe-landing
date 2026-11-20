@@ -26,7 +26,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "8 November 2026";
+const UPDATED = "20 November 2026";
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Delete my account")}`;
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export default function DeleteAccount() {
 
         <H2 id="by-email">If you no longer have the app</H2>
         <P>
-          Email <InlineLink href={MAILTO}>{CONTACT_EMAIL}</InlineLink>{" "}with the subject <strong>&ldquo;Delete my account&rdquo;</strong>. Send it from the email address you signed up with, so we know the request is really from you. If you signed up with a phone number, include that number and we&apos;ll arrange a way to confirm it&apos;s yours.
+          Email <InlineLink href={MAILTO}>{CONTACT_EMAIL}</InlineLink>{" "}with the subject <strong>&ldquo;Delete my account&rdquo;</strong>. Send it from the email address you signed up with, so we know the request is really from you.
         </P>
         <P>
           We&apos;ll delete the account the same way the app does and email you when it&apos;s done — normally within 7 days, and never more than 30.
@@ -71,7 +71,7 @@ export default function DeleteAccount() {
 
         <H2 id="what-is-deleted">What gets deleted</H2>
         <UL>
-          <LI>Your account: email, phone number (if any) and password</LI>
+          <LI>Your account: email and password</LI>
           <LI>Your profile and all your answers, including your partner preferences</LI>
           <LI>All your photos</LI>
           <LI>Your verification selfie, and your verification results and history</LI>

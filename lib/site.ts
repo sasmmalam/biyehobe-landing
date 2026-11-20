@@ -138,5 +138,5 @@ export const STATIC_PAGES: { path: string; lastModified: string }[] = [
   { path: "/ghotok-partners", lastModified: "2026-10-14" },
   { path: "/privacy", lastModified: "2026-11-20" },
   { path: "/terms", lastModified: "2026-11-20" },
-  { path: "/delete-account", lastModified: "2026-11-08" },
+  { path: "/delete-account", lastModified: "2026-11-20" },
 ];
