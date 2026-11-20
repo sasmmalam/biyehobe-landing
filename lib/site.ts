@@ -129,14 +129,14 @@ export const ORGANIZATION_JSON_LD = {
  * content last changed — bump it when you edit the page.
  */
 export const STATIC_PAGES: { path: string; lastModified: string }[] = [
-  { path: "/", lastModified: "2026-11-08" },
+  { path: "/", lastModified: "2026-11-20" },
   { path: "/about", lastModified: "2026-09-30" },
-  { path: "/how-it-works", lastModified: "2026-09-30" },
-  { path: "/faq", lastModified: "2026-11-08" },
+  { path: "/how-it-works", lastModified: "2026-11-20" },
+  { path: "/faq", lastModified: "2026-11-20" },
   { path: "/safety", lastModified: "2026-11-20" },
   { path: "/child-safety", lastModified: "2026-11-20" },
   { path: "/ghotok-partners", lastModified: "2026-10-14" },
-  { path: "/privacy", lastModified: "2026-11-08" },
+  { path: "/privacy", lastModified: "2026-11-20" },
   { path: "/terms", lastModified: "2026-11-20" },
   { path: "/delete-account", lastModified: "2026-11-08" },
 ];

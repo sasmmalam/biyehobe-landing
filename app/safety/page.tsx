@@ -268,7 +268,9 @@ export default function SafetyPage() {
             checks pass.
           </p>
           <p>
-            Verifying is optional, and there&apos;s no ID check. Details we
+            Verifying is required before you can use Discover, send likes
+            or send messages — it keeps members safe and stops
+            impersonation. There&apos;s no ID check, and details we
             can&apos;t check, like education and job, are shown as
             self-reported.
           </p>

@@ -21,7 +21,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "How does verification work?",
-    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass, so someone using another person's photos can't get it. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, and verifying is optional. Details like education and job are shown as self-reported.",
+    a: "Verification is two checks. First, a live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass, so someone using another person's photos can't get it. If your main photo doesn't match, the ✓ comes off and the photo is flagged for review. There's no ID check, but verifying is required before you can use Discover, send likes or send messages — it keeps members safe and stops anyone using someone else's photos. Details like education and job are shown as self-reported.",
     link: { href: "/safety#verified", label: "More on verification" },
   },
   {

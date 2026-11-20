@@ -15,7 +15,7 @@ faq:
   - q: "Can divorced or widowed people and single parents join?"
     a: "Yes. Marital status is part of every profile, and many people are starting a second chapter."
   - q: "How do I know a profile is real?"
-    a: "Members can verify themselves with a live selfie check, and their main photo is matched against that selfie. The verified tick appears only when both pass. It is optional, and it does not check ID."
+    a: "Members can verify themselves with a live selfie check, and their main photo is matched against that selfie. The verified tick appears only when both pass. It is required before members can match, and it does not check ID."
 ---
 
 ## A big country, a scattered community
@@ -45,7 +45,7 @@ cross paths at a wedding or community event.
 
 - **Made for Bangladeshis abroad**, not a general dating app.
 - **Marriage-focused profiles:** values, family, education, career, faith and future plans.
-- **Optional verification:** a live selfie check plus a match against your main photo.
+- **Required verification:** a live selfie check plus a match against your main photo.
 - **Photo privacy, your choice:** blur your photos until you both like each other.
 - **Safety tools:** block or report anyone, and delete your account whenever you want.
 

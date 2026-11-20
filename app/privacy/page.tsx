@@ -27,7 +27,7 @@ import {
   UL,
 } from "../components/Legal";
 
-const UPDATED = "8 November 2026";
+const UPDATED = "20 November 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — BiyeHobe",
@@ -48,7 +48,7 @@ export default function Privacy() {
 
         <Callout title="The short version">
           <UL>
-            <LI>We collect what you put in your profile, your photos, your messages, and — only if you choose to verify — one selfie.</LI>
+            <LI>We collect what you put in your profile, your photos, your messages, and one selfie from the verification everyone completes before they can match.</LI>
             <LI>Other members see your profile, but never your email, phone number, exact location or selfie.</LI>
             <LI>Your photos are stored privately and shown only to signed-in members. If you choose to turn on photo privacy, they appear blurred in the app until you and the other person have both liked each other. It&apos;s off unless you turn it on.</LI>
             <LI>We don&apos;t sell your data, show you ads, or use analytics or tracking tools.</LI>
@@ -124,9 +124,9 @@ export default function Privacy() {
           <strong>There is no ID check.</strong>{" "}We never ask for a passport, driving licence or any government document.
         </P>
 
-        <H3>It&apos;s your choice</H3>
+        <H3>It&apos;s required, and we ask first</H3>
         <P>
-          Verification is optional. It only happens if you start it from the Verify screen, and starting it is your consent to what this section describes. You can use BiyeHobe without ever verifying — you just won&apos;t have the tick.
+          Verification is required before you can use Discover, send likes or send messages. It keeps members safe and stops anyone using someone else&apos;s photos. It only starts when you start it from the Verify screen, after you have agreed, on a consent screen, to what this section describes. Without it you can still set up your profile, but you can&apos;t match.
         </P>
 
         <H3>What we keep</H3>
@@ -189,7 +189,7 @@ export default function Privacy() {
           <LI>To run your account and show your profile to other members</LI>
           <LI>To suggest matches, using your profile and preferences</LI>
           <LI>To deliver your messages</LI>
-          <LI>To verify you, if you choose to</LI>
+          <LI>To verify you before you can match</LI>
           <LI>To keep people safe: handling blocks and reports, and dealing with fake or abusive accounts</LI>
           <LI>To tell you when BiyeHobe opens, if you joined the waitlist</LI>
         </UL>

@@ -113,7 +113,7 @@ export default function Terms() {
           <LI>Their <strong>main photo matched</strong>{" "}the selfie from that check.</LI>
         </UL>
         <P>
-          <strong>There is no ID check.</strong>{" "}The tick doesn&apos;t confirm anyone&apos;s name, age, marital status, religion, education, job, family or intentions. Everything else on a profile is what the person told us. Verification is optional, and an unverified profile isn&apos;t necessarily a fake one.
+          <strong>There is no ID check.</strong>{" "}The tick doesn&apos;t confirm anyone&apos;s name, age, marital status, religion, education, job, family or intentions. Everything else on a profile is what the person told us. Selfie verification is required before anyone can use Discover, send likes or send messages — it keeps members safe and stops anyone using someone else&apos;s photos. The tick also needs the main photo to match, so a profile without it isn&apos;t necessarily a fake one.
         </P>
 
         <H2>Meeting people</H2>

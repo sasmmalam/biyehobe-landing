@@ -44,7 +44,7 @@ const STEPS: Step[] = [
     Icon: ShieldCheck,
     title: "Get Verified",
     description:
-      "Verification is optional, and it's two checks. A live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass.",
+      "Verification is required before you can match, and it's two checks. A live selfie check, run by our partner Didit, confirms a real person is holding the phone. Then we match your main photo against that selfie. The ✓ shows on your profile only when both pass.",
     details: [
       { text: "Take a live selfie check — a few seconds of on-screen prompts" },
       { text: "Your main photo is matched against that selfie" },

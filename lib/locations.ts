@@ -10,7 +10,7 @@ import { renderMarkdownHtml } from "./blog";
 const MAX_DESCRIPTION = 160;
 const MAX_SEO_TITLE = 60;
 /** Date the country pages' content last changed — bump it when you edit them. */
-export const LOCATIONS_LAST_MODIFIED = "2026-11-19";
+export const LOCATIONS_LAST_MODIFIED = "2026-11-20";
 
 const LOCATIONS_DIR = path.join(process.cwd(), "content", "locations");
 

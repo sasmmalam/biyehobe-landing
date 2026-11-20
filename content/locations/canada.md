@@ -15,7 +15,7 @@ faq:
   - q: "Can divorced or widowed people and single parents join?"
     a: "Yes. Marital status is part of every profile, and many people on BiyeHobe are starting a second chapter. You can choose who you would like to meet."
   - q: "How do I know a profile is real?"
-    a: "Members can verify themselves with a live selfie check, and their main photo is matched against that selfie. The verified tick appears only when both pass. It is optional, and it does not check ID."
+    a: "Members can verify themselves with a live selfie check, and their main photo is matched against that selfie. The verified tick appears only when both pass. It is required before members can match, and it does not check ID."
 ---
 
 ## Singles everywhere, but how do you meet?
@@ -49,7 +49,7 @@ maybe in the same city. They just have no way of knowing who else is looking.
   afterthought.
 - **Marriage-focused.** Profiles cover what matters for marriage: values, family, education, career,
   faith and plans for the future.
-- **Optional verification.** A live selfie check plus a match against your main photo. The verified
+- **Required verification.** A live selfie check plus a match against your main photo. The verified
   tick shows only when both pass.
 - **Photo privacy, your choice.** You can blur your photos until you and the other person both like
   each other.
