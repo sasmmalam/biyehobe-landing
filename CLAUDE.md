@@ -118,11 +118,14 @@ photo files are stored, `/privacy` is the source of truth._
   offer's terms live at `/terms#founding-members`; every waitlist CTA carries
   `<GoldOfferLine />` (`app/components/GoldOffer.tsx`). No founding counts, tier names or
   "spots" on the home page.
-- **Verification copy (L1c)** must say exactly: optional; a live selfie
-  check (Didit) plus a match of the main photo against that selfie; the ✓
-  shows only when both pass; a main photo that doesn't match is flagged for
-  review and the ✓ comes off; no ID check. Never "reviewed before it goes
-  live" and never "coming" — it's live.
+- **Verification copy (L1c, updated S68 2026-11-20)** must say exactly: **required**
+  before a member can use Discover, send likes or send messages (it keeps members
+  safe and stops anyone using someone else's photos) — never "optional"; consent is
+  asked first on a consent screen; a live selfie check (Didit) plus a match of the
+  main photo against that selfie; the ✓ shows only when both pass; a main photo
+  that doesn't match is flagged for review and the ✓ comes off; no ID check.
+  Without verifying a member can set up a profile but can't match. Never
+  "reviewed before it goes live" and never "coming" — it's live.
 - **Launch state (L1d)**: the app is being tested with a small group; the
   waitlist hears when it opens to everyone. Never promise waitlist
   "priority access" — the Terms say joining guarantees no place or priority.
