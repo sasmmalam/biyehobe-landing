@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   title: "BiyeHobe — Matrimonial for the Bangladeshi Diaspora",
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
+  // Meta (Facebook) domain verification for the BiyeHobe business portfolio.
+  // Keep it: removing it un-verifies biyehobe.com in Meta Business.
+  other: {
+    "facebook-domain-verification": "cr984ra1u01oyhyp08x757jkyf13tc",
+  },
 };
 
 export default function RootLayout({
